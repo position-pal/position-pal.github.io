@@ -6,12 +6,12 @@ package infrastructure {
 
         package domain {
 
-            interface GPSPosition {
+            interface GPSPosition <<value object>> {
                 + latitude: Double
                 + longitude: Double
             }
 
-            interface Address {
+            interface Address <<value object>> {
                 + street: String
                 + city: String
                 + zip: String
@@ -20,13 +20,15 @@ package infrastructure {
 
             Address *-r- "1" GPSPosition
 
-            interface User {
+            interface User <<entity>> {
                 + id: UserId
-                + inGroups: Set<UserId>
+                + inGroups: Set<GroupId>
             }
-            interface UserId
+            interface UserId <<value object>>
+            interface GroupId <<value object>>
 
-            User *-l- "N" UserId
+            User *-u- "N" UserId
+            User *-u- "N" GroupId
 
             interface Event {
                 + timestamp: Date
@@ -35,28 +37,28 @@ package infrastructure {
 
             User "1" --* Event
 
-            interface StartRoutingEvent extends Event {
+            interface StartRoutingEvent <<domain event>> extends Event {
                 + arrivalPosition: GPSPosition
                 + estimatedArrivalTime: Date
             }
 
             StartRoutingEvent *-- "1" GPSPosition
 
-            interface StopRoutingEvent extends Event
+            interface StopRoutingEvent <<domain event>> extends Event
 
-            interface TrackingEvent extends Event {
+            interface TrackingEvent <<domain event>> extends Event {
                 + position: GPSPosition
             }
 
             TrackingEvent *-- "1" GPSPosition
 
-            interface SOSAlertEvent extends Event {
+            interface SOSAlertEvent <<domain event>> extends Event {
                 + position: GPSPosition
             }
 
             SOSAlertEvent *-- "1" GPSPosition
 
-            interface Route {
+            interface Route <<aggregate root>> {
                 + event: StartRoutingEvent
                 + positions: List<TrackingEvent>
                 + addTrace(TrackingEvent: TrackingEvent): Route
@@ -66,32 +68,28 @@ package infrastructure {
             Route *-u- "N" TrackingEvent
         }
 
-        interface TrackingEventsStore {
+        interface TrackingEventsStore <<outbound port>> {
             + update(TrackingEvent: TrackingEvent)
             + by(user: User): TrackingEvent
         }
 
         TrackingEventsStore o.up. TrackingEvent
 
-        interface RoutesStore {
+        interface RoutesStore <<outbound port>> {
             + update(Route: Route)
             + by(user: User): Route
             + delete(Route: Route)
         }
 
-        note "The Routes and RoutesStore \nclasses may be useful or not \ndepending on the chosen MOM \nand the design of the active \ncomponents" as routesNote
-
         RoutesStore o.up. Route
-        Route .. routesNote
-        RoutesStore .r. routesNote
 
-        interface NotificationsService {
+        interface NotificationsService <<outbound port>> {
             + notify(user: User, message: String)
         }
 
         NotificationsService o.l. User
 
-        interface GeocoderService {
+        interface GeocoderService <<outbound port>> {
             + addressOf(position: GPSPosition): Address
             + positionOf(address: Address): GPSPosition
         }
@@ -99,20 +97,24 @@ package infrastructure {
         GeocoderService o.up. GPSPosition
         GeocoderService o.up. Address
 
-        interface RoutingService {
+        interface RoutingService <<outbound port>> {
             + estimateArrivalTime(start: GPSPosition, end: GPSPosition): Date
             + distance(start: GPSPosition, end: GPSPosition): GPSPosition
         }
 
         RoutingService o.up. GPSPosition
 
-        interface TrackingService {
-            + onNewEvent(event: Event)
+        interface UserTrackingInfoService <<inbound port>> {
             + lastTraceOf(user: User): TrackingEvent
             + routeOf(user: User): Route
             + lastStateOf(user: User): State
         }
-
+        note right of UserTrackingInfoService::routeOf
+            At most 1 
+            route per
+            user per 
+            time is active
+        end note
         enum State {
             + ACTIVE,
             + INACTIVE,
@@ -120,11 +122,14 @@ package infrastructure {
             + ROUTING
         }
 
-        TrackingService o.. State
+        UserTrackingInfoService o.l. TrackingEvent
+        UserTrackingInfoService o.. State
 
-        TrackingService o.l. Event
-        /' TrackingService o.up. User '/
-        TrackingService *--> TrackingEventsStore
+        interface RealTimeTrackingService <<inbound port>> {
+            + onNewEvent(event: Event)
+        }
+
+        RealTimeTrackingService o.l. Event
     }
 
     class NotificationsServiceAdapter implements application.NotificationsService
@@ -134,11 +139,18 @@ package infrastructure {
         the notification microservice
     end note
 
-    class GeocoderServiceAdapter implements application.GeocoderService
-    class RoutingServiceAdapter implements application.RoutingService
+    class GeocoderServiceAdapter <<outbound adapter>> implements application.GeocoderService
+    class RoutingServiceAdapter <<outbound adapter>> implements application.RoutingService
     note "Uses external geocoding and maps APIs" as geoNote
     GeocoderServiceAdapter .. geoNote
     RoutingServiceAdapter .. geoNote
+
+    class RealTimeTrackingKafkaAdapter <<inbound adapter>>
+    RealTimeTrackingKafkaAdapter .up.> application.RealTimeTrackingService : <<uses>>
+
+    class UserTrackingInfoGrpcAdapter <<inbound adapter>> 
+    UserTrackingInfoGrpcAdapter .up.> application.UserTrackingInfoService : <<uses>>
+
 }
 
 @enduml
