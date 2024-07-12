@@ -1,0 +1,11 @@
+@startuml cc
+
+skinparam component {
+    BackgroundColor<<external>> White
+    BackgroundColor<<executable>> #ccffcc
+    BackgroundColor<<test>> cyan
+}
+skinparam DatabaseBackgroundColor LightYellow
+skinparam NodeBackgroundColor White
+
+@enduml
