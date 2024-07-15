@@ -122,13 +122,23 @@ package infrastructure {
             + ROUTING
         }
 
-        UserTrackingInfoService o.l. TrackingEvent
-        UserTrackingInfoService o.. State
+        UserTrackingInfoService o.r. TrackingEvent
+        UserTrackingInfoService o.r. State
+
+        interface RoutesTrackingService <<outbound port>> {
+            + onNewRoute()
+            + onRoutingEvent()
+        }
+        RoutesTrackingService o.. Event
+
+        interface RoutesInfoService <<inbound port>> {
+            + routeOf(user: User): Route
+        }
+        RoutesInfoService o.u. Route
 
         interface RealTimeTrackingService <<inbound port>> {
             + onNewEvent(event: Event)
         }
-
         RealTimeTrackingService o.l. Event
     }
 
@@ -150,6 +160,11 @@ package infrastructure {
 
     class UserTrackingInfoGrpcAdapter <<inbound adapter>> 
     UserTrackingInfoGrpcAdapter .up.> application.UserTrackingInfoService : <<uses>>
+
+    class RoutesTrackingServiceKafkaAdapter implements application.RoutesTrackingService
+
+    class RoutesInfoGrpcAdapter
+    RoutesInfoGrpcAdapter .up.> application.RoutesInfoService : <<uses>>
 
 }
 
