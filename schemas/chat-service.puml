@@ -1,0 +1,74 @@
+@startuml chat-service
+
+
+    package infrastructure {
+
+        package core {
+                interface ChatMessage <<entity>> {
+                    + text: String
+                    + timestamp: Date
+                    + user: User
+                }
+
+                ChatMessage *-r- "1" User
+
+                interface User <<entity>> {
+                    + id: UserId
+                    + inGroups: Set<GroupId>
+                }
+                interface UserId <<value object>>
+                interface GroupId <<value object>>
+    
+                User *-u- "1" UserId
+                User *-u- "N" GroupId
+    
+                interface ChatMessageReceivedEvent <<domain event>> {
+                    + message: ChatMessage
+                }
+    
+                ChatMessageReceivedEvent *-- "1" ChatMessage
+            
+                interface Chat <<aggregate root>> {
+                    + addMessage(message: ChatMessage)
+                    + getMessages(filter : (message: Message) -> Boolean): List<Message>
+                }
+
+                
+                Chat *-r- "N" ChatMessageReceivedEvent
+        }
+
+        interface ChatStorage <<outbound port>> {
+            + add(message: Message)
+            + ofUserInGroup(user: UserId, group: GroupId): List<Message>
+            + ofUser(user: UserId): Map<GroupId, List<Message>>
+            + ofGroup(group: GroupId): List<Message>
+        }
+
+        ChatStorage o.up. Chat
+
+        interface SocketServer <<inbound port>> {
+            + connect(clientId: String)
+            + disconnect(clientId: String)
+            + onMessage(clientId: String, message: String)
+            + send(clientId: String, message: String)
+        }
+
+        SocketServer o.r. Chat
+
+        
+
+        interface NotificationsService <<outbound port>> {
+            + notify(user: User, message: String)
+        }
+
+        NotificationsService o.l. User
+
+    }
+
+    class NotificationsServiceAdapter implements infrastructure.NotificationsService
+    class InputSocketServiceAdapter implements infrastructure.SocketServer
+    class OutputSocketServiceAdapter implements infrastructure.SocketServer
+
+
+
+@enduml
