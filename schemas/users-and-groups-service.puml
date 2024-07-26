@@ -1,0 +1,125 @@
+@startuml user-group-service
+skinparam linetype polyline
+package infrastructure {
+
+    package application {
+
+        package domain {
+
+            package events{
+                interface UserCreatedEvent <<domain event>> {
+                    userData: UserData
+                }
+                interface UserUpdatedEvent <<domain event>>
+                {
+                    userData: UserData
+                }
+                interface UserDeletedEvent <<domain event>>{
+                    userId: UserId
+                }
+
+                interface GroupCreatedEvent <<domain event>>{
+                    groupData:GroupData
+                }
+                interface GroupUpdatedEvent <<domain event>>{
+                    groupData:GroupData
+                }
+                interface GroupDeletedEvent <<domain event>>{
+                    groupId:GroupId
+                }
+                interface MembershipChangedEvent <<domain event>>{
+                    userId: UserId
+                    groupId:GroupId
+                }
+            }
+
+
+
+            interface User <<entity>> {
+                + id: UserId
+                + name: String
+                + email: String
+                + inGroup: Set<GroupId>
+            }
+
+
+            interface Group <<entity>> {
+                + id: GroupId
+                + name: String
+                + users: Set<UserId>
+            }
+
+            interface UserId <<value object>>{
+                uuid: UUID
+            }
+            interface GroupId <<value object>>{
+                uuid: UUID
+            }
+            
+            User *-- UserId: N
+            Group *-- GroupId: N
+
+        }
+
+        interface UserService <<inbound port>> {
+            + createUser(event: UserCreatedEvent)
+            + updateUser(event: UserUpdatedEvent)
+            + deleteUser(event: UserDeletedEvent)
+        }
+
+        UserService --* UserCreatedEvent
+        UserService --* UserUpdatedEvent
+        UserService --* UserDeletedEvent
+
+        NotificationService o-- User
+
+        interface GroupService <<inbound port>> {
+            + createGroup(event: GroupCreatedEvent)
+            + updateGroup(event: GroupUpdatedEvent)
+            + deleteGroup(event: GroupDeletedEvent)
+            + manageMembership(event: MembershipChangedEvent)
+        }
+
+        GroupService --* GroupCreatedEvent
+        GroupService --* GroupUpdatedEvent
+        GroupService --* GroupDeletedEvent
+        GroupService --* MembershipChangedEvent
+
+        interface NotificationService <<outbound port>> {
+            + sendNotification(event: NotificationEvent)
+            + sendEmail(event: EmailSentEvent)
+        }
+
+
+        interface UserRepository <<outbound port>> {
+            + userDataCRUD(): List<User>
+        }
+
+        UserRepository o.. User
+
+        interface GroupRepository <<outbound port>> {
+            + groupDataCRUD(): List<Group>
+        }
+
+        GroupRepository o.. Group
+
+    }
+
+    interface Database <<shared infrastructure>> {
+        + execute(query: String): Result
+    }
+
+    Database <.. UserRepository: <<uses>>
+    Database <.. GroupRepository: <<uses>>
+
+    User --* Group: N
+
+    class UserAndGroupServiceAdapter implements application.UserService
+
+    class UserAndGroupServiceAdapter implements application.GroupService
+
+
+    class NotificationServiceAdapter implements application.NotificationService
+}
+
+@enduml
