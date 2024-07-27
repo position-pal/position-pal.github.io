@@ -1,6 +1,5 @@
 @startuml chat-service
 
-
     package infrastructure {
 
         package core {
@@ -21,20 +20,53 @@
     
                 User *-u- "1" UserId
                 User *-u- "N" GroupId
+
+                package events {
+                    
+                    interface ChatMessageReceivedEvent <<domain event>> {
+                        + message: ChatMessage
+                    }
     
-                interface ChatMessageReceivedEvent <<domain event>> {
-                    + message: ChatMessage
+                    ChatMessageReceivedEvent *-- "1" ChatMessage
+
+                    interface CreateGroupEvent <<domain event>> {
+                        + groupId: GroupId
+                    }
+                    
+                    CreateGroupEvent *-- "1" GroupId
+
+
+                    interface AddUserToGroupEvent <<domain event>> {
+                        + user: User
+                        + group: GroupId
+                    }
+
+                    AddUserToGroupEvent *-- "1" User
+                    AddUserToGroupEvent *-- "1" GroupId
                 }
-    
-                ChatMessageReceivedEvent *-- "1" ChatMessage
-            
+                            
                 interface Chat <<aggregate root>> {
                     + addMessage(message: ChatMessage)
+                    + addGroup()
+                    + addUserToGroup(user: User, group: GroupId)
                     + getMessages(filter : (message: Message) -> Boolean): List<Message>
                 }
 
-                
                 Chat *-r- "N" ChatMessageReceivedEvent
+                Chat *-u- "N" CreateGroupEvent
+                Chat *-u- "N" AddUserToGroupEvent
+
+
+                interface Group <<entity>> {
+                    + id: GroupId
+                    + users: Set<User>
+                }
+
+                Group *-u- "N" User
+                Group *-u- "1" GroupId
+
+                Chat *-u- "N" Group
+
         }
 
         interface ChatStorage <<outbound port>> {
@@ -43,18 +75,32 @@
             + ofUser(user: UserId): Map<GroupId, List<Message>>
             + ofGroup(group: GroupId): List<Message>
         }
-
+        
         ChatStorage o.up. Chat
 
-        interface SocketServer <<inbound port>> {
+        interface GroupStorage <<outbound port>> {
+            + add(group: Group)
+            + get(groupId: GroupId): Group
+            + usersInGroup(groupId: GroupId): Set<User>
+        }
+
+        GroupStorage o.up. Chat
+
+        
+
+        interface InputSocketServer <<inbound port>> {
             + connect(clientId: String)
             + disconnect(clientId: String)
             + onMessage(clientId: String, message: String)
+        }
+
+        InputSocketServer o.r. Chat
+
+        interface OutputSocketServer <<outbound port>> {
             + send(clientId: String, message: String)
         }
 
-        SocketServer o.r. Chat
-
+        OutputSocketServer o.l. Chat
         
 
         interface NotificationsService <<outbound port>> {
@@ -66,8 +112,8 @@
     }
 
     class NotificationsServiceAdapter implements infrastructure.NotificationsService
-    class InputSocketServiceAdapter implements infrastructure.SocketServer
-    class OutputSocketServiceAdapter implements infrastructure.SocketServer
+    class InputSocketServiceAdapter implements infrastructure.InputSocketServer
+    class OutputSocketServiceAdapter implements infrastructure.OutputSocketServer
 
 
 

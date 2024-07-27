@@ -1,0 +1,67 @@
+@startuml Chat Sequence UML Diagram
+autonumber 1.0
+autoactivate on
+
+participant "Client" as C
+participant "Chat Server" as ChatS
+participant "Socket Server" as SocketS
+database "ConnectionDB" as CDB
+database "MessageDB" as MDB
+
+
+== Connection to the server ==
+C -> ChatS: Connect to the server
+ChatS -> SocketS: Request connection to the socket server
+SocketS -> SocketS: Create new socket connection
+SocketS -> "Socket Instance" ** : Create socket instance
+SocketS -> CDB: Store connection reference
+CDB --> SocketS: Operation Result
+SocketS --> ChatS: Return socket reference
+ChatS --> C: Return connection reference
+C -> C: Update local message cache
+C --> C: Updated message cache
+note right of C
+  From now on, the client can 
+  communicate 
+  with the socket instance
+end note
+
+== Exchange messages ==
+
+autonumber inc A
+C -> "Socket Instance": Send message
+"Socket Instance" -> ChatS: Receive message
+ChatS -> MDB: Store message
+MDB --> ChatS: Operation Result
+ChatS -> SocketS: Propagate  messages to all clients
+loop number of clients
+    SocketS -> "Socket Instance": Propagate message
+    "Socket Instance" -> C: Deliver message
+end
+deactivate "Socket Instance"
+deactivate SocketS
+deactivate C
+
+
+== Client leaves ==
+
+autonumber inc A
+C -> "Socket Instance": Disconnect from the server
+"Socket Instance" -> ChatS: Request disconnection
+
+ChatS -> SocketS: Close socket connection
+SocketS -> CDB: Remove connection reference
+CDB --> SocketS: Operation Result
+loop number of clients
+    SocketS -> "Socket Instance": Client leaves event
+    "Socket Instance" -> C: client leaves event
+end
+deactivate "Socket Instance"
+deactivate SocketS
+deactivate C
+
+destroy "Socket Instance"
+
+
+
+@enduml
