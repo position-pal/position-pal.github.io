@@ -18,7 +18,10 @@ SocketS -> CDB: Store connection reference
 CDB --> SocketS: Operation Result
 SocketS --> ChatS: Return socket reference
 ChatS --> C: Return connection reference
-C -> C: Update local message cache
+C -> ChatS: Update local message cache
+ChatS -> MDB: Retrieve messages on a prefixed range
+MDB --> ChatS: Return messages
+ChatS --> C: Return new messages
 C --> C: Updated message cache
 note right of C
   From now on, the client can 

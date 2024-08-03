@@ -1,0 +1,15 @@
+@startuml
+[*] --> ObtainingSocket
+ObtainingSocket --> Connected : EvSocketObtained
+Connected --> SynchMessages: EvStartSynch
+
+state SynchMessages {
+  [*] -> AskUpdate
+  AskUpdate --> UpdateChat : ReturnUpdatedChat
+  ||
+  [*] -> AwaitIncomingMSG
+  AwaitIncomingMSG --> CacheMessage : EvNewMessage
+  CacheMessage --> AwaitIncomingMSG : EvMessageCached
+}
+
+@enduml
