@@ -11,14 +11,14 @@ package infrastructure {
                 + longitude: Double
             }
 
-            interface Address <<value object>> {
-                + street: String
-                + city: String
-                + zip: String
-                + position: GPSPosition
-            }
-
-            Address *-r- "1" GPSPosition
+'            interface Address <<value object>> {
+'                + street: String
+'                + city: String
+'                + zip: String
+'                + position: GPSPosition
+'            }
+'
+'            Address *-r- "1" GPSPosition
 
             interface User <<entity>> {
                 + id: UserId
@@ -44,20 +44,20 @@ package infrastructure {
 
             StartRoutingEvent *-- "1" GPSPosition
 
-            interface StopRoutingEvent <<domain event>> extends Event
-
             interface TrackingEvent <<domain event>> extends Event {
                 + position: GPSPosition
             }
 
             TrackingEvent *-- "1" GPSPosition
 
+            interface StopRoutingEvent <<domain event>> extends Event
+
             interface SOSAlertEvent <<domain event>> extends Event {
                 + position: GPSPosition
             }
 
             SOSAlertEvent *-- "1" GPSPosition
-
+            
             interface Route <<aggregate root>> {
                 + event: StartRoutingEvent
                 + positions: List<TrackingEvent>
@@ -84,25 +84,21 @@ package infrastructure {
         RoutesStore o.up. Route
 
         interface NotificationsService <<outbound port>> {
-            + notify(user: User, message: String)
+            + notify(notificationEvent: NotificationEvent)
         }
+        note left of NotificationsService::notify
+            ""NotificationEvent"" is in 
+            shared kernel module (?)
+        end note
 
-        NotificationsService o.l. User
+        NotificationsService o.. User
 
-        interface GeocoderService <<outbound port>> {
-            + addressOf(position: GPSPosition): Address
-            + positionOf(address: Address): GPSPosition
-        }
-
-        GeocoderService o.up. GPSPosition
-        GeocoderService o.up. Address
-
-        interface RoutingService <<outbound port>> {
+        interface MapsService <<outbound port>> {
             + estimateArrivalTime(start: GPSPosition, end: GPSPosition): Date
             + distance(start: GPSPosition, end: GPSPosition): GPSPosition
         }
 
-        RoutingService o.up. GPSPosition
+        MapsService o.up. GPSPosition
 
         interface UserTrackingInfoService <<inbound port>> {
             + lastTraceOf(user: User): TrackingEvent
@@ -147,13 +143,13 @@ package infrastructure {
         This class is an adapter 
         that forwards notifications to 
         the notification microservice
+        through message broker
     end note
 
-    class GeocoderServiceAdapter <<outbound adapter>> implements application.GeocoderService
-    class RoutingServiceAdapter <<outbound adapter>> implements application.RoutingService
-    note "Uses external geocoding and maps APIs" as geoNote
-    GeocoderServiceAdapter .. geoNote
-    RoutingServiceAdapter .. geoNote
+    class MapsServiceAdapter <<outbound adapter>> implements application.MapsService
+    note right of MapsServiceAdapter
+        Uses external geocoding and maps APIs
+    endnote
 
     class RealTimeTrackingKafkaAdapter <<inbound adapter>>
     RealTimeTrackingKafkaAdapter .up.> application.RealTimeTrackingService : <<uses>>
