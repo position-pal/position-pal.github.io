@@ -1,6 +1,0 @@
-@startuml location-sequence
-
-actor "Client" as client
-queue "RabbitMQ \n Notification \n Exchange" as rabbitmq
-
-@enduml
