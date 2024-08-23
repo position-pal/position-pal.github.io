@@ -1,120 +1,140 @@
 @startuml chat-service
+title Chat Service
+hide empty members
 
-    package infrastructure {
+package infrastructure {
 
-        package core {
-                interface ChatMessage <<entity>> {
-                    + text: String
-                    + timestamp: Date
-                    + user: User
-                }
-
-                ChatMessage *-r- "1" User
-
-                interface User <<entity>> {
-                    + id: UserId
-                    + inGroups: Set<GroupId>
-                }
-                interface UserId <<value object>>
-                interface GroupId <<value object>>
-    
-                User *-u- "1" UserId
-                User *-u- "N" GroupId
-
-                package events {
-                    
-                    interface ChatMessageReceivedEvent <<domain event>> {
-                        + message: ChatMessage
-                    }
-    
-                    ChatMessageReceivedEvent *-- "1" ChatMessage
-
-                    interface CreateGroupEvent <<domain event>> {
-                        + groupId: GroupId
-                    }
-                    
-                    CreateGroupEvent *-- "1" GroupId
-
-
-                    interface AddUserToGroupEvent <<domain event>> {
-                        + user: User
-                        + group: GroupId
-                    }
-
-                    AddUserToGroupEvent *-- "1" User
-                    AddUserToGroupEvent *-- "1" GroupId
-                }
-                            
-                interface Chat <<aggregate root>> {
-                    + addMessage(message: ChatMessage)
-                    + addGroup()
-                    + addUserToGroup(user: User, group: GroupId)
-                    + getMessages(filter : (message: Message) -> Boolean): List<Message>
-                }
-
-                Chat *-r- "N" ChatMessageReceivedEvent
-                Chat *-u- "N" CreateGroupEvent
-                Chat *-u- "N" AddUserToGroupEvent
-
-
-                interface Group <<entity>> {
-                    + id: GroupId
-                    + users: Set<User>
-                }
-
-                Group *-u- "N" User
-                Group *-u- "1" GroupId
-
-                Chat *-u- "N" Group
-
+    package core {
+        
+        interface Event <<domain event>> {
+            + timestamp: Date
         }
 
-        interface ChatStorage <<outbound port>> {
-            + add(message: Message)
-            + ofUserInGroup(user: UserId, group: GroupId): List<Message>
-            + ofUser(user: UserId): Map<GroupId, List<Message>>
-            + ofGroup(group: GroupId): List<Message>
+        interface ChatMessageEvent <<domain event>> extends Event {
+            + message: ChatMessage
+        }
+
+        interface CreateGroupEvent <<domain event>> extends Event {
+            + name: String
+        }
+
+        interface UserGroupEvent <<domain event>> extends Event {
+            + user: User
+            + group: Group
+        }
+
+        interface UserEvent <<domain event>> extends Event {
+            + user: User
+        }
+
+        interface UserEnterToGroupEvent <<domain event>> extends UserGroupEvent
+
+        interface UserLeaveFromGroupEvent <<domain event>> extends UserGroupEvent
+
+        interface UserBecomeOnlineEvent <<domain event>> extends UserEvent
+
+        interface UserBecomeOfflineEvent <<domain event>> extends UserEvent 
+
+        ChatMessageEvent *-- "1" ChatMessage
+        
+        UserGroupEvent *-- "1" User
+        UserGroupEvent *-- "1" Group
+
+        UserEvent *-- "1" User
+        
+        interface ChatMessage <<entity>> {
+            + text: String
+            + timestamp: Date
+            + from: User
+            + toGroup: Group
+        }
+
+        interface User <<entity>> {
+            + id: UserId
+            + nickname: String
+            + state: State
+        }
+
+        interface UserId <<value object>>
+
+        enum State {
+            + ONLINE,
+            + OFFILINE,
+        }
+
+        interface Group <<entity>> {
+            + id: GroupId
+            + name: String
+        }
+
+        Group *-l- "1" GroupId 
+
+        interface GroupId <<value object>>
+
+        ChatMessage *-r- "1" User
+        ChatMessage *-d- "1" Group
+        User *-u- "N" Group
+        User *-r- "1" State
+        User *-u- "1" UserId
+
+        interface Chat <<aggregate root>> {
+            + createGroup(): Boolean
+            + addUserToGroup(user: User, group: Group): Boolean
+            + removeUserFromGroup(user: User, group: Group): Boolean
+            + getMembers(group: Group): List<User>
+            + getMessages(filter : (message: Message) -> Boolean): List<Message>
         }
         
-        ChatStorage o.up. Chat
-
-        interface GroupStorage <<outbound port>> {
-            + add(group: Group)
-            + get(groupId: GroupId): Group
-            + usersInGroup(groupId: GroupId): Set<User>
-        }
-
-        GroupStorage o.up. Chat
-
-        
-
-        interface InputSocketServer <<inbound port>> {
-            + connect(clientId: String)
-            + disconnect(clientId: String)
-            + onMessage(clientId: String, message: String)
-        }
-
-        InputSocketServer o.r. Chat
-
-        interface OutputSocketServer <<outbound port>> {
-            + send(clientId: String, message: String)
-        }
-
-        OutputSocketServer o.l. Chat
-        
-
-        interface NotificationsService <<outbound port>> {
-            + notify(user: User, message: String)
-        }
-
-        NotificationsService o.l. User
-
+        Chat *-u- "1" CreateGroupEvent
+        Chat *-u- "1" UserEnterToGroupEvent
+        Chat *-u- "1" UserLeaveFromGroupEvent   
     }
 
-    class NotificationsServiceAdapter implements infrastructure.NotificationsService
-    class InputSocketServiceAdapter implements infrastructure.InputSocketServer
-    class OutputSocketServiceAdapter implements infrastructure.OutputSocketServer
+    
+    interface ChatRepository <<repository>> {
+        + saveChatMessage(message: ChatMessage): Boolean
+        + getChatMessages(filter : (message: Message) -> Boolean): List<Message>
+    }
 
+    interface UserRepository <<repository>> {
+        + saveUser(user: User): Boolean
+        + getUserById(id: UserId): User
+        + getUserByNickname(nickname: String): User
+    }
 
+    interface GroupRepository <<repository>> {
+        + saveGroup(group: Group): Boolean
+        + getGroupById(id: GroupId): Group
+        + getGroupByName(name: String): Group
+    }
+
+    ChatRepository o.. ChatMessage
+    GroupRepository o.. Group
+    UserRepository o.. User
+    
+
+    interface OutputSocketCommunicationService <<outbound port>> {
+        + onEvent(event: Event)
+    }
+
+    OutputSocketCommunicationService o.. Event
+
+    interface InputSocketCommunicationService <<inbound port>> 
+
+    InputSocketCommunicationService ..> Event: <<creates>>
+
+    interface CommandEvocationService <<inbound port>>
+
+    CommandEvocationService .u.> Chat
+}
+
+class SocketAdapter
+
+SocketAdapter --|> OutputSocketCommunicationService
+SocketAdapter --|> InputSocketCommunicationService
+
+class GrpcAdapter
+
+GrpcAdapter -u-|> CommandEvocationService
 
 @enduml
