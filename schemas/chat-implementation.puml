@@ -1,0 +1,27 @@
+@startuml Implementation of the Chat service 
+hide empty members
+
+interface GroupID {
+    + id: String
+    + name: String 
+    + entityKey: Envelope
+}
+
+interface Group {
+    + id: GroupID
+    + addMember(user: User): void
+    + removeMember(user: User): void
+}
+
+interface GroupRepository {
+    + save(group: Group): void
+    + findById(id: GroupID): Group
+    + addMember(groupId: GroupID, user: User): void
+    + removeMember(groupId: GroupID, user: User): void
+}
+
+Group "1" *-- "1" GroupID
+GroupRepository o.. Group
+
+
+@enduml

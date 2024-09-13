@@ -1,0 +1,31 @@
+@startuml Implementation of the Reactive Entity 
+hide empty members
+
+interface ReactiveEntity {
+    +addReaction(event: Event, reaction: Reaction)
+    +removeReaction(event: Event, reaction: Reaction)
+    +react(event: Event)
+}
+
+interface Event
+
+interface Reaction<T> {
+    +on(event: Event): ReactionResult
+    +andThen(reaction: Reaction): Reaction
+    +flatMap<F>(fa: Reaction<T>)(f: (T) => Reaction<F>): Reaction<F>
+    +map<F>(fa: Reaction<T>)(f: (T) => F): Reaction<F>
+}
+enum ReactionResult<S, F> {
+    Success
+    Failure
+}
+
+interface State
+
+ReactiveEntity .d.> Event : <<use>>
+ReactiveEntity .d.> Reaction : <<use>>
+
+Reaction --> ReactionResult : output
+Reaction o.r. Event
+Reaction ..> State : <<use>>
+@enduml
