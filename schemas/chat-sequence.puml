@@ -1,70 +1,66 @@
 @startuml Chat Sequence UML Diagram
-autonumber 1.0
+autonumber 1.0.0
 autoactivate on
 
+queue "Message Broker" as MB
 participant "Client" as C
-participant "Chat Server" as ChatS
-participant "Socket Server" as SocketS
-database "ConnectionDB" as CDB
-database "MessageDB" as MDB
+participant "WebSocket Server" as WS
+boundary "External Event Port" as EP
+control "Group Handler" as GH
+control "Group Actor" as GA
+control "Clientt Actor" as CA
 
+activate GH
+activate EP
 
-== Connection to the server ==
-C -> ChatS: Connect to the server
-ChatS -> SocketS: Request connection to the socket server
-SocketS -> SocketS: Create new socket connection
-SocketS -> "Socket Instance" ** : Create socket instance
-SocketS -> CDB: Store connection reference
-CDB --> SocketS: Operation Result
-SocketS --> ChatS: Return socket reference
-ChatS --> C: Return connection reference
-C -> ChatS: Update local message cache
-ChatS -> MDB: Retrieve messages on a prefixed range
-MDB --> ChatS: Return messages
-ChatS --> C: Return new messages
-C --> C: Updated message cache
-note right of C
-  From now on, the client can 
-  communicate 
-  with the socket instance
-end note
+== Group Creation ==
+MB -> EP: new group event
+EP -> GH: create a new group
+deactivate EP
+GH -> GA **: spawn group entity
+activate GA
+deactivate GH
 
-== Exchange messages ==
+== New user join Group ==
+autonumber inc B
+MB -> EP: user join group event
+EP -> GA: send user info to specific group
+deactivate GA
+GA -> CA **: spawn user entity
+activate CA
 
+== Client connection to the server ==
 autonumber inc A
-C -> "Socket Instance": Send message
-"Socket Instance" -> ChatS: Receive message
-ChatS -> MDB: Store message
-MDB --> ChatS: Operation Result
-ChatS -> SocketS: Propagate  messages to all clients
-loop number of clients
-    SocketS -> "Socket Instance": Propagate message
-    "Socket Instance" -> C: Deliver message
+C -> WS: connect
+WS -> GA: ask for user actor reference
+alt user not found
+    GA --> WS: return error
+    WS --> C: return error
+else user found
+    GA -> GA: broadcast user connection event
+    GA --> WS: return user actor reference
+    WS --> C: return the URL used by client to connect to the server
 end
-deactivate "Socket Instance"
-deactivate SocketS
-deactivate C
 
-
-== Client leaves ==
-
+== Send Message to group ==
 autonumber inc A
-C -> "Socket Instance": Disconnect from the server
-"Socket Instance" -> ChatS: Request disconnection
+C -> WS: send message to group
+WS -> GA: send message
+deactivate GA
+GA -> GA: broadcast message to all users in the group
+deactivate GA
 
-ChatS -> SocketS: Close socket connection
-SocketS -> CDB: Remove connection reference
-CDB --> SocketS: Operation Result
-loop number of clients
-    SocketS -> "Socket Instance": Client leaves event
-    "Socket Instance" -> C: client leaves event
-end
-deactivate "Socket Instance"
-deactivate SocketS
-deactivate C
-
-destroy "Socket Instance"
-
+== User leave group ==
+autonumber inc A
+C -> WS: disconnect
+WS -> GA: send disconnection event
+GA -> GA: remove user from the group
+GA -> CA: destroy user entity
+deactivate CA
+destroy CA
+deactivate GA
+GA -> GA: broadcast user disconnection event
+deactivate GA
 
 
 @enduml
