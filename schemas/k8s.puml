@@ -1,0 +1,144 @@
+@startuml kubernetes
+
+scale max 1024 width
+
+skinparam nodesep 10
+skinparam ranksep 10
+
+' Kubernetes
+!define KubernetesPuml https://raw.githubusercontent.com/dcasati/kubernetes-PlantUML/master/dist
+
+!includeurl KubernetesPuml/kubernetes_Common.puml
+!includeurl KubernetesPuml/kubernetes_Context.puml
+!includeurl KubernetesPuml/kubernetes_Simplified.puml
+
+!includeurl KubernetesPuml/OSS/KubernetesSvc.puml
+!includeurl KubernetesPuml/OSS/KubernetesPod.puml
+!includeurl KubernetesPuml/OSS/KubernetesRs.puml
+!includeurl KubernetesPuml/OSS/KubernetesDeploy.puml
+!includeurl KubernetesPuml/OSS/KubernetesHpa.puml
+
+actor "User" as userAlias
+left to right direction
+
+Cluster_Boundary(cluster, "PositionPal Kubernetes Cluster") {
+    
+    Namespace_Boundary(notification, "Notification Service") {
+        KubernetesSvc(notificationSvc, "Service", "")
+        KubernetesPod(notification_pod1, "Notification Pod", "")
+
+        KubernetesRs(rs_notification_pod,"","")
+        KubernetesDeploy(deploy_notification_pod,"deployment notification","")
+        KubernetesHpa(hpa_notification_pod, "HPA", "")
+
+        Rel(rs_notification_pod,notification_pod1, " ")
+        Rel(deploy_notification_pod,rs_notification_pod, " ")
+        Rel(hpa_notification_pod,deploy_notification_pod, " ")
+        
+        Rel(notificationSvc, notification_pod1, " ")
+    }
+
+    Namespace_Boundary(gns, "Gateway") {
+        KubernetesSvc(gatewaySvc, "Service", "")
+        KubernetesPod(gateway_pod1, "Gateway Pod 1", "")
+
+        KubernetesRs(rs,"","")
+        KubernetesDeploy(deploy,"deployment","")
+        KubernetesHpa(hpa, "HPA", "")
+
+        Rel(gatewaySvc, gateway_pod1, " ")
+        Rel_U(rs,gateway_pod1, " ")
+        Rel_U(deploy,rs, " ")
+        Rel_U(hpa,deploy, " ")
+    }
+
+    Namespace_Boundary(uns, "User Service") {
+        KubernetesSvc(userSvc, "Service", "")
+        KubernetesPod(user_pod1, "User Pod", "")
+        KubernetesPod(mariadb_pod, "MariaDB Pod", "")
+
+        KubernetesRs(rs_user_pod,"","")
+        KubernetesDeploy(deploy_user_pod,"deployment user","")
+        KubernetesHpa(hpa_user_pod, "HPA", "")
+        
+        KubernetesDeploy(deploy_user_cassandra,"deployment cassandra","")
+        
+
+        Rel(userSvc, user_pod1, " ")
+        Rel(user_pod1, mariadb_pod, " ")
+
+        Rel_U(rs_user_pod,user_pod1, " ")
+        Rel_U(deploy_user_pod,rs_user_pod, " ")
+        Rel_U(hpa_user_pod,deploy_user_pod, " ")
+        
+        Rel_U(deploy_user_cassandra,mariadb_pod, " ")
+
+        ' Connection between user service and notification
+        Rel(user_pod1, notificationSvc, " ")
+    }
+
+    Namespace_Boundary(location, "Location Service") {
+        KubernetesSvc(locationSvc, "Service", "")
+        KubernetesPod(location_pod1, "Location Pod", "")
+        KubernetesPod(cassandra_pod_location, "Cassandra Pod", "")
+
+        KubernetesRs(rs_location_pod,"","")
+        KubernetesDeploy(deploy_location_pod,"deployment location","")
+        KubernetesHpa(hpa_location_pod, "HPA", "")
+
+        KubernetesRs(rs_location_cassandra,"","")
+        KubernetesDeploy(deploy_location_cassandra,"deployment cassandra","")
+        KubernetesHpa(hpa_location_cassandra, "HPA", "")
+        
+        Rel(rs_location_pod,location_pod1, " ")
+        Rel(deploy_location_pod,rs_location_pod, " ")
+        Rel(hpa_location_pod,deploy_location_pod, " ")
+
+        Rel(rs_location_cassandra,cassandra_pod_location, " ")
+        Rel(deploy_location_cassandra,rs_location_cassandra, " ")
+        Rel(hpa_location_cassandra,deploy_location_cassandra, " ")
+
+        Rel(locationSvc, location_pod1, " ")
+        Rel(location_pod1, cassandra_pod_location, " ")
+
+        ' Connection between location service and notification
+        Rel(location_pod1, notificationSvc, " ")
+    }
+
+    Namespace_Boundary(chat, "Chat Service") {
+        KubernetesSvc(chatSvc, "Service", "")
+        KubernetesPod(chat_pod1, "Chat Pod", "")
+        KubernetesPod(cassandra_pod_chat, "Cassandra Pod", "")
+
+        KubernetesRs(rs_chat_pod,"","")
+        KubernetesDeploy(deploy_chat_pod,"deployment chat","")
+        KubernetesHpa(hpa_chat_pod, "HPA", "")
+
+        KubernetesRs(rs_chat_cassandra,"","")
+        KubernetesDeploy(deploy_chat_cassandra,"deployment","")
+        KubernetesHpa(hpa_chat_cassandra, "HPA", "")
+
+        Rel(rs_chat_pod,chat_pod1, " ")
+        Rel(deploy_chat_pod,rs_chat_pod, " ")
+        Rel(hpa_chat_pod,deploy_chat_pod, " ")
+
+        Rel(rs_chat_cassandra,cassandra_pod_chat, " ")
+        Rel(deploy_chat_cassandra,rs_chat_cassandra, " ")
+        Rel(hpa_chat_cassandra,deploy_chat_cassandra, " ")
+
+        Rel(chatSvc, chat_pod1, " ")
+        Rel(chat_pod1, cassandra_pod_chat, " ")
+    }
+
+    Rel(userAlias, gatewaySvc, "Interacts")
+
+    ' Connections between services and gateway
+    Rel(gateway_pod1, userSvc, " ")
+    Rel(gateway_pod1, locationSvc, " ")
+    Rel(gateway_pod1, chatSvc, " ")
+
+
+}
+
+
+@enduml
