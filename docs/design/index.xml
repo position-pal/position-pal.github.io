@@ -1,2 +1,33 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Design on PositionPal</title><link>https://position-pal.github.io/docs/design/</link><description>Recent content in Design on PositionPal</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 02 Aug 2024 16:21:33 +0200</lastBuildDate><atom:link href="https://position-pal.github.io/docs/design/index.xml" rel="self" type="application/rss+xml"/><item><title>Location Service</title><link>https://position-pal.github.io/docs/design/location-service/</link><pubDate>Fri, 02 Aug 2024 16:21:33 +0200</pubDate><guid>https://position-pal.github.io/docs/design/location-service/</guid><description>The location service is responsible for the real-time location tracking and management of the users tracking information.
-Abstract Design linkMain domain concepts (from knowledge crunching) link Concept Description Synonyms Location A specific point on a geographical plane, represented by coordinates that indicates where something / someone is located Position Route A set of positions that can be interpolated forming a path between two geographical positions Path Tracking Represent the user route information at a certain point in time State State of a user at a certain time, the values that it could assume are: online, offline and SOS Structure linkThe main domain concepts are reified in the following classes structure, following the DDD principles.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Design on PositionPal</title><link>https://position-pal.github.io/docs/design/</link><description>Recent content in Design on PositionPal</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 02 Aug 2024 16:21:33 +0200</lastBuildDate><atom:link href="https://position-pal.github.io/docs/design/index.xml" rel="self" type="application/rss+xml"/><item><title>Location Service</title><link>https://position-pal.github.io/docs/design/location-service/</link><pubDate>Fri, 02 Aug 2024 16:21:33 +0200</pubDate><guid>https://position-pal.github.io/docs/design/location-service/</guid><description>&lt;p>The location service is responsible for the real-time location tracking and management of the users tracking information.&lt;/p>
+&lt;h2 id="abstract-design">Abstract Design &lt;a href="#abstract-design" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="main-domain-concepts-from-knowledge-crunching">Main domain concepts (from knowledge crunching) &lt;a href="#main-domain-concepts-from-knowledge-crunching" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Concept&lt;/th>
+ &lt;th>Description&lt;/th>
+ &lt;th>Synonyms&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>Location&lt;/td>
+ &lt;td>A specific point on a geographical plane, represented by coordinates that indicates where something / someone is located&lt;/td>
+ &lt;td>Position&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Route&lt;/td>
+ &lt;td>A set of positions that can be interpolated forming a path between two geographical positions&lt;/td>
+ &lt;td>Path&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Tracking&lt;/td>
+ &lt;td>Represent the user route information at a certain point in time&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>State&lt;/td>
+ &lt;td>State of a user at a certain time, the values that it could assume are: online, offline and SOS&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h3 id="structure">Structure &lt;a href="#structure" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>The main domain concepts are reified in the following classes structure, following the DDD principles.&lt;/p></description></item></channel></rss>
