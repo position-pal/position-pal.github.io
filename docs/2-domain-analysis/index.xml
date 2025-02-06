@@ -10,8 +10,8 @@
  style="max-width: none;"
  class="schema"
  />
-&lt;/div></description></item><item><title>Functional Requirements</title><link>https://position-pal.github.io/docs/2-domain-analysis/2-functional-requirements/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/2-functional-requirements/</guid><description>&lt;p>In this section are presented the functional requirements of the system.&lt;/p>
-&lt;h2 id="user-stories">User Stories &lt;a href="#user-stories" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;em>
+&lt;/div></description></item><item><title>Functional Requirements</title><link>https://position-pal.github.io/docs/2-domain-analysis/2-functional-requirements/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/2-functional-requirements/</guid><description>&lt;p>In this section are collected the functional requirements of the system.&lt;/p>
+&lt;h2 id="user-stories">User Stories &lt;a href="#user-stories" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="users-and-groups">Users and groups &lt;a href="#users-and-groups" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;h3 id="location-tracking">Location tracking &lt;a href="#location-tracking" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;em>
 &lt;ol>
 &lt;li>
 &lt;p>As a logged user &lt;br>
