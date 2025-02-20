@@ -1,4 +1,15 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Domain Analysis on PositionPal</title><link>https://position-pal.github.io/docs/2-domain-analysis/</link><description>Recent content in Domain Analysis on PositionPal</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://position-pal.github.io/docs/2-domain-analysis/index.xml" rel="self" type="application/rss+xml"/><item><title>Business Requirements</title><link>https://position-pal.github.io/docs/2-domain-analysis/1-business-requirements/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/1-business-requirements/</guid><description>&lt;h2 id="glossary">Glossary &lt;a href="#glossary" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h2 id="use-cases">Use cases &lt;a href="#use-cases" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>for each use case &amp;ldquo;boundary&amp;rdquo;&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Domain Analysis on PositionPal</title><link>https://position-pal.github.io/docs/2-domain-analysis/</link><description>Recent content in Domain Analysis on PositionPal</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://position-pal.github.io/docs/2-domain-analysis/index.xml" rel="self" type="application/rss+xml"/><item><title>Functional Requirements</title><link>https://position-pal.github.io/docs/2-domain-analysis/1-functional-requirements/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/1-functional-requirements/</guid><description>&lt;p>In this section are collected the functional requirements of the system.&lt;/p>
+&lt;h2 id="user-stories">User Stories &lt;a href="#user-stories" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="users-and-groups">Users and groups &lt;a href="#users-and-groups" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;h3 id="location-tracking">Location tracking &lt;a href="#location-tracking" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;em>
+&lt;ol>
+&lt;li>
+&lt;p>As a logged user &lt;br>
+I want to be able to start sharing my location with other groups&amp;rsquo; member &lt;br>
+So that I&amp;rsquo;m able to be monitored&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>As a logged user who is sharing their position with a set of groups &lt;br>
+I want to be able to stop sharing it with a group&amp;rsquo;s members &lt;br>
+So that I can go where I want without letting know those member&lt;/p></description></item><item><title>Business Requirements</title><link>https://position-pal.github.io/docs/2-domain-analysis/2-business-requirements/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/2-business-requirements/</guid><description>&lt;h2 id="glossary">Glossary &lt;a href="#glossary" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h2 id="use-cases">Use cases &lt;a href="#use-cases" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>for each use case &amp;ldquo;boundary&amp;rdquo;&lt;/p>
 &lt;ul>
 &lt;li>use case diagram&lt;/li>
 &lt;li>related specification in terms of main scenario, precondition, postcondition, and alternative scenarios&lt;/li>
@@ -10,15 +21,4 @@
  style="max-width: 1200px;"
  class="schema"
  />
-&lt;/div></description></item><item><title>Functional Requirements</title><link>https://position-pal.github.io/docs/2-domain-analysis/2-functional-requirements/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/2-functional-requirements/</guid><description>&lt;p>In this section are collected the functional requirements of the system.&lt;/p>
-&lt;h2 id="user-stories">User Stories &lt;a href="#user-stories" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="users-and-groups">Users and groups &lt;a href="#users-and-groups" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;h3 id="location-tracking">Location tracking &lt;a href="#location-tracking" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;em>
-&lt;ol>
-&lt;li>
-&lt;p>As a logged user &lt;br>
-I want to be able to start sharing my location with other groups&amp;rsquo; member &lt;br>
-So that I&amp;rsquo;m able to be monitored&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>As a logged user who is sharing their position with a set of groups &lt;br>
-I want to be able to stop sharing it with a group&amp;rsquo;s members &lt;br>
-So that I can go where I want without letting know those member&lt;/p></description></item><item><title>Event Storming</title><link>https://position-pal.github.io/docs/2-domain-analysis/4-event-storming/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/4-event-storming/</guid><description/></item><item><title>Quality Attributes</title><link>https://position-pal.github.io/docs/2-domain-analysis/3-quality-attributes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/3-quality-attributes/</guid><description/></item></channel></rss>
+&lt;/div></description></item><item><title>Quality Attributes</title><link>https://position-pal.github.io/docs/2-domain-analysis/3-quality-attributes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/3-quality-attributes/</guid><description/></item><item><title>Event Storming</title><link>https://position-pal.github.io/docs/2-domain-analysis/4-event-storming/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/4-event-storming/</guid><description/></item></channel></rss>
