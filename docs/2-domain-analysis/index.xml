@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Domain Analysis on PositionPal</title><link>https://position-pal.github.io/docs/2-domain-analysis/</link><description>Recent content in Domain Analysis on PositionPal</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://position-pal.github.io/docs/2-domain-analysis/index.xml" rel="self" type="application/rss+xml"/><item><title>Functional Requirements</title><link>https://position-pal.github.io/docs/2-domain-analysis/1-functional-requirements/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/1-functional-requirements/</guid><description>&lt;p>In this section are collected the functional requirements of the system.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Domain Analysis on PositionPal</title><link>https://position-pal.github.io/docs/2-domain-analysis/</link><description>Recent content in Domain Analysis on PositionPal</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://position-pal.github.io/docs/2-domain-analysis/index.xml" rel="self" type="application/rss+xml"/><item><title>Functional Requirements</title><link>https://position-pal.github.io/docs/2-domain-analysis/1-functional-requirements/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/1-functional-requirements/</guid><description>&lt;p>In this section are collected the &lt;strong>functional requirements&lt;/strong> of the system in the form of &lt;em>User Stories&lt;/em>.&lt;/p>
 &lt;h2 id="user-stories">User Stories &lt;a href="#user-stories" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="users-and-groups">Users and groups &lt;a href="#users-and-groups" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;h3 id="location-tracking">Location tracking &lt;a href="#location-tracking" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;em>
 &lt;ol>
 &lt;li>
@@ -9,16 +9,34 @@ So that I&amp;rsquo;m able to be monitored&lt;/p>
 &lt;li>
 &lt;p>As a logged user who is sharing their position with a set of groups &lt;br>
 I want to be able to stop sharing it with a group&amp;rsquo;s members &lt;br>
-So that I can go where I want without letting know those member&lt;/p></description></item><item><title>Business Requirements</title><link>https://position-pal.github.io/docs/2-domain-analysis/2-business-requirements/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/2-business-requirements/</guid><description>&lt;h2 id="glossary">Glossary &lt;a href="#glossary" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h2 id="use-cases">Use cases &lt;a href="#use-cases" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>for each use case &amp;ldquo;boundary&amp;rdquo;&lt;/p>
-&lt;ul>
-&lt;li>use case diagram&lt;/li>
-&lt;li>related specification in terms of main scenario, precondition, postcondition, and alternative scenarios&lt;/li>
-&lt;/ul>
-&lt;div style="width: 100%; overflow-x: auto; white-space: nowrap;">
+So that I can go where I want without letting know those member&lt;/p></description></item><item><title>Business Requirements</title><link>https://position-pal.github.io/docs/2-domain-analysis/2-business-requirements/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/2-business-requirements/</guid><description>&lt;h2 id="glossary">Glossary &lt;a href="#glossary" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h2 id="use-cases">Use cases &lt;a href="#use-cases" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="location-tracking">Location Tracking &lt;a href="#location-tracking" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;div style="width: 100%; overflow-x: auto; white-space: nowrap;">
  &lt;img 
- src="https://position-pal.github.io/res/food-use-case-light.svg" 
- alt="food-use-case schema" 
- style="max-width: 1200px;"
+ src="https://position-pal.github.io/res/tracking-use-cases-light.svg" 
+ alt="tracking-use-cases schema" 
+ style="max-width: 1500px;"
  class="schema"
  />
-&lt;/div></description></item><item><title>Quality Attributes</title><link>https://position-pal.github.io/docs/2-domain-analysis/3-quality-attributes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/3-quality-attributes/</guid><description/></item><item><title>Event Storming</title><link>https://position-pal.github.io/docs/2-domain-analysis/4-event-storming/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/4-event-storming/</guid><description/></item></channel></rss>
+&lt;/div>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Start Location Sharing&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Actor&lt;/strong>: Group member&lt;/li>
+&lt;li>&lt;strong>Description&lt;/strong>: The user starts sharing their location with members of one or more groups.&lt;/li>
+&lt;li>&lt;strong>Preconditions&lt;/strong>:
+&lt;ul>
+&lt;li>The user is logged and is a member of the group they want to share their location with.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>Main Scenario&lt;/strong>:
+&lt;ol>
+&lt;li>The user selects the group they want to share their location with;&lt;/li>
+&lt;li>The user starts sharing their location with members of that group;&lt;/li>
+&lt;li>A visual feedback is sent to the user notifying them the location sharing has started.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>&lt;strong>Postcondition&lt;/strong>: The user&amp;rsquo;s location is shared with the selected group members.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Stop Location Sharing&lt;/strong>&lt;/p></description></item><item><title>Quality Attributes</title><link>https://position-pal.github.io/docs/2-domain-analysis/3-quality-attributes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/3-quality-attributes/</guid><description/></item><item><title>Event Storming</title><link>https://position-pal.github.io/docs/2-domain-analysis/4-event-storming/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/4-event-storming/</guid><description/></item></channel></rss>

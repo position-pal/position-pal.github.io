@@ -1,40 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Detailed Design on PositionPal</title><link>https://position-pal.github.io/docs/4-detailed-design/</link><description>Recent content in Detailed Design on PositionPal</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://position-pal.github.io/docs/4-detailed-design/index.xml" rel="self" type="application/rss+xml"/><item><title>Location Service</title><link>https://position-pal.github.io/docs/4-detailed-design/1-location-service/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/4-detailed-design/1-location-service/</guid><description>&lt;p>The location service is responsible for the real-time location tracking and management of the users tracking information.&lt;/p>
-&lt;h2 id="abstract-design">Abstract Design &lt;a href="#abstract-design" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="main-domain-concepts-from-knowledge-crunching">Main domain concepts (from knowledge crunching) &lt;a href="#main-domain-concepts-from-knowledge-crunching" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>Concept&lt;/th>
- &lt;th>Description&lt;/th>
- &lt;th>Synonyms&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>Location&lt;/td>
- &lt;td>A specific point on a geographical plane, represented by coordinates that indicates where something / someone is located&lt;/td>
- &lt;td>Position&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>Route&lt;/td>
- &lt;td>A set of positions that can be interpolated forming a path between two geographical positions&lt;/td>
- &lt;td>Path&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>Tracking&lt;/td>
- &lt;td>Represent the user route information at a certain point in time&lt;/td>
- &lt;td>&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>State&lt;/td>
- &lt;td>State of a user at a certain time, the values that it could assume are: online, offline and SOS&lt;/td>
- &lt;td>&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;h3 id="structure">Structure &lt;a href="#structure" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>The main domain concepts and events are presented hereafter and reified in the following classes structure, following the DDD principles.&lt;/p></description></item><item><title>Notification Service</title><link>https://position-pal.github.io/docs/4-detailed-design/2-notification-service/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/4-detailed-design/2-notification-service/</guid><description>&lt;h2 id="structure">Structure &lt;a href="#structure" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;div style="width: 100%; overflow-x: auto; white-space: nowrap;">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Detailed Design on PositionPal</title><link>https://position-pal.github.io/docs/4-detailed-design/</link><description>Recent content in Detailed Design on PositionPal</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://position-pal.github.io/docs/4-detailed-design/index.xml" rel="self" type="application/rss+xml"/><item><title>Location Service</title><link>https://position-pal.github.io/docs/4-detailed-design/1-location-service/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/4-detailed-design/1-location-service/</guid><description>&lt;p>The location service is responsible for the &lt;strong>real-time location &lt;em>tracking&lt;/em>&lt;/strong> and &lt;strong>management&lt;/strong> of the &lt;strong>&lt;em>users tracking information&lt;/em>&lt;/strong>.&lt;/p>
+&lt;p>This chapter explains the strategies used to meet the requirements identified in the analysis.&lt;/p>
+&lt;p>The design is based on the &lt;strong>Domain-Driven Design&lt;/strong> principles, focusing on the &lt;em>structure&lt;/em>, &lt;em>behavior&lt;/em>, and &lt;em>interaction&lt;/em> of the system.&lt;/p>
+&lt;h2 id="abstract-design">Abstract Design &lt;a href="#abstract-design" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;!--
+
+### Main domain concepts (from knowledge crunching)
+
+| Concept | Description | Synonyms |
+| -------- | ------------------------------------------------------------------------------------------------------------------------ | -------- |
+| Location | A specific point on a geographical plane, represented by coordinates that indicates where something / someone is located | Position |
+| Route | A set of positions that can be interpolated forming a path between two geographical positions | Path |
+| Tracking | Represent the user route information at a certain point in time | |
+| State | State of a user at a certain time, the values that it could assume are: online, offline and SOS | |
+
+-->
+&lt;h3 id="structure">Structure &lt;a href="#structure" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>The main domain concepts and events are presented hereafter and reified in the following classes structure, following the DDD building blocks.&lt;/p></description></item><item><title>Notification Service</title><link>https://position-pal.github.io/docs/4-detailed-design/2-notification-service/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/4-detailed-design/2-notification-service/</guid><description>&lt;h2 id="structure">Structure &lt;a href="#structure" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;div style="width: 100%; overflow-x: auto; white-space: nowrap;">
  &lt;img 
  src="https://position-pal.github.io/res/notification-service-structure-light.svg" 
  alt="notification-service-structure schema" 
- style="max-width: 1200px;"
+ style="max-width: 1500px;"
  class="schema"
  />
 &lt;/div></description></item></channel></rss>
