@@ -2,7 +2,7 @@
  &lt;img 
  src="https://position-pal.github.io/res/shared-kernel-structure-light.svg" 
  alt="shared-kernel-structure schema" 
- style="max-width: 1400px;"
+ style="max-width: 1100px;"
  class="schema"
  />
 &lt;/div></description></item><item><title>Location Service design</title><link>https://position-pal.github.io/docs/4-detailed-design/2-location-service/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/4-detailed-design/2-location-service/</guid><description>&lt;p>The location service is responsible for the &lt;strong>real-time location &lt;em>tracking&lt;/em>&lt;/strong> and &lt;strong>management&lt;/strong> of the &lt;strong>&lt;em>users tracking information&lt;/em>&lt;/strong>.&lt;/p>
@@ -24,7 +24,7 @@
  &lt;img 
  src="https://position-pal.github.io/res/notification-service-structure-light.svg" 
  alt="notification-service-structure schema" 
- style="max-width: 1400px;"
+ style="max-width: 1100px;"
  class="schema"
  />
 &lt;/div></description></item></channel></rss>
