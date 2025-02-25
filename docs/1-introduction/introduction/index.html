@@ -1,11 +1,16 @@
 <!doctype html><html lang=en-us><script src=https://code.jquery.com/jquery-3.6.0.min.js></script><script>$(document).ready(function(){$("#mode").on("click",updateDiagramImage),updateDiagramImage()});function updateDiagramImage(){const e=$("html").attr("data-dark-mode")!==void 0;console.debug("Dark mode:",e);const t=e?"-dark":"-light";$(".schema").each(function(){const n=$(this);let e=n.attr("src");e=e.replace(/(-dark|-light)\.svg$/,""),n.attr("src",e+t+".svg")})}</script><head><meta charset=utf-8><title>Introduction | PositionPal</title>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=keywords content="Documentation,Hugo,Hugo Theme,Bootstrap"><meta name=author content="Colin Wilson - Lotus Labs"><meta name=email content="support@aigis.uk"><meta name=website content="https://lotusdocs.dev"><meta name=Version content="v0.1.0"><link rel=icon href=https://position-pal.github.io/favicon.ico sizes=any><link rel=icon type=image/svg+xml href=https://position-pal.github.io/favicon.svg><link rel=apple-touch-icon sizes=180x180 href=https://position-pal.github.io/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=https://position-pal.github.io/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=https://position-pal.github.io/favicon-16x16.png><link rel=manifest crossorigin=use-credentials href=https://position-pal.github.io/site.webmanifest><meta property="og:title" content="Introduction"><meta property="og:description" content="
-PositionPal is a micro-services-based application for creating groups of trusted users with whom to share location, routes, and notify of dangerous or emergency situation to create an effective and timely service and support network.
-The idea comes from some news read recently about young people who, on their way home at night in unsafe areas of the city, share their location in a WhatsApp group of users to support and watch each other."><meta property="og:type" content="article"><meta property="og:url" content="https://position-pal.github.io/docs/1-introduction/introduction/"><meta property="og:image" content="https://position-pal.github.io/opengraph/card-base-2_hu_a444bbe5d27f4642.png"><meta property="article:section" content="docs"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://position-pal.github.io/opengraph/card-base-2_hu_a444bbe5d27f4642.png"><meta name=twitter:title content="Introduction"><meta name=twitter:description content="
-PositionPal is a micro-services-based application for creating groups of trusted users with whom to share location, routes, and notify of dangerous or emergency situation to create an effective and timely service and support network.
-The idea comes from some news read recently about young people who, on their way home at night in unsafe areas of the city, share their location in a WhatsApp group of users to support and watch each other."><link rel=alternate type=application/atom+xml title="Atom feed for PositionPal" href=/index.xml><script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script><script type=text/javascript src=https://position-pal.github.io/docs/js/flexsearch.bundle.min.249548594cb6843f3060a3cdd3043799676c59ce8db83358a3fc2e4d20598d05dfa6ce4994805d2835cb33b54dc9b9e7.js integrity=sha384-JJVIWUy2hD8wYKPN0wQ3mWdsWc6NuDNYo/wuTSBZjQXfps5JlIBdKDXLM7VNybnn crossorigin=anonymous></script><link rel=stylesheet href=/docs/scss/style.min.d324bc64538d015f9f079ff7407840ffc06414d5a911184ef5952c57a731f6d9dc97eb86ed1e44ff2b48b08eb005bc1e.css integrity=sha384-0yS8ZFONAV+fB5/3QHhA/8BkFNWpERhO9ZUsV6cx9tncl+uG7R5E/ytIsI6wBbwe crossorigin=anonymous></head><body><div class=content><div class="page-wrapper toggled"><nav id=sidebar class=sidebar-wrapper><div class=sidebar-brand><a href=/ aria-label=HomePage alt=HomePage><svg id="Layer_1" viewBox="0 0 250 250"><path d="m143 39.5c-18 0-18 18-18 18s0-18-18-18H22c-2.76.0-5 2.24-5 5v143c0 2.76 2.24 5 5 5h76c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h76c2.76.0 5-2.24 5-5V44.5c0-2.76-2.24-5-5-5h-85zM206 163c0 1.38-1.12 2.5-2.5 2.5H143c-18 0-18 18-18 18s0-18-18-18H46.5c-1.38.0-2.5-1.12-2.5-2.5V69c0-1.38 1.12-2.5 2.5-2.5H98c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h51.5c1.38.0 2.5 1.12 2.5 2.5v94z" style="fill:#06f"/></svg></a></div><div class=sidebar-content style="height:calc(100% - 131px)"><ul class=sidebar-menu><li class=current><a class=sidebar-root-link href=https://position-pal.github.io/docs/1-introduction/introduction/>Introduction</a></li><li class="sidebar-dropdown no-icon"><button class=btn>
-Domain Analysis</button><div class=sidebar-submenu><ul><li class=no-icon><a class=sidebar-nested-link href=https://position-pal.github.io/docs/2-domain-analysis/1-functional-requirements/>Functional Requirements</a></li><li class=no-icon><a class=sidebar-nested-link href=https://position-pal.github.io/docs/2-domain-analysis/2-business-requirements/>Business Requirements</a></li><li class=no-icon><a class=sidebar-nested-link href=https://position-pal.github.io/docs/2-domain-analysis/3-quality-attributes/>Quality Attributes</a></li><li class=no-icon><a class=sidebar-nested-link href=https://position-pal.github.io/docs/2-domain-analysis/4-event-storming/>Event Storming</a></li></ul></div></li><li><a class=sidebar-root-link href=https://position-pal.github.io/docs/3-arch-design/>Architectural Design</a></li><li class="sidebar-dropdown no-icon"><button class=btn>
-Detailed Design</button><div class=sidebar-submenu><ul><li class=no-icon><a class=sidebar-nested-link href=https://position-pal.github.io/docs/4-detailed-design/1-shared-kernel/>Shared Kernel design</a></li><li class=no-icon><a class=sidebar-nested-link href=https://position-pal.github.io/docs/4-detailed-design/2-location-service/>Location Service design</a></li><li class=no-icon><a class=sidebar-nested-link href=https://position-pal.github.io/docs/4-detailed-design/3-notification-service/>Notification Service design</a></li></ul></div></li><li><a class=sidebar-root-link href=https://position-pal.github.io/docs/5-validation/validation/>Self Assessment and Validation</a></li><li><a class=sidebar-root-link href=https://position-pal.github.io/docs/6-devops/>DevOps</a></li><li><a class=sidebar-root-link href=https://position-pal.github.io/docs/7-deployment/>Deployment</a></li></ul></div><ul class="sidebar-footer list-unstyled mb-0"></ul></nav><main class="page-content bg-transparent"><div id=top-header class="top-header d-print-none"><div class="header-bar d-flex justify-content-between"><div class="d-flex align-items-center"><a href=/ class="logo-icon me-3" aria-label=HomePage alt=HomePage><div class=small><svg id="Layer_1" viewBox="0 0 250 250"><path d="m143 39.5c-18 0-18 18-18 18s0-18-18-18H22c-2.76.0-5 2.24-5 5v143c0 2.76 2.24 5 5 5h76c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h76c2.76.0 5-2.24 5-5V44.5c0-2.76-2.24-5-5-5h-85zM206 163c0 1.38-1.12 2.5-2.5 2.5H143c-18 0-18 18-18 18s0-18-18-18H46.5c-1.38.0-2.5-1.12-2.5-2.5V69c0-1.38 1.12-2.5 2.5-2.5H98c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h51.5c1.38.0 2.5 1.12 2.5 2.5v94z" style="fill:#06f"/></svg></div><div class=big><svg id="Layer_1" viewBox="0 0 250 250"><path d="m143 39.5c-18 0-18 18-18 18s0-18-18-18H22c-2.76.0-5 2.24-5 5v143c0 2.76 2.24 5 5 5h76c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h76c2.76.0 5-2.24 5-5V44.5c0-2.76-2.24-5-5-5h-85zM206 163c0 1.38-1.12 2.5-2.5 2.5H143c-18 0-18 18-18 18s0-18-18-18H46.5c-1.38.0-2.5-1.12-2.5-2.5V69c0-1.38 1.12-2.5 2.5-2.5H98c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h51.5c1.38.0 2.5 1.12 2.5 2.5v94z" style="fill:#06f"/></svg></div></a><button id=close-sidebar class="btn btn-icon btn-soft">
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="What, Why, and How"><meta name=keywords content="Documentation,Hugo,Hugo Theme,Bootstrap"><meta name=author content="Colin Wilson - Lotus Labs"><meta name=email content="support@aigis.uk"><meta name=website content="https://lotusdocs.dev"><meta name=Version content="v0.1.0"><link rel=icon href=https://position-pal.github.io/favicon.ico sizes=any><link rel=icon type=image/svg+xml href=https://position-pal.github.io/favicon.svg><link rel=apple-touch-icon sizes=180x180 href=https://position-pal.github.io/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=https://position-pal.github.io/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=https://position-pal.github.io/favicon-16x16.png><link rel=manifest crossorigin=use-credentials href=https://position-pal.github.io/site.webmanifest><meta property="og:title" content="Introduction"><meta property="og:description" content="What, Why, and How"><meta property="og:type" content="article"><meta property="og:url" content="https://position-pal.github.io/docs/1-introduction/introduction/"><meta property="og:image" content="https://position-pal.github.io/opengraph/card-base-2_hu_4117e74b493f31a4.png"><meta property="article:section" content="docs"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://position-pal.github.io/opengraph/card-base-2_hu_4117e74b493f31a4.png"><meta name=twitter:title content="Introduction"><meta name=twitter:description content="What, Why, and How"><link rel=alternate type=application/atom+xml title="Atom feed for PositionPal" href=/index.xml><script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script><script type=text/javascript src=https://position-pal.github.io/docs/js/flexsearch.bundle.min.249548594cb6843f3060a3cdd3043799676c59ce8db83358a3fc2e4d20598d05dfa6ce4994805d2835cb33b54dc9b9e7.js integrity=sha384-JJVIWUy2hD8wYKPN0wQ3mWdsWc6NuDNYo/wuTSBZjQXfps5JlIBdKDXLM7VNybnn crossorigin=anonymous></script><link rel=stylesheet href=/docs/scss/style.min.d324bc64538d015f9f079ff7407840ffc06414d5a911184ef5952c57a731f6d9dc97eb86ed1e44ff2b48b08eb005bc1e.css integrity=sha384-0yS8ZFONAV+fB5/3QHhA/8BkFNWpERhO9ZUsV6cx9tncl+uG7R5E/ytIsI6wBbwe crossorigin=anonymous></head><body><div class=content><div class="page-wrapper toggled"><nav id=sidebar class=sidebar-wrapper><div class=sidebar-brand><a href=/ aria-label=HomePage alt=HomePage><svg id="Layer_1" viewBox="0 0 250 250"><path d="m143 39.5c-18 0-18 18-18 18s0-18-18-18H22c-2.76.0-5 2.24-5 5v143c0 2.76 2.24 5 5 5h76c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h76c2.76.0 5-2.24 5-5V44.5c0-2.76-2.24-5-5-5h-85zM206 163c0 1.38-1.12 2.5-2.5 2.5H143c-18 0-18 18-18 18s0-18-18-18H46.5c-1.38.0-2.5-1.12-2.5-2.5V69c0-1.38 1.12-2.5 2.5-2.5H98c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h51.5c1.38.0 2.5 1.12 2.5 2.5v94z" style="fill:#06f"/></svg></a></div><div class=sidebar-content style="height:calc(100% - 131px)"><ul class=sidebar-menu><li class=current><a class=sidebar-root-link href=https://position-pal.github.io/docs/1-introduction/introduction/><i class="material-icons me-2">Emoji_Objects</i>
+Introduction</a></li><li class=sidebar-dropdown><button class=btn>
+<i class="material-icons me-2">Engineering</i>
+Domain Analysis</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/2-domain-analysis/1-functional-requirements/>Functional Requirements</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/2-domain-analysis/2-business-requirements/>Business Requirements</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/2-domain-analysis/3-quality-attributes/>Quality Attributes</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/2-domain-analysis/4-event-storming/>Event Storming</a></li></ul></div></li><li class=sidebar-dropdown><button class=btn>
+<i class="material-icons me-2">Location_City</i>
+Architectural Design</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/3-arch-design/1-bounded-contexts-copy/>Bounded Contexts</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/3-arch-design/2-architecture-design/>Architecture Design</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/3-arch-design/3-microservices/>Microservices</a></li></ul></div></li><li class=sidebar-dropdown><button class=btn>
+<i class="material-icons me-2">Developer_Mode</i>
+Detailed Design</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/4-detailed-design/1-shared-kernel/>Shared Kernel design</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/4-detailed-design/2-location-service/>Location Service design</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/4-detailed-design/3-notification-service/>Notification Service design</a></li></ul></div></li><li><a class=sidebar-root-link href=https://position-pal.github.io/docs/5-implementation/><i class="material-icons me-2">Code</i>
+Implementation Details</a></li><li><a class=sidebar-root-link href=https://position-pal.github.io/docs/6-validation/validation/><i class="material-icons me-2">Bug_Report</i>
+Self Assessment and Validation</a></li><li><a class=sidebar-root-link href=https://position-pal.github.io/docs/7-devops/devops/><i class="material-icons me-2">Rocket_Launch</i>
+DevOps</a></li><li><a class=sidebar-root-link href=https://position-pal.github.io/docs/8-deployment/><i class="material-icons me-2">Deployed_Code</i>
+Deployment</a></li></ul></div><ul class="sidebar-footer list-unstyled mb-0"></ul></nav><main class="page-content bg-transparent"><div id=top-header class="top-header d-print-none"><div class="header-bar d-flex justify-content-between"><div class="d-flex align-items-center"><a href=/ class="logo-icon me-3" aria-label=HomePage alt=HomePage><div class=small><svg id="Layer_1" viewBox="0 0 250 250"><path d="m143 39.5c-18 0-18 18-18 18s0-18-18-18H22c-2.76.0-5 2.24-5 5v143c0 2.76 2.24 5 5 5h76c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h76c2.76.0 5-2.24 5-5V44.5c0-2.76-2.24-5-5-5h-85zM206 163c0 1.38-1.12 2.5-2.5 2.5H143c-18 0-18 18-18 18s0-18-18-18H46.5c-1.38.0-2.5-1.12-2.5-2.5V69c0-1.38 1.12-2.5 2.5-2.5H98c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h51.5c1.38.0 2.5 1.12 2.5 2.5v94z" style="fill:#06f"/></svg></div><div class=big><svg id="Layer_1" viewBox="0 0 250 250"><path d="m143 39.5c-18 0-18 18-18 18s0-18-18-18H22c-2.76.0-5 2.24-5 5v143c0 2.76 2.24 5 5 5h76c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h76c2.76.0 5-2.24 5-5V44.5c0-2.76-2.24-5-5-5h-85zM206 163c0 1.38-1.12 2.5-2.5 2.5H143c-18 0-18 18-18 18s0-18-18-18H46.5c-1.38.0-2.5-1.12-2.5-2.5V69c0-1.38 1.12-2.5 2.5-2.5H98c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h51.5c1.38.0 2.5 1.12 2.5 2.5v94z" style="fill:#06f"/></svg></div></a><button id=close-sidebar class="btn btn-icon btn-soft">
 <span class="material-icons size-20 menu-icon align-middle">menu</span>
 </button>
 <button id=flexsearch-button class="ms-3 btn btn-soft" data-bs-toggle=collapse data-bs-target=#FlexSearchCollapse aria-expanded=false aria-controls=FlexSearchCollapse>
@@ -231,6 +236,34 @@ Table of Contents</button><nav id=toc-mobile></nav></div><div class="docs-conten
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 
     
@@ -242,7 +275,7 @@ Table of Contents</button><nav id=toc-mobile></nav></div><div class="docs-conten
                 id:  0 ,
                 href: "\/docs\/1-introduction\/introduction\/",
                 title: "Introduction",
-                description: "\nPositionPal is a micro-services-based application for creating groups of trusted users with whom to share location, routes, and notify of dangerous or emergency situation to create an effective and timely service and support network.\nThe idea comes from some news read recently about young people who, on their way home at night in unsafe areas of the city, share their location in a WhatsApp group of users to support and watch each other.\n",
+                description: "What, Why, and How",
                 content: "\nPositionPal is a micro-services-based application for creating groups of trusted users with whom to share location, routes, and notify of dangerous or emergency situation to create an effective and timely service and support network.\nThe idea comes from some news read recently about young people who, on their way home at night in unsafe areas of the city, share their location in a WhatsApp group of users to support and watch each other.\n"
             }
         );
@@ -251,7 +284,7 @@ Table of Contents</button><nav id=toc-mobile></nav></div><div class="docs-conten
                 id:  1 ,
                 href: "\/docs\/2-domain-analysis\/",
                 title: "Domain Analysis",
-                description: "",
+                description: "Knowledge crunching",
                 content: ""
             }
         );
@@ -296,15 +329,15 @@ Table of Contents</button><nav id=toc-mobile></nav></div><div class="docs-conten
                 id:  6 ,
                 href: "\/docs\/3-arch-design\/",
                 title: "Architectural Design",
-                description: "",
+                description: "Architectural design of the system.",
                 content: ""
             }
         );
     index.add(
             {
                 id:  7 ,
-                href: "\/docs\/4-detailed-design\/",
-                title: "Detailed Design",
+                href: "\/docs\/3-arch-design\/1-bounded-contexts-copy\/",
+                title: "Bounded Contexts",
                 description: "",
                 content: ""
             }
@@ -312,6 +345,33 @@ Table of Contents</button><nav id=toc-mobile></nav></div><div class="docs-conten
     index.add(
             {
                 id:  8 ,
+                href: "\/docs\/3-arch-design\/2-architecture-design\/",
+                title: "Architecture Design",
+                description: " ",
+                content: " "
+            }
+        );
+    index.add(
+            {
+                id:  9 ,
+                href: "\/docs\/3-arch-design\/3-microservices\/",
+                title: "Microservices",
+                description: "",
+                content: ""
+            }
+        );
+    index.add(
+            {
+                id:  10 ,
+                href: "\/docs\/4-detailed-design\/",
+                title: "Detailed Design",
+                description: "The detailed design of the system.",
+                content: ""
+            }
+        );
+    index.add(
+            {
+                id:  11 ,
                 href: "\/docs\/4-detailed-design\/1-shared-kernel\/",
                 title: "Shared Kernel design",
                 description: "Structure link ",
@@ -320,7 +380,7 @@ Table of Contents</button><nav id=toc-mobile></nav></div><div class="docs-conten
         );
     index.add(
             {
-                id:  9 ,
+                id:  12 ,
                 href: "\/docs\/4-detailed-design\/2-location-service\/",
                 title: "Location Service design",
                 description: "The location service is responsible for the real-time location tracking and management of the users tracking information.\nThis chapter explains the strategies used to meet the requirements identified in the analysis.\nThe design is based on the Domain-Driven Design principles, focusing on the structure, behavior, and interaction of the system.\nAbstract Design link Structure linkThe main domain concepts and events are presented hereafter and reified in the following classes structure, following the DDD building blocks.\n",
@@ -329,7 +389,7 @@ Table of Contents</button><nav id=toc-mobile></nav></div><div class="docs-conten
         );
     index.add(
             {
-                id:  10 ,
+                id:  13 ,
                 href: "\/docs\/4-detailed-design\/3-notification-service\/",
                 title: "Notification Service design",
                 description: "Structure link ",
@@ -338,34 +398,43 @@ Table of Contents</button><nav id=toc-mobile></nav></div><div class="docs-conten
         );
     index.add(
             {
-                id:  11 ,
-                href: "\/docs\/5-validation\/validation\/",
+                id:  14 ,
+                href: "\/docs\/5-implementation\/",
+                title: "Implementation Details",
+                description: "The internals of the system",
+                content: ""
+            }
+        );
+    index.add(
+            {
+                id:  15 ,
+                href: "\/docs\/6-validation\/validation\/",
                 title: "Self Assessment and Validation",
-                description: "Different types of automated tests are in place to ensure the correctness of the system, as well as the quality of the software product as a whole.\nArchitectural Testing linkArchUnit have been used to enforce architectural constraints, making sure to adhere to the Hexagonal architecture (otherwise said Onion or Ports and Adapters) and preventing unwanted dependencies, maintaining separation of concerns and ensuring architectural decisions are consistently followed over time.\n",
+                description: "Self assessment and validation of the system.",
                 content: "Different types of automated tests are in place to ensure the correctness of the system, as well as the quality of the software product as a whole.\nArchitectural Testing linkArchUnit have been used to enforce architectural constraints, making sure to adhere to the Hexagonal architecture (otherwise said Onion or Ports and Adapters) and preventing unwanted dependencies, maintaining separation of concerns and ensuring architectural decisions are consistently followed over time.\nAn example of arch unit test specification and rules used is shown below and can be found here.\n\"Project-wise architecture\" should \"adhere to ports and adapters, a.k.a onion architecture\" in: val locationGroup = \"io.github.positionpal.location\" val code = ClassFileImporter().importPackages(locationGroup) onionArchitecture() .domainModels(s\"$locationGroup.commons..\", s\"$locationGroup.domain..\") .applicationServices(s\"$locationGroup.application..\", s\"$locationGroup.presentation..\") .adapter(\"real time tracker component\", s\"$locationGroup.tracking..\") .adapter(\"storage\", s\"$locationGroup.storage..\") .adapter(\"message broker\", s\"$locationGroup.messages..\") .adapter(\"gRPC API\", s\"$locationGroup.grpc..\") .adapter(\"web sockets and http web API\", s\"$locationGroup.ws..\") .ignoreDependency(havingEntrypointAsOrigin, andAnyTarget) .because(\"`Entrypoint` submodule contains the main method wiring all the adapters together.\") .ensureAllClassesAreContainedInArchitectureIgnoring(havingEntrypointAsOrigin) .withOptionalLayers(true) .check(code) private def havingEntrypointAsOrigin = DescribedPredicate.describe[JavaClass](\"in `entrypoint` package\", _.getPackage.getName.contains(\"entrypoint\")) private def andAnyTarget = DescribedPredicate.alwaysTrue() Unit tests linkIntegration tests linkEnd-to-End tests link Quality Assurance linkFor every language, different Quality Assurance (QA) tools are used to ensure the quality of the codebase.\nFor Scala, the following tools are used:\nScalafmt Scalastyle For Kotlin, the following tools are used:\nktlint detekt For Javascript, ESLint is used to enforce a coding style.\n"
             }
         );
     index.add(
             {
-                id:  12 ,
-                href: "\/docs\/6-devops\/",
+                id:  16 ,
+                href: "\/docs\/7-devops\/devops\/",
                 title: "DevOps",
-                description: "",
-                content: ""
+                description: "DevOps practices and tools",
+                content: "Build Automation linkScala Extras linkContinuous Integration and Delivery linkgraph TB; dispatcher([\"0. dispatcher\"]) dispatcher --\u003e build; build([\"1. matrix build\"]); dry-delivery([\"2. dry delivery\"]) build --\u003e dry-delivery; release([\"3. release\"]) dry-delivery --\u003e release; publish-images([\"5. publish-images\"]) release --\u003e publish-images; publish-doc([\"4. publish-doc\"]) release --\u003e publish-doc; success([\"6. success\"]) build .-\u003e success dry-delivery .-\u003e success release .-\u003e success publish-doc --\u003e success publish-images --\u003e success; Bots linkContinuous Deployment link"
             }
         );
     index.add(
             {
-                id:  13 ,
-                href: "\/docs\/7-deployment\/",
+                id:  17 ,
+                href: "\/docs\/8-deployment\/",
                 title: "Deployment",
-                description: "",
+                description: "Deployment infrastructure",
                 content: ""
             }
         );
     index.add(
             {
-                id:  14 ,
+                id:  18 ,
                 href: "\/docs\/",
                 title: "Docs",
                 description: "",
