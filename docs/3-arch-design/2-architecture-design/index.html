@@ -1,15 +1,173 @@
 <!doctype html><html lang=en-us><script src=https://code.jquery.com/jquery-3.6.0.min.js></script><script>$(document).ready(function(){$("#mode").on("click",updateDiagramImage),updateDiagramImage()});function updateDiagramImage(){const e=$("html").attr("data-dark-mode")!==void 0;console.debug("Dark mode:",e);const t=e?"-dark":"-light";$(".schema").each(function(){const n=$(this);let e=n.attr("src");e=e.replace(/(-dark|-light)\.svg$/,""),n.attr("src",e+t+".svg")})}</script><head><meta charset=utf-8><title>Architecture Design | PositionPal</title>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=keywords content="Documentation,Hugo,Hugo Theme,Bootstrap"><meta name=author content="Colin Wilson - Lotus Labs"><meta name=email content="support@aigis.uk"><meta name=website content="https://lotusdocs.dev"><meta name=Version content="v0.1.0"><link rel=icon href=https://position-pal.github.io/favicon.ico sizes=any><link rel=icon type=image/svg+xml href=https://position-pal.github.io/favicon.svg><link rel=apple-touch-icon sizes=180x180 href=https://position-pal.github.io/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=https://position-pal.github.io/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=https://position-pal.github.io/favicon-16x16.png><link rel=manifest crossorigin=use-credentials href=https://position-pal.github.io/site.webmanifest><meta property="og:title" content="Architecture Design"><meta property="og:description" content="
-  
-"><meta property="og:type" content="article"><meta property="og:url" content="https://position-pal.github.io/docs/3-arch-design/2-architecture-design/"><meta property="og:image" content="https://position-pal.github.io/opengraph/card-base-2_hu_bd76599cd4d1302.png"><meta property="article:section" content="docs"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://position-pal.github.io/opengraph/card-base-2_hu_bd76599cd4d1302.png"><meta name=twitter:title content="Architecture Design"><meta name=twitter:description content="
-  
-"><link rel=alternate type=application/atom+xml title="Atom feed for PositionPal" href=/index.xml><script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script><script type=text/javascript src=https://position-pal.github.io/docs/js/flexsearch.bundle.min.249548594cb6843f3060a3cdd3043799676c59ce8db83358a3fc2e4d20598d05dfa6ce4994805d2835cb33b54dc9b9e7.js integrity=sha384-JJVIWUy2hD8wYKPN0wQ3mWdsWc6NuDNYo/wuTSBZjQXfps5JlIBdKDXLM7VNybnn crossorigin=anonymous></script><link rel=stylesheet href=/docs/scss/style.min.d324bc64538d015f9f079ff7407840ffc06414d5a911184ef5952c57a731f6d9dc97eb86ed1e44ff2b48b08eb005bc1e.css integrity=sha384-0yS8ZFONAV+fB5/3QHhA/8BkFNWpERhO9ZUsV6cx9tncl+uG7R5E/ytIsI6wBbwe crossorigin=anonymous></head><body><div class=content><div class="page-wrapper toggled"><nav id=sidebar class=sidebar-wrapper><div class=sidebar-brand><a href=/ aria-label=HomePage alt=HomePage><svg id="Layer_1" viewBox="0 0 250 250"><path d="m143 39.5c-18 0-18 18-18 18s0-18-18-18H22c-2.76.0-5 2.24-5 5v143c0 2.76 2.24 5 5 5h76c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h76c2.76.0 5-2.24 5-5V44.5c0-2.76-2.24-5-5-5h-85zM206 163c0 1.38-1.12 2.5-2.5 2.5H143c-18 0-18 18-18 18s0-18-18-18H46.5c-1.38.0-2.5-1.12-2.5-2.5V69c0-1.38 1.12-2.5 2.5-2.5H98c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h51.5c1.38.0 2.5 1.12 2.5 2.5v94z" style="fill:#06f"/></svg></a></div><div class=sidebar-content style="height:calc(100% - 131px)"><ul class=sidebar-menu><li><a class=sidebar-root-link href=https://position-pal.github.io/docs/1-introduction/introduction/><i class="material-icons me-2">Emoji_Objects</i>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=keywords content="Documentation,Hugo,Hugo Theme,Bootstrap"><meta name=author content="Colin Wilson - Lotus Labs"><meta name=email content="support@aigis.uk"><meta name=website content="https://lotusdocs.dev"><meta name=Version content="v0.1.0"><link rel=icon href=https://position-pal.github.io/favicon.ico sizes=any><link rel=icon type=image/svg+xml href=https://position-pal.github.io/favicon.svg><link rel=apple-touch-icon sizes=180x180 href=https://position-pal.github.io/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=https://position-pal.github.io/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=https://position-pal.github.io/favicon-16x16.png><link rel=manifest crossorigin=use-credentials href=https://position-pal.github.io/site.webmanifest><meta property="og:title" content="Architecture Design"><meta property="og:description" content='C&amp;C View linkThe following diagram shows the UML Component and Connector (C&amp;C) view of the system, providing a high-level picture of the system&rsquo;s runtime entities in action and their boundaries.
+
+
+    
+    &#39;=============================[ Styling ]============================&#39;
+skinparam component {
+    BackgroundColor<<external>> White
+    BackgroundColor<<executable>> #ccffcc
+    BackgroundColor<<test>> cyan
+}
+skinparam DatabaseBackgroundColor LightYellow
+skinparam NodeBackgroundColor White
+&#39;===========================[ Components ]===========================&#39;
+interface "Notifications \n exchange" as NOTIF_EXCH
+interface "Groups events \n exchange" as GRPS_EXCH
+interface "Notifications \n topic" as NOTIF_TOPIC
+interface "Groups events \n topic" as GRPS_TOPIC
+component ":message-broker" {
+    portin "Publish groups events" as MB_PUB_GRPS
+    portin "Publish notifications" as MB_PUB_NOTIF
+    portin "Subscribe notifications" as MB_SUB_NOTIF
+    portin "Subscribe groups events" as MB_SUB_GRPS
+    NOTIF_EXCH -- MB_PUB_NOTIF
+    GRPS_EXCH -- MB_PUB_GRPS
+    NOTIF_TOPIC -- MB_SUB_NOTIF
+    GRPS_TOPIC -- MB_SUB_GRPS
+}
+
+interface "<<WS>>" as GATEWAY_WS_LOC
+interface "<<RPC>>" as GATEWAY_RPC_LOC
+interface "<<RPC>>" as GATEWAY_RPC_NOT
+component ":gateway" {
+    portin "Public API" as GATEWAY_API
+    portin "Real-time API" as GATEWAY_REALTIME
+    portout "Location service \n Real-time API" as GATEWAY_LOC_REALTIME
+    portout "Location service \n Public API" as GATEWAY_LOC_API
+    GATEWAY_LOC_REALTIME ..> GATEWAY_WS_LOC : use
+    GATEWAY_LOC_API ..> GATEWAY_RPC_LOC : use
+    portout "Notification service API" as GATEWAY_NOT_API
+    GATEWAY_NOT_API ..> GATEWAY_RPC_NOT
+}
+&#39;------------------------[ Location Service ]-----------------------&#39;
+interface "Database Connector" as LOC_DB_CONN
+component ":Location Service" {
+    portin "Real-time tracking" as LOC_REALTIME
+    portin "Tracking Services" as LOC_TRACK
+    GATEWAY_WS_LOC -- LOC_REALTIME
+    GATEWAY_RPC_LOC -- LOC_TRACK
+    portout "Publish notifications" as LOC_PUB
+    portout "Data Access" as LOC_DA
+    portout "Receive groups events" as LOC_SUB
+    LOC_DA ..> LOC_DB_CONN : use
+    LOC_PUB ..> NOTIF_EXCH : use
+    LOC_SUB ..> GRPS_TOPIC : use
+}
+database ":Location \n Database" as LOC_DB {
+    portin " " as LOC_DB_DA
+    LOC_DB_CONN -- LOC_DB_DA
+}
+&#39;---------------------[ Notification Service ]---------------------&#39;
+interface "Database connector" as  NOT_DB_CONN
+component ":notification-service" {
+    portin "Device tokens \n registration" as NOT_API
+    GATEWAY_RPC_NOT ..> NOT_API : use
+    portout "Data Access" as NOT_DA
+    portout "Receive groups events" as NOT_SUB
+    NOT_DA ..> NOT_DB_CONN : use
+    NOT_SUB ..> GRPS_TOPIC : use
+}
+database ": Notification \n Database" as  NOT_DB {
+    portin " " as NOT_DB_DA
+    NOT_DB_CONN -- NOT_DB_DA
+}
+&#39;-------------------------[ Chat Service ]-------------------------&#39;
+component ":chat-service" {
+
+}
+&#39;-------------------------[ User Service ]-------------------------&#39;
+component ":user-service" {
+
+}
+@enduml'><meta property="og:type" content="article"><meta property="og:url" content="https://position-pal.github.io/docs/3-arch-design/2-architecture-design/"><meta property="og:image" content="https://position-pal.github.io/opengraph/card-base-2_hu_bd76599cd4d1302.png"><meta property="article:section" content="docs"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://position-pal.github.io/opengraph/card-base-2_hu_bd76599cd4d1302.png"><meta name=twitter:title content="Architecture Design"><meta name=twitter:description content='C&amp;C View linkThe following diagram shows the UML Component and Connector (C&amp;C) view of the system, providing a high-level picture of the system&rsquo;s runtime entities in action and their boundaries.
+
+
+    
+    &#39;=============================[ Styling ]============================&#39;
+skinparam component {
+    BackgroundColor<<external>> White
+    BackgroundColor<<executable>> #ccffcc
+    BackgroundColor<<test>> cyan
+}
+skinparam DatabaseBackgroundColor LightYellow
+skinparam NodeBackgroundColor White
+&#39;===========================[ Components ]===========================&#39;
+interface "Notifications \n exchange" as NOTIF_EXCH
+interface "Groups events \n exchange" as GRPS_EXCH
+interface "Notifications \n topic" as NOTIF_TOPIC
+interface "Groups events \n topic" as GRPS_TOPIC
+component ":message-broker" {
+    portin "Publish groups events" as MB_PUB_GRPS
+    portin "Publish notifications" as MB_PUB_NOTIF
+    portin "Subscribe notifications" as MB_SUB_NOTIF
+    portin "Subscribe groups events" as MB_SUB_GRPS
+    NOTIF_EXCH -- MB_PUB_NOTIF
+    GRPS_EXCH -- MB_PUB_GRPS
+    NOTIF_TOPIC -- MB_SUB_NOTIF
+    GRPS_TOPIC -- MB_SUB_GRPS
+}
+
+interface "<<WS>>" as GATEWAY_WS_LOC
+interface "<<RPC>>" as GATEWAY_RPC_LOC
+interface "<<RPC>>" as GATEWAY_RPC_NOT
+component ":gateway" {
+    portin "Public API" as GATEWAY_API
+    portin "Real-time API" as GATEWAY_REALTIME
+    portout "Location service \n Real-time API" as GATEWAY_LOC_REALTIME
+    portout "Location service \n Public API" as GATEWAY_LOC_API
+    GATEWAY_LOC_REALTIME ..> GATEWAY_WS_LOC : use
+    GATEWAY_LOC_API ..> GATEWAY_RPC_LOC : use
+    portout "Notification service API" as GATEWAY_NOT_API
+    GATEWAY_NOT_API ..> GATEWAY_RPC_NOT
+}
+&#39;------------------------[ Location Service ]-----------------------&#39;
+interface "Database Connector" as LOC_DB_CONN
+component ":Location Service" {
+    portin "Real-time tracking" as LOC_REALTIME
+    portin "Tracking Services" as LOC_TRACK
+    GATEWAY_WS_LOC -- LOC_REALTIME
+    GATEWAY_RPC_LOC -- LOC_TRACK
+    portout "Publish notifications" as LOC_PUB
+    portout "Data Access" as LOC_DA
+    portout "Receive groups events" as LOC_SUB
+    LOC_DA ..> LOC_DB_CONN : use
+    LOC_PUB ..> NOTIF_EXCH : use
+    LOC_SUB ..> GRPS_TOPIC : use
+}
+database ":Location \n Database" as LOC_DB {
+    portin " " as LOC_DB_DA
+    LOC_DB_CONN -- LOC_DB_DA
+}
+&#39;---------------------[ Notification Service ]---------------------&#39;
+interface "Database connector" as  NOT_DB_CONN
+component ":notification-service" {
+    portin "Device tokens \n registration" as NOT_API
+    GATEWAY_RPC_NOT ..> NOT_API : use
+    portout "Data Access" as NOT_DA
+    portout "Receive groups events" as NOT_SUB
+    NOT_DA ..> NOT_DB_CONN : use
+    NOT_SUB ..> GRPS_TOPIC : use
+}
+database ": Notification \n Database" as  NOT_DB {
+    portin " " as NOT_DB_DA
+    NOT_DB_CONN -- NOT_DB_DA
+}
+&#39;-------------------------[ Chat Service ]-------------------------&#39;
+component ":chat-service" {
+
+}
+&#39;-------------------------[ User Service ]-------------------------&#39;
+component ":user-service" {
+
+}
+@enduml'><link rel=alternate type=application/atom+xml title="Atom feed for PositionPal" href=/index.xml><script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script><script type=text/javascript src=https://position-pal.github.io/docs/js/flexsearch.bundle.min.249548594cb6843f3060a3cdd3043799676c59ce8db83358a3fc2e4d20598d05dfa6ce4994805d2835cb33b54dc9b9e7.js integrity=sha384-JJVIWUy2hD8wYKPN0wQ3mWdsWc6NuDNYo/wuTSBZjQXfps5JlIBdKDXLM7VNybnn crossorigin=anonymous></script><link rel=stylesheet href=/docs/scss/style.min.d324bc64538d015f9f079ff7407840ffc06414d5a911184ef5952c57a731f6d9dc97eb86ed1e44ff2b48b08eb005bc1e.css integrity=sha384-0yS8ZFONAV+fB5/3QHhA/8BkFNWpERhO9ZUsV6cx9tncl+uG7R5E/ytIsI6wBbwe crossorigin=anonymous></head><body><div class=content><div class="page-wrapper toggled"><nav id=sidebar class=sidebar-wrapper><div class=sidebar-brand><a href=/ aria-label=HomePage alt=HomePage><svg id="Layer_1" viewBox="0 0 250 250"><path d="m143 39.5c-18 0-18 18-18 18s0-18-18-18H22c-2.76.0-5 2.24-5 5v143c0 2.76 2.24 5 5 5h76c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h76c2.76.0 5-2.24 5-5V44.5c0-2.76-2.24-5-5-5h-85zM206 163c0 1.38-1.12 2.5-2.5 2.5H143c-18 0-18 18-18 18s0-18-18-18H46.5c-1.38.0-2.5-1.12-2.5-2.5V69c0-1.38 1.12-2.5 2.5-2.5H98c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h51.5c1.38.0 2.5 1.12 2.5 2.5v94z" style="fill:#06f"/></svg></a></div><div class=sidebar-content style="height:calc(100% - 131px)"><ul class=sidebar-menu><li><a class=sidebar-root-link href=https://position-pal.github.io/docs/1-introduction/introduction/><i class="material-icons me-2">Emoji_Objects</i>
 Introduction</a></li><li class=sidebar-dropdown><button class=btn>
 <i class="material-icons me-2">Engineering</i>
 Domain Analysis</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/2-domain-analysis/1-functional-requirements/>Functional Requirements</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/2-domain-analysis/2-business-requirements/>Business Requirements</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/2-domain-analysis/3-quality-attributes/>Quality Attributes</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/2-domain-analysis/4-event-storming/>Event Storming</a></li></ul></div></li><li class="sidebar-dropdown current active"><button class=btn>
 <i class="material-icons me-2">Location_City</i>
 Architectural Design</button><div class="sidebar-submenu d-block"><ul><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/3-arch-design/1-bounded-contexts-copy/>Bounded Contexts</a></li><li class=current><a class=sidebar-nested-link href=https://position-pal.github.io/docs/3-arch-design/2-architecture-design/>Architecture Design</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/3-arch-design/3-microservices/>Microservices</a></li></ul></div></li><li class=sidebar-dropdown><button class=btn>
-<i class="material-icons me-2">Developer_Mode</i>
+<i class="material-icons me-2">Construction</i>
 Detailed Design</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/4-detailed-design/1-shared-kernel/>Shared Kernel design</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/4-detailed-design/2-location-service/>Location Service design</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/4-detailed-design/3-notification-service/>Notification Service design</a></li></ul></div></li><li><a class=sidebar-root-link href=https://position-pal.github.io/docs/5-implementation/><i class="material-icons me-2">Code</i>
 Implementation Details</a></li><li><a class=sidebar-root-link href=https://position-pal.github.io/docs/6-validation/validation/><i class="material-icons me-2">Bug_Report</i>
 Self Assessment and Validation</a></li><li><a class=sidebar-root-link href=https://position-pal.github.io/docs/7-devops/devops/><i class="material-icons me-2">Rocket_Launch</i>
@@ -31,8 +189,85 @@ Deployment</a></li></ul></div><ul class="sidebar-footer list-unstyled mb-0"></ul
 cancel</button></div><div id=suggestions class="shadow rounded-1 d-none"></div></form></div></div></div><div class=container-fluid><div class=layout-spacing><div class="d-md-flex justify-content-between align-items-center"><nav aria-label=breadcrumb class="d-inline-block pb-2 mt-1 mt-sm-0"><ul id=breadcrumbs class="breadcrumb bg-transparent mb-0" itemscope itemtype=https://schema.org/BreadcrumbList><li class="breadcrumb-item text-capitalize active" aria-current=page itemprop=itemListElement itemscope itemtype=https://schema.org/ListItem><a itemprop=item href=/docs/><i class="material-icons size-20 align-text-bottom" itemprop=name>Home</i>
 </a><meta itemprop=position content='1'></li><li class="breadcrumb-item text-capitalize" itemprop=itemListElement itemscope itemtype=https://schema.org/ListItem><a itemprop=item href=/docs/3-arch-design/><span itemprop=name>Architectural Design</span>
 </a><meta itemprop=position content='2'></li><li class="breadcrumb-item text-capitalize active" itemprop=itemListElement itemscope itemtype=https://schema.org/ListItem><span itemprop=name>Architecture Design</span>
-<meta itemprop=position content='3'></li></ul></nav></div><div class="row flex-xl-nowrap"><div class="docs-toc col-xl-3 visually-hidden d-xl-block"><toc><div class="fw-bold text-uppercase mb-2">On this page</div><nav id=TableOfContents></nav></toc></div><div class="docs-toc-mobile visually-hidden d-print-none d-xl-none"><button id=toc-dropdown-btn class="btn-secondary dropdown-toggle" type=button data-bs-toggle=dropdown data-bs-offset=0,0 aria-expanded=false>
-Table of Contents</button><nav id=toc-mobile></nav></div><div class="docs-content col-12 mt-0"><div class="mb-0 d-flex"><h1 class="content-title mb-0">Architecture Design</h1></div><div id=content class=main-content><div data-prismjs-copy data-prismjs-copy-success data-prismjs-copy-error><div style=width:100%;overflow-x:auto;white-space:nowrap><img src=/res/architecture-cc-light.svg alt="architecture-cc schema" style=max-width:1100px class=schema></div></div></div><div><hr class=doc-hr><div id=doc-nav class=d-print-none><div class="row flex-xl-nowrap"><div class="col-sm-6 pt-2 doc-next"><a href=/docs/3-arch-design/1-bounded-contexts-copy/><div class="card h-100 my-1"><div class="card-body py-2"><p class="card-title fs-5 fw-semibold lh-base mb-0"><i class="material-icons align-middle">navigate_before</i> Bounded Contexts</p></div></div></a></div><div class="col-sm-6 pt-2 doc-prev"><a class=ms-auto href=/docs/3-arch-design/3-microservices/><div class="card h-100 my-1 text-end"><div class="card-body py-2"><p class="card-title fs-5 fw-semibold lh-base mb-0">Microservices <i class="material-icons align-middle">navigate_next</i></p></div></div></a></div></div></div></div></div></div></div></div><footer class="shadow py-3 d-print-none"><div class=container-fluid><div class="row align-items-center"><div class=col><div class="text-sm-start text-center mx-md-2"><p class=mb-0></p></div></div></div></div></footer></main></div></div><button onclick=topFunction() id=back-to-top aria-label="Back to Top Button" class="back-to-top fs-5"><svg width="24" height="24"><path d="M12 10.224l-6.3 6.3-1.38-1.372L12 7.472l7.68 7.68-1.38 1.376z" style="fill:#fff"/></svg></button>
+<meta itemprop=position content='3'></li></ul></nav></div><div class="row flex-xl-nowrap"><div class="docs-toc col-xl-3 visually-hidden d-xl-block"><toc><div class="fw-bold text-uppercase mb-2">On this page</div><nav id=TableOfContents><ul><li><a href=#cc-view>C&amp;C View</a></li></ul></nav></toc></div><div class="docs-toc-mobile visually-hidden d-print-none d-xl-none"><button id=toc-dropdown-btn class="btn-secondary dropdown-toggle" type=button data-bs-toggle=dropdown data-bs-offset=0,0 aria-expanded=false>
+Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href=#cc-view>C&amp;C View</a></li></ul></nav></div><div class="docs-content col-12 mt-0"><div class="mb-0 d-flex"><h1 class="content-title mb-0">Architecture Design</h1></div><div id=content class=main-content><div data-prismjs-copy data-prismjs-copy-success data-prismjs-copy-error><h2 id=cc-view>C&amp;C View <a href=#cc-view class=anchor aria-hidden=true><i class="material-icons align-middle">link</i></a></h2><p>The following diagram shows the UML Component and Connector (C&amp;C) view of the system, providing a high-level picture of the system&rsquo;s runtime entities in action and their boundaries.</p><pre tabindex=0><code class=language-plantuml data-lang=plantuml>&#39;=============================[ Styling ]============================&#39;
+skinparam component {
+    BackgroundColor&lt;&lt;external&gt;&gt; White
+    BackgroundColor&lt;&lt;executable&gt;&gt; #ccffcc
+    BackgroundColor&lt;&lt;test&gt;&gt; cyan
+}
+skinparam DatabaseBackgroundColor LightYellow
+skinparam NodeBackgroundColor White
+&#39;===========================[ Components ]===========================&#39;
+interface &#34;Notifications \n exchange&#34; as NOTIF_EXCH
+interface &#34;Groups events \n exchange&#34; as GRPS_EXCH
+interface &#34;Notifications \n topic&#34; as NOTIF_TOPIC
+interface &#34;Groups events \n topic&#34; as GRPS_TOPIC
+component &#34;:message-broker&#34; {
+    portin &#34;Publish groups events&#34; as MB_PUB_GRPS
+    portin &#34;Publish notifications&#34; as MB_PUB_NOTIF
+    portin &#34;Subscribe notifications&#34; as MB_SUB_NOTIF
+    portin &#34;Subscribe groups events&#34; as MB_SUB_GRPS
+    NOTIF_EXCH -- MB_PUB_NOTIF
+    GRPS_EXCH -- MB_PUB_GRPS
+    NOTIF_TOPIC -- MB_SUB_NOTIF
+    GRPS_TOPIC -- MB_SUB_GRPS
+}
+
+interface &#34;&lt;&lt;WS&gt;&gt;&#34; as GATEWAY_WS_LOC
+interface &#34;&lt;&lt;RPC&gt;&gt;&#34; as GATEWAY_RPC_LOC
+interface &#34;&lt;&lt;RPC&gt;&gt;&#34; as GATEWAY_RPC_NOT
+component &#34;:gateway&#34; {
+    portin &#34;Public API&#34; as GATEWAY_API
+    portin &#34;Real-time API&#34; as GATEWAY_REALTIME
+    portout &#34;Location service \n Real-time API&#34; as GATEWAY_LOC_REALTIME
+    portout &#34;Location service \n Public API&#34; as GATEWAY_LOC_API
+    GATEWAY_LOC_REALTIME ..&gt; GATEWAY_WS_LOC : use
+    GATEWAY_LOC_API ..&gt; GATEWAY_RPC_LOC : use
+    portout &#34;Notification service API&#34; as GATEWAY_NOT_API
+    GATEWAY_NOT_API ..&gt; GATEWAY_RPC_NOT
+}
+&#39;------------------------[ Location Service ]-----------------------&#39;
+interface &#34;Database Connector&#34; as LOC_DB_CONN
+component &#34;:Location Service&#34; {
+    portin &#34;Real-time tracking&#34; as LOC_REALTIME
+    portin &#34;Tracking Services&#34; as LOC_TRACK
+    GATEWAY_WS_LOC -- LOC_REALTIME
+    GATEWAY_RPC_LOC -- LOC_TRACK
+    portout &#34;Publish notifications&#34; as LOC_PUB
+    portout &#34;Data Access&#34; as LOC_DA
+    portout &#34;Receive groups events&#34; as LOC_SUB
+    LOC_DA ..&gt; LOC_DB_CONN : use
+    LOC_PUB ..&gt; NOTIF_EXCH : use
+    LOC_SUB ..&gt; GRPS_TOPIC : use
+}
+database &#34;:Location \n Database&#34; as LOC_DB {
+    portin &#34; &#34; as LOC_DB_DA
+    LOC_DB_CONN -- LOC_DB_DA
+}
+&#39;---------------------[ Notification Service ]---------------------&#39;
+interface &#34;Database connector&#34; as  NOT_DB_CONN
+component &#34;:notification-service&#34; {
+    portin &#34;Device tokens \n registration&#34; as NOT_API
+    GATEWAY_RPC_NOT ..&gt; NOT_API : use
+    portout &#34;Data Access&#34; as NOT_DA
+    portout &#34;Receive groups events&#34; as NOT_SUB
+    NOT_DA ..&gt; NOT_DB_CONN : use
+    NOT_SUB ..&gt; GRPS_TOPIC : use
+}
+database &#34;: Notification \n Database&#34; as  NOT_DB {
+    portin &#34; &#34; as NOT_DB_DA
+    NOT_DB_CONN -- NOT_DB_DA
+}
+&#39;-------------------------[ Chat Service ]-------------------------&#39;
+component &#34;:chat-service&#34; {
+
+}
+&#39;-------------------------[ User Service ]-------------------------&#39;
+component &#34;:user-service&#34; {
+
+}
+@enduml</code></pre></div></div><div><hr class=doc-hr><div id=doc-nav class=d-print-none><div class="row flex-xl-nowrap"><div class="col-sm-6 pt-2 doc-next"><a href=/docs/3-arch-design/1-bounded-contexts-copy/><div class="card h-100 my-1"><div class="card-body py-2"><p class="card-title fs-5 fw-semibold lh-base mb-0"><i class="material-icons align-middle">navigate_before</i> Bounded Contexts</p></div></div></a></div><div class="col-sm-6 pt-2 doc-prev"><a class=ms-auto href=/docs/3-arch-design/3-microservices/><div class="card h-100 my-1 text-end"><div class="card-body py-2"><p class="card-title fs-5 fw-semibold lh-base mb-0">Microservices <i class="material-icons align-middle">navigate_next</i></p></div></div></a></div></div></div></div></div></div></div></div><footer class="shadow py-3 d-print-none"><div class=container-fluid><div class="row align-items-center"><div class=col><div class="text-sm-start text-center mx-md-2"><p class=mb-0></p></div></div></div></div></footer></main></div></div><button onclick=topFunction() id=back-to-top aria-label="Back to Top Button" class="back-to-top fs-5"><svg width="24" height="24"><path d="M12 10.224l-6.3 6.3-1.38-1.372L12 7.472l7.68 7.68-1.38 1.376z" style="fill:#fff"/></svg></button>
 <script>(()=>{var e=document.getElementById("mode");e!==null&&(window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change",e=>{e.matches?(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")):(localStorage.setItem("theme","light"),document.documentElement.removeAttribute("data-dark-mode"))}),e.addEventListener("click",()=>{document.documentElement.toggleAttribute("data-dark-mode"),localStorage.setItem("theme",document.documentElement.hasAttribute("data-dark-mode")?"dark":"light")}),localStorage.getItem("theme")==="dark"?document.documentElement.setAttribute("data-dark-mode",""):document.documentElement.removeAttribute("data-dark-mode"))})()</script><script src=/docs/js/bootstrap.eac7ee3f6fa791c684e7a51fc2fd50b6f724271b9e39562e4fe8c3942412df3acbfc4045f043d03399dac70091207507.js integrity=sha384-6sfuP2+nkcaE56Ufwv1QtvckJxueOVYuT+jDlCQS3zrL/EBF8EPQM5naxwCRIHUH defer></script><script type=text/javascript src=https://position-pal.github.io/docs/js/bundle.min.4b07706b1da436c9600e641a8cf51af20b3e497ead85e0d0af7552a0314e8e317dc63bb69d12c072092518621478900d.js integrity=sha384-Swdwax2kNslgDmQajPUa8gs+SX6theDQr3VSoDFOjjF9xju2nRLAcgklGGIUeJAN crossorigin=anonymous defer></script><script type=module>
     var suggestions = document.getElementById('suggestions');
     var search = document.getElementById('flexsearch');
@@ -352,8 +587,8 @@ Table of Contents</button><nav id=toc-mobile></nav></div><div class="docs-conten
                 id:  8 ,
                 href: "\/docs\/3-arch-design\/2-architecture-design\/",
                 title: "Architecture Design",
-                description: " ",
-                content: " "
+                description: "C\u0026C View linkThe following diagram shows the UML Component and Connector (C\u0026C) view of the system, providing a high-level picture of the system’s runtime entities in action and their boundaries.\n'=============================[ Styling ]============================' skinparam component { BackgroundColor\u003c\u003e White BackgroundColor\u003c\u003e #ccffcc BackgroundColor\u003c\u003e cyan } skinparam DatabaseBackgroundColor LightYellow skinparam NodeBackgroundColor White '===========================[ Components ]===========================' interface \"Notifications \\n exchange\" as NOTIF_EXCH interface \"Groups events \\n exchange\" as GRPS_EXCH interface \"Notifications \\n topic\" as NOTIF_TOPIC interface \"Groups events \\n topic\" as GRPS_TOPIC component \":message-broker\" { portin \"Publish groups events\" as MB_PUB_GRPS portin \"Publish notifications\" as MB_PUB_NOTIF portin \"Subscribe notifications\" as MB_SUB_NOTIF portin \"Subscribe groups events\" as MB_SUB_GRPS NOTIF_EXCH -- MB_PUB_NOTIF GRPS_EXCH -- MB_PUB_GRPS NOTIF_TOPIC -- MB_SUB_NOTIF GRPS_TOPIC -- MB_SUB_GRPS } interface \"\u003c\u003e\" as GATEWAY_WS_LOC interface \"\u003c\u003e\" as GATEWAY_RPC_LOC interface \"\u003c\u003e\" as GATEWAY_RPC_NOT component \":gateway\" { portin \"Public API\" as GATEWAY_API portin \"Real-time API\" as GATEWAY_REALTIME portout \"Location service \\n Real-time API\" as GATEWAY_LOC_REALTIME portout \"Location service \\n Public API\" as GATEWAY_LOC_API GATEWAY_LOC_REALTIME ..\u003e GATEWAY_WS_LOC : use GATEWAY_LOC_API ..\u003e GATEWAY_RPC_LOC : use portout \"Notification service API\" as GATEWAY_NOT_API GATEWAY_NOT_API ..\u003e GATEWAY_RPC_NOT } '------------------------[ Location Service ]-----------------------' interface \"Database Connector\" as LOC_DB_CONN component \":Location Service\" { portin \"Real-time tracking\" as LOC_REALTIME portin \"Tracking Services\" as LOC_TRACK GATEWAY_WS_LOC -- LOC_REALTIME GATEWAY_RPC_LOC -- LOC_TRACK portout \"Publish notifications\" as LOC_PUB portout \"Data Access\" as LOC_DA portout \"Receive groups events\" as LOC_SUB LOC_DA ..\u003e LOC_DB_CONN : use LOC_PUB ..\u003e NOTIF_EXCH : use LOC_SUB ..\u003e GRPS_TOPIC : use } database \":Location \\n Database\" as LOC_DB { portin \" \" as LOC_DB_DA LOC_DB_CONN -- LOC_DB_DA } '---------------------[ Notification Service ]---------------------' interface \"Database connector\" as NOT_DB_CONN component \":notification-service\" { portin \"Device tokens \\n registration\" as NOT_API GATEWAY_RPC_NOT ..\u003e NOT_API : use portout \"Data Access\" as NOT_DA portout \"Receive groups events\" as NOT_SUB NOT_DA ..\u003e NOT_DB_CONN : use NOT_SUB ..\u003e GRPS_TOPIC : use } database \": Notification \\n Database\" as NOT_DB { portin \" \" as NOT_DB_DA NOT_DB_CONN -- NOT_DB_DA } '-------------------------[ Chat Service ]-------------------------' component \":chat-service\" { } '-------------------------[ User Service ]-------------------------' component \":user-service\" { } @enduml",
+                content: "C\u0026C View linkThe following diagram shows the UML Component and Connector (C\u0026C) view of the system, providing a high-level picture of the system’s runtime entities in action and their boundaries.\n'=============================[ Styling ]============================' skinparam component { BackgroundColor\u003c\u003e White BackgroundColor\u003c\u003e #ccffcc BackgroundColor\u003c\u003e cyan } skinparam DatabaseBackgroundColor LightYellow skinparam NodeBackgroundColor White '===========================[ Components ]===========================' interface \"Notifications \\n exchange\" as NOTIF_EXCH interface \"Groups events \\n exchange\" as GRPS_EXCH interface \"Notifications \\n topic\" as NOTIF_TOPIC interface \"Groups events \\n topic\" as GRPS_TOPIC component \":message-broker\" { portin \"Publish groups events\" as MB_PUB_GRPS portin \"Publish notifications\" as MB_PUB_NOTIF portin \"Subscribe notifications\" as MB_SUB_NOTIF portin \"Subscribe groups events\" as MB_SUB_GRPS NOTIF_EXCH -- MB_PUB_NOTIF GRPS_EXCH -- MB_PUB_GRPS NOTIF_TOPIC -- MB_SUB_NOTIF GRPS_TOPIC -- MB_SUB_GRPS } interface \"\u003c\u003e\" as GATEWAY_WS_LOC interface \"\u003c\u003e\" as GATEWAY_RPC_LOC interface \"\u003c\u003e\" as GATEWAY_RPC_NOT component \":gateway\" { portin \"Public API\" as GATEWAY_API portin \"Real-time API\" as GATEWAY_REALTIME portout \"Location service \\n Real-time API\" as GATEWAY_LOC_REALTIME portout \"Location service \\n Public API\" as GATEWAY_LOC_API GATEWAY_LOC_REALTIME ..\u003e GATEWAY_WS_LOC : use GATEWAY_LOC_API ..\u003e GATEWAY_RPC_LOC : use portout \"Notification service API\" as GATEWAY_NOT_API GATEWAY_NOT_API ..\u003e GATEWAY_RPC_NOT } '------------------------[ Location Service ]-----------------------' interface \"Database Connector\" as LOC_DB_CONN component \":Location Service\" { portin \"Real-time tracking\" as LOC_REALTIME portin \"Tracking Services\" as LOC_TRACK GATEWAY_WS_LOC -- LOC_REALTIME GATEWAY_RPC_LOC -- LOC_TRACK portout \"Publish notifications\" as LOC_PUB portout \"Data Access\" as LOC_DA portout \"Receive groups events\" as LOC_SUB LOC_DA ..\u003e LOC_DB_CONN : use LOC_PUB ..\u003e NOTIF_EXCH : use LOC_SUB ..\u003e GRPS_TOPIC : use } database \":Location \\n Database\" as LOC_DB { portin \" \" as LOC_DB_DA LOC_DB_CONN -- LOC_DB_DA } '---------------------[ Notification Service ]---------------------' interface \"Database connector\" as NOT_DB_CONN component \":notification-service\" { portin \"Device tokens \\n registration\" as NOT_API GATEWAY_RPC_NOT ..\u003e NOT_API : use portout \"Data Access\" as NOT_DA portout \"Receive groups events\" as NOT_SUB NOT_DA ..\u003e NOT_DB_CONN : use NOT_SUB ..\u003e GRPS_TOPIC : use } database \": Notification \\n Database\" as NOT_DB { portin \" \" as NOT_DB_DA NOT_DB_CONN -- NOT_DB_DA } '-------------------------[ Chat Service ]-------------------------' component \":chat-service\" { } '-------------------------[ User Service ]-------------------------' component \":user-service\" { } @enduml "
             }
         );
     index.add(
@@ -416,7 +651,7 @@ Table of Contents</button><nav id=toc-mobile></nav></div><div class="docs-conten
                 href: "\/docs\/6-validation\/validation\/",
                 title: "Self Assessment and Validation",
                 description: "Self assessment and validation of the system.",
-                content: "Different types of automated tests are in place to ensure the correctness of the system, as well as the quality of the software product as a whole.\nArchitectural Testing linkArchUnit have been used to enforce architectural constraints, making sure to adhere to the Hexagonal architecture (otherwise said Onion or Ports and Adapters) and preventing unwanted dependencies, maintaining separation of concerns and ensuring architectural decisions are consistently followed over time.\nAn example of arch unit test specification and rules used is shown below and can be found here.\n\"Project-wise architecture\" should \"adhere to ports and adapters, a.k.a onion architecture\" in: val locationGroup = \"io.github.positionpal.location\" val code = ClassFileImporter().importPackages(locationGroup) onionArchitecture() .domainModels(s\"$locationGroup.commons..\", s\"$locationGroup.domain..\") .applicationServices(s\"$locationGroup.application..\", s\"$locationGroup.presentation..\") .adapter(\"real time tracker component\", s\"$locationGroup.tracking..\") .adapter(\"storage\", s\"$locationGroup.storage..\") .adapter(\"message broker\", s\"$locationGroup.messages..\") .adapter(\"gRPC API\", s\"$locationGroup.grpc..\") .adapter(\"web sockets and http web API\", s\"$locationGroup.ws..\") .ignoreDependency(havingEntrypointAsOrigin, andAnyTarget) .because(\"`Entrypoint` submodule contains the main method wiring all the adapters together.\") .ensureAllClassesAreContainedInArchitectureIgnoring(havingEntrypointAsOrigin) .withOptionalLayers(true) .check(code) private def havingEntrypointAsOrigin = DescribedPredicate.describe[JavaClass](\"in `entrypoint` package\", _.getPackage.getName.contains(\"entrypoint\")) private def andAnyTarget = DescribedPredicate.alwaysTrue() Unit tests linkIntegration tests linkEnd-to-End tests link Quality Assurance linkFor every language, different Quality Assurance (QA) tools are used to ensure the quality of the codebase.\nFor Scala, the following tools are used:\nScalafmt Scalastyle For Kotlin, the following tools are used:\nktlint detekt For Javascript, ESLint is used to enforce a coding style.\n"
+                content: "Different types of automated tests are in place to ensure the correctness of the system, as well as the quality of the software product as a whole.\nArchitectural Testing linkArchUnit have been used to enforce architectural constraints, making sure to adhere to the Hexagonal architecture (otherwise said Onion or Ports and Adapters) and preventing unwanted dependencies, maintaining separation of concerns and ensuring architectural decisions are consistently followed over time.\nAn example of arch unit test specification and rules used is shown below and can be found here.\n\"Project-wise architecture\" should \"adhere to ports and adapters, a.k.a onion architecture\" in: val locationGroup = \"io.github.positionpal.location\" val code = ClassFileImporter().importPackages(locationGroup) onionArchitecture() .domainModels(s\"$locationGroup.commons..\", s\"$locationGroup.domain..\") .applicationServices(s\"$locationGroup.application..\", s\"$locationGroup.presentation..\") .adapter(\"real time tracker component\", s\"$locationGroup.tracking..\") .adapter(\"storage\", s\"$locationGroup.storage..\") .adapter(\"message broker\", s\"$locationGroup.messages..\") .adapter(\"gRPC API\", s\"$locationGroup.grpc..\") .adapter(\"web sockets and http web API\", s\"$locationGroup.ws..\") .ignoreDependency(havingEntrypointAsOrigin, andAnyTarget) .because(\"`Entrypoint` submodule contains the main method wiring all the adapters together.\") .ensureAllClassesAreContainedInArchitectureIgnoring(havingEntrypointAsOrigin) .withOptionalLayers(true) .check(code) private def havingEntrypointAsOrigin = DescribedPredicate.describe[JavaClass](\"in `entrypoint` package\", _.getPackage.getName.contains(\"entrypoint\")) private def andAnyTarget = DescribedPredicate.alwaysTrue() This uses the onionArchitecture rule to enforce the following architectural constraints:\nthe domainModels contains all the domain entities and do not depend on any other layer; the applicationServices contains all the application services that are needed to run the application and use cases. They can use and see only the domain models and no other layer; the adapters modules contains logic to connect to external systems and/or infrastructure. They can see and use both the domain models and the application services, but no adapter can depend on another one. Unit tests linkIntegration tests linkEnd-to-End tests linkAs presented in the Domain Analysis section, the system has been end-to-end validated and tested using Cucumber…\nQuality Assurance linkFor all the projects and repositories, depending on the language they are developed in, different Quality Assurance (QA) tools have been used to validate the quality of the codebase. These tools ensure adherence to coding standards, maintainability, and early detection of potential issues, if appropriately integrated into Continuous Integration (as per DevOps best practices).\nThe following tools have been used for Scala:\nScalafmt: a code formatter ensuring consistency in code style across the project. Scalastyle: a tool for refactoring and linting Scala code, allowing automated fixes for common issues and ensuring best practices. The following tools have been employed for Kotlin:\nktlint: a linter and formatter that enforces Kotlin coding standards automatically. detekt: a static code analysis tool for Kotlin that helps identify code smells, complexity issues, and potential security risks. For Javascript, ESLint, a static analysis tool that enforces coding style rules and detects problematic patterns in JavaScript code.\nTo further improve code quality and reliability, aggressive compilation options have been used across all projects. These options ensure that all warnings are treated as errors, preventing the introduction of potential issues into the codebase. This approach enforces strict compliance with best practices and minimizes the risk of overlooking important warnings that could lead to runtime errors or degraded maintainability.\nBy integrating these QA tools and enforcing strict compilation settings, the project maintains high code quality, reduces technical debt, and ensures consistency across different languages and repositories.\nFor more details on the QA tools and configuration used please refer to the DevOps section.\n"
             }
         );
     index.add(

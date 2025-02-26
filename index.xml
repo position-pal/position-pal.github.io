@@ -41,14 +41,88 @@ So that I can go where I want without letting know those member&lt;/p></descript
 &lt;/ul>
 &lt;/li>
 &lt;li>
-&lt;p>&lt;strong>Stop Location Sharing&lt;/strong>&lt;/p></description></item><item><title>Quality Attributes</title><link>https://position-pal.github.io/docs/2-domain-analysis/3-quality-attributes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/3-quality-attributes/</guid><description/></item><item><title>Event Storming</title><link>https://position-pal.github.io/docs/2-domain-analysis/4-event-storming/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/4-event-storming/</guid><description/></item><item><title>Bounded Contexts</title><link>https://position-pal.github.io/docs/3-arch-design/1-bounded-contexts-copy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/3-arch-design/1-bounded-contexts-copy/</guid><description/></item><item><title>Architecture Design</title><link>https://position-pal.github.io/docs/3-arch-design/2-architecture-design/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/3-arch-design/2-architecture-design/</guid><description>&lt;div style="width: 100%; overflow-x: auto; white-space: nowrap;">
- &lt;img 
- src="https://position-pal.github.io/res/architecture-cc-light.svg" 
- alt="architecture-cc schema" 
- style="max-width: 1100px;"
- class="schema"
- />
-&lt;/div></description></item><item><title>Microservices</title><link>https://position-pal.github.io/docs/3-arch-design/3-microservices/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/3-arch-design/3-microservices/</guid><description/></item><item><title>Shared Kernel design</title><link>https://position-pal.github.io/docs/4-detailed-design/1-shared-kernel/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/4-detailed-design/1-shared-kernel/</guid><description>&lt;h2 id="structure">Structure &lt;a href="#structure" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;div style="width: 100%; overflow-x: auto; white-space: nowrap;">
+&lt;p>&lt;strong>Stop Location Sharing&lt;/strong>&lt;/p></description></item><item><title>Quality Attributes</title><link>https://position-pal.github.io/docs/2-domain-analysis/3-quality-attributes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/3-quality-attributes/</guid><description/></item><item><title>Event Storming</title><link>https://position-pal.github.io/docs/2-domain-analysis/4-event-storming/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/4-event-storming/</guid><description/></item><item><title>Bounded Contexts</title><link>https://position-pal.github.io/docs/3-arch-design/1-bounded-contexts-copy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/3-arch-design/1-bounded-contexts-copy/</guid><description/></item><item><title>Architecture Design</title><link>https://position-pal.github.io/docs/3-arch-design/2-architecture-design/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/3-arch-design/2-architecture-design/</guid><description>&lt;h2 id="cc-view">C&amp;amp;C View &lt;a href="#cc-view" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The following diagram shows the UML Component and Connector (C&amp;amp;C) view of the system, providing a high-level picture of the system&amp;rsquo;s runtime entities in action and their boundaries.&lt;/p>
+
+
+ 
+ &lt;pre tabindex="0">&lt;code class="language-plantuml" data-lang="plantuml">&amp;#39;=============================[ Styling ]============================&amp;#39;
+skinparam component {
+ BackgroundColor&amp;lt;&amp;lt;external&amp;gt;&amp;gt; White
+ BackgroundColor&amp;lt;&amp;lt;executable&amp;gt;&amp;gt; #ccffcc
+ BackgroundColor&amp;lt;&amp;lt;test&amp;gt;&amp;gt; cyan
+}
+skinparam DatabaseBackgroundColor LightYellow
+skinparam NodeBackgroundColor White
+&amp;#39;===========================[ Components ]===========================&amp;#39;
+interface &amp;#34;Notifications \n exchange&amp;#34; as NOTIF_EXCH
+interface &amp;#34;Groups events \n exchange&amp;#34; as GRPS_EXCH
+interface &amp;#34;Notifications \n topic&amp;#34; as NOTIF_TOPIC
+interface &amp;#34;Groups events \n topic&amp;#34; as GRPS_TOPIC
+component &amp;#34;:message-broker&amp;#34; {
+ portin &amp;#34;Publish groups events&amp;#34; as MB_PUB_GRPS
+ portin &amp;#34;Publish notifications&amp;#34; as MB_PUB_NOTIF
+ portin &amp;#34;Subscribe notifications&amp;#34; as MB_SUB_NOTIF
+ portin &amp;#34;Subscribe groups events&amp;#34; as MB_SUB_GRPS
+ NOTIF_EXCH -- MB_PUB_NOTIF
+ GRPS_EXCH -- MB_PUB_GRPS
+ NOTIF_TOPIC -- MB_SUB_NOTIF
+ GRPS_TOPIC -- MB_SUB_GRPS
+}
+
+interface &amp;#34;&amp;lt;&amp;lt;WS&amp;gt;&amp;gt;&amp;#34; as GATEWAY_WS_LOC
+interface &amp;#34;&amp;lt;&amp;lt;RPC&amp;gt;&amp;gt;&amp;#34; as GATEWAY_RPC_LOC
+interface &amp;#34;&amp;lt;&amp;lt;RPC&amp;gt;&amp;gt;&amp;#34; as GATEWAY_RPC_NOT
+component &amp;#34;:gateway&amp;#34; {
+ portin &amp;#34;Public API&amp;#34; as GATEWAY_API
+ portin &amp;#34;Real-time API&amp;#34; as GATEWAY_REALTIME
+ portout &amp;#34;Location service \n Real-time API&amp;#34; as GATEWAY_LOC_REALTIME
+ portout &amp;#34;Location service \n Public API&amp;#34; as GATEWAY_LOC_API
+ GATEWAY_LOC_REALTIME ..&amp;gt; GATEWAY_WS_LOC : use
+ GATEWAY_LOC_API ..&amp;gt; GATEWAY_RPC_LOC : use
+ portout &amp;#34;Notification service API&amp;#34; as GATEWAY_NOT_API
+ GATEWAY_NOT_API ..&amp;gt; GATEWAY_RPC_NOT
+}
+&amp;#39;------------------------[ Location Service ]-----------------------&amp;#39;
+interface &amp;#34;Database Connector&amp;#34; as LOC_DB_CONN
+component &amp;#34;:Location Service&amp;#34; {
+ portin &amp;#34;Real-time tracking&amp;#34; as LOC_REALTIME
+ portin &amp;#34;Tracking Services&amp;#34; as LOC_TRACK
+ GATEWAY_WS_LOC -- LOC_REALTIME
+ GATEWAY_RPC_LOC -- LOC_TRACK
+ portout &amp;#34;Publish notifications&amp;#34; as LOC_PUB
+ portout &amp;#34;Data Access&amp;#34; as LOC_DA
+ portout &amp;#34;Receive groups events&amp;#34; as LOC_SUB
+ LOC_DA ..&amp;gt; LOC_DB_CONN : use
+ LOC_PUB ..&amp;gt; NOTIF_EXCH : use
+ LOC_SUB ..&amp;gt; GRPS_TOPIC : use
+}
+database &amp;#34;:Location \n Database&amp;#34; as LOC_DB {
+ portin &amp;#34; &amp;#34; as LOC_DB_DA
+ LOC_DB_CONN -- LOC_DB_DA
+}
+&amp;#39;---------------------[ Notification Service ]---------------------&amp;#39;
+interface &amp;#34;Database connector&amp;#34; as NOT_DB_CONN
+component &amp;#34;:notification-service&amp;#34; {
+ portin &amp;#34;Device tokens \n registration&amp;#34; as NOT_API
+ GATEWAY_RPC_NOT ..&amp;gt; NOT_API : use
+ portout &amp;#34;Data Access&amp;#34; as NOT_DA
+ portout &amp;#34;Receive groups events&amp;#34; as NOT_SUB
+ NOT_DA ..&amp;gt; NOT_DB_CONN : use
+ NOT_SUB ..&amp;gt; GRPS_TOPIC : use
+}
+database &amp;#34;: Notification \n Database&amp;#34; as NOT_DB {
+ portin &amp;#34; &amp;#34; as NOT_DB_DA
+ NOT_DB_CONN -- NOT_DB_DA
+}
+&amp;#39;-------------------------[ Chat Service ]-------------------------&amp;#39;
+component &amp;#34;:chat-service&amp;#34; {
+
+}
+&amp;#39;-------------------------[ User Service ]-------------------------&amp;#39;
+component &amp;#34;:user-service&amp;#34; {
+
+}
+@enduml&lt;/code>&lt;/pre></description></item><item><title>Microservices</title><link>https://position-pal.github.io/docs/3-arch-design/3-microservices/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/3-arch-design/3-microservices/</guid><description/></item><item><title>Shared Kernel design</title><link>https://position-pal.github.io/docs/4-detailed-design/1-shared-kernel/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/4-detailed-design/1-shared-kernel/</guid><description>&lt;h2 id="structure">Structure &lt;a href="#structure" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;div style="width: 100%; overflow-x: auto; white-space: nowrap;">
  &lt;img 
  src="https://position-pal.github.io/res/shared-kernel-structure-light.svg" 
  alt="shared-kernel-structure schema" 
