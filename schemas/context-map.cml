@@ -9,10 +9,11 @@ ContextMap PositionPalMap {
     contains LocationContext
     contains NotificationsContext
 
-    UsersManagementContext <-> GroupsManagementContext
+    UsersManagementContext [U] -> [D, CF] GroupsManagementContext
+    UsersManagementContext <-> ChatContext
 
-    UsersManagementContext [U, OHS, PL]->[D, CF] LocationContext
 
+    GroupsManagementContext [U, OHS, PL]->[D, CF] LocationContext
     NotificationsContext [U, OHS, PL]->[D, CF] UsersManagementContext
     NotificationsContext [U, OHS, PL]->[D, CF] GroupsManagementContext
     NotificationsContext [U, OHS, PL]->[D, CF] ChatContext
@@ -21,12 +22,9 @@ ContextMap PositionPalMap {
 
 /* Bounded Context Definitions */
 BoundedContext ChatContext implements ChatSubdomain
-
 BoundedContext UsersManagementContext implements UsersAndGroupManagementSubdomain
 BoundedContext GroupsManagementContext implements UsersAndGroupManagementSubdomain
-
 BoundedContext LocationContext implements LocationSubdomain
-
 BoundedContext NotificationsContext implements NotificationsSubdomain
 
 /* Domain & Subdomain Definitions */

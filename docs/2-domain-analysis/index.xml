@@ -44,4 +44,15 @@ So that I can keep my personal details current&lt;/p></description></item><item>
 &lt;/ul>
 &lt;/li>
 &lt;li>
-&lt;p>&lt;strong>Stop Location Sharing&lt;/strong>&lt;/p></description></item><item><title>Quality Attributes</title><link>https://position-pal.github.io/docs/2-domain-analysis/3-quality-attributes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/3-quality-attributes/</guid><description/></item><item><title>Event Storming</title><link>https://position-pal.github.io/docs/2-domain-analysis/4-event-storming/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/4-event-storming/</guid><description/></item></channel></rss>
+&lt;p>&lt;strong>Stop Location Sharing&lt;/strong>&lt;/p></description></item><item><title>Quality Attributes</title><link>https://position-pal.github.io/docs/2-domain-analysis/3-quality-attributes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/3-quality-attributes/</guid><description>&lt;p>Vale&amp;ndash;&lt;/p>
+&lt;p>Security&lt;/p>
+&lt;p>Deployability&lt;/p>
+&lt;p>Maintainability&lt;/p>
+&lt;p>Luca&amp;ndash;&lt;/p>
+&lt;p>Testability&lt;/p>
+&lt;p>Modularity&lt;/p>
+&lt;p>Observability&lt;/p>
+&lt;p>Gio&amp;ndash;&lt;/p>
+&lt;p>Reliability&lt;/p>
+&lt;p>Availability&lt;/p>
+&lt;p>Scalability&lt;/p></description></item><item><title>Event Storming</title><link>https://position-pal.github.io/docs/2-domain-analysis/4-event-storming/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/4-event-storming/</guid><description/></item></channel></rss>
