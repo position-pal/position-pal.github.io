@@ -44,15 +44,6 @@ So that I can keep my personal details current&lt;/p></description></item><item>
 &lt;/ul>
 &lt;/li>
 &lt;li>
-&lt;p>&lt;strong>Stop Location Sharing&lt;/strong>&lt;/p></description></item><item><title>Quality Attributes</title><link>https://position-pal.github.io/docs/2-domain-analysis/3-quality-attributes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/3-quality-attributes/</guid><description>&lt;p>Vale&amp;ndash;&lt;/p>
-&lt;p>Security&lt;/p>
-&lt;p>Deployability&lt;/p>
-&lt;p>Maintainability&lt;/p>
-&lt;p>Luca&amp;ndash;&lt;/p>
-&lt;p>Testability&lt;/p>
-&lt;p>Modularity&lt;/p>
-&lt;p>Observability&lt;/p>
-&lt;p>Gio&amp;ndash;&lt;/p>
-&lt;p>Reliability&lt;/p>
-&lt;p>Availability&lt;/p>
-&lt;p>Scalability&lt;/p></description></item><item><title>Event Storming</title><link>https://position-pal.github.io/docs/2-domain-analysis/4-event-storming/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/4-event-storming/</guid><description/></item></channel></rss>
+&lt;p>&lt;strong>Stop Location Sharing&lt;/strong>&lt;/p></description></item><item><title>Quality Attributes</title><link>https://position-pal.github.io/docs/2-domain-analysis/3-quality-attributes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/3-quality-attributes/</guid><description>&lt;p>&lt;em>Quality Attributes&lt;/em> (&lt;em>QA&lt;/em>), also known as &lt;em>Non-Functional Requirements&lt;/em> (&lt;em>NFR&lt;/em>), are measurable properties of a system that describe its qualities and indicate how well it satisfies the needs of its stakeholders beyond the functional requirements.&lt;/p>
+&lt;p>These attributes play a crucial role in shaping the system architecture, as they influence design decisions, trade-offs, and the selection of appropriate technologies and patterns.&lt;/p>
+&lt;p>In the context of this project have been identified the following quality attributes that are considered essential for the success of system, divided into &amp;ldquo;Runtime&amp;rdquo; and &amp;ldquo;Development Time&amp;rdquo; categories:&lt;/p></description></item><item><title>Event Storming</title><link>https://position-pal.github.io/docs/2-domain-analysis/4-event-storming/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/4-event-storming/</guid><description/></item></channel></rss>
