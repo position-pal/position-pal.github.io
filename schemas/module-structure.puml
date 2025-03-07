@@ -1,41 +1,4 @@
 @startuml
 
-[:common] as Common
-[:domain] as Domain
-
-note left of Domain
-Here goes all the domain logic and business rules that
-compreehends: 
-  - Value objects
-  - Entities
-  - Aggregates
-  - Events
-end note
-
-[:application] as Application
-note left of Application
-  - Services
-  - Repository
-end note
-
-[:storage] as Storage
-note bottom of Storage
-  Here goes all the code that ensures the data persistance
-end note
-
-[:presentation] as Presentation
-note bottom of Presentation
-  Here goes all the code that ensures the data presentation intra and extra application.
-end note
-
-
-Domain -up-|> Common
-Application -up-|> Domain
-
-Storage -up-|> Application
-Presentation -up-|> Application
-
-
-
 
 @enduml
