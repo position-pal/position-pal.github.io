@@ -57,50 +57,17 @@ So that I can keep my personal details current&lt;/p></description></item><item>
 &lt;p>Gio&amp;ndash;&lt;/p>
 &lt;p>Reliability&lt;/p>
 &lt;p>Availability&lt;/p>
-&lt;p>Scalability&lt;/p></description></item><item><title>Event Storming</title><link>https://position-pal.github.io/docs/2-domain-analysis/4-event-storming/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/4-event-storming/</guid><description/></item><item><title>Bounded Contexts</title><link>https://position-pal.github.io/docs/3-arch-design/1-bounded-contexts/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/3-arch-design/1-bounded-contexts/</guid><description>&lt;p>Qua inserire il diagramma dei bounded context e descrivere per ciascuno Ubiquitous Language ed Eventi.&lt;/p></description></item><item><title>Microservices</title><link>https://position-pal.github.io/docs/3-arch-design/2-microservices/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/3-arch-design/2-microservices/</guid><description>&lt;h2 id="microservices-decomposition">Microservices Decomposition &lt;a href="#microservices-decomposition" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Following the decompose by subdomain strategy and considering the following guidelines we have identified the microservices that will compose the system:&lt;/p>
+&lt;p>Scalability&lt;/p></description></item><item><title>Event Storming</title><link>https://position-pal.github.io/docs/2-domain-analysis/4-event-storming/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/4-event-storming/</guid><description/></item><item><title>Bounded Contexts</title><link>https://position-pal.github.io/docs/3-arch-design/1-bounded-contexts/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/3-arch-design/1-bounded-contexts/</guid><description>&lt;p>Qua inserire il diagramma dei bounded context e descrivere per ciascuno Ubiquitous Language ed Eventi.&lt;/p></description></item><item><title>Architecture Design</title><link>https://position-pal.github.io/docs/3-arch-design/2-architecture-design/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/3-arch-design/2-architecture-design/</guid><description>&lt;p>The chosen architectural style for the system is the &lt;strong>Microservices Architecture&lt;/strong>.&lt;/p>
+&lt;p>&lt;code>TODO: why, advantages&lt;/code>&lt;/p>
+&lt;h2 id="microservices-decomposition">Microservices Decomposition &lt;a href="#microservices-decomposition" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Following the &lt;em>decompose by subdomain strategy&lt;/em> the following microservices have been identified:&lt;/p>
 &lt;ul>
-&lt;li>User Service: responsible for managing the user account data and the groups of the system;&lt;/li>
-&lt;li>Location Service: responsible for managing the location and the user tracking;&lt;/li>
-&lt;li>Notification Service: responsible for managing the notifications;&lt;/li>
-&lt;li>Chat Service: responsible for managing the chat messages.&lt;/li>
+&lt;li>&lt;strong>User Service&lt;/strong>: responsible for managing the user account data and the groups of the system;&lt;/li>
+&lt;li>&lt;strong>Location Service&lt;/strong>: responsible for managing the location and the user tracking;&lt;/li>
+&lt;li>&lt;strong>Notification Service&lt;/strong>: responsible for managing the notifications;&lt;/li>
+&lt;li>&lt;strong>Chat Service&lt;/strong>: responsible for managing the chat messages.&lt;/li>
 &lt;/ul>
-&lt;p>It should be noted that in the User Service we have joined together the Users and Groups bounded context. This is because one can see the close interaction between these two domain entities in addition to respecting properties such as the &amp;ldquo;Common Closure Principle&amp;rdquo; (package components that change for the same reason are located into the same service.), ensuring data consistency and mitigate Network latency:&lt;/p></description></item><item><title>Architecture Design</title><link>https://position-pal.github.io/docs/3-arch-design/3-architecture-design/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/3-arch-design/3-architecture-design/</guid><description>&lt;h2 id="cc-view">C&amp;amp;C View &lt;a href="#cc-view" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The following diagram shows the UML Component and Connector (C&amp;amp;C) view of the system, providing a high-level picture of the system&amp;rsquo;s runtime entities in action and their boundaries.&lt;/p>
-&lt;div style="width: 100%; overflow-x: auto; white-space: nowrap;">
- &lt;img 
- src="https://position-pal.github.io/res/architecture-cc-location-light.svg" 
- alt="architecture-cc-location schema" 
- style="max-width: 1100px;"
- class="schema"
- />
-&lt;/div>
-&lt;div style="width: 100%; overflow-x: auto; white-space: nowrap;">
- &lt;img 
- src="https://position-pal.github.io/res/architecture-cc-chat-light.svg" 
- alt="architecture-cc-chat schema" 
- style="max-width: 1100px;"
- class="schema"
- />
-&lt;/div>
-&lt;!--
-
- portout "Notification service API" as GATEWAY_NOT_API
-'---------------------[ Notification Service ]---------------------'
-interface "Database connector" as NOT_DB_CONN
-component ":notification-service" {
- portin "Device tokens \n registration" as NOT_API
- GATEWAY_RPC_NOT ..> NOT_API : use
- portout "Data Access" as NOT_DA
- portout "Receive groups events" as NOT_SUB
- NOT_DA ..> NOT_DB_CONN : use
- NOT_SUB ..> GRPS_TOPIC : use
-}
-database ": Notification \n Database" as NOT_DB {
- portin " " as NOT_DB_DA
- NOT_DB_CONN -- NOT_DB_DA
-}
-
--->
-&lt;h2 id="deployment-view">Deployment View &lt;a href="#deployment-view" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h2 id="clean-architecture">Clean Architecture &lt;a href="#clean-architecture" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2></description></item><item><title>Architectural Patterns</title><link>https://position-pal.github.io/docs/3-arch-design/4-patterns/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/3-arch-design/4-patterns/</guid><description>&lt;h2 id="api-gateway">API Gateway &lt;a href="#api-gateway" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h2 id="event-sourcing">Event Sourcing &lt;a href="#event-sourcing" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h2 id="json-web-token-jwt">JSON Web Token (JWT) &lt;a href="#json-web-token-jwt" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h2 id="cqrs-forse">CQRS forse? &lt;a href="#cqrs-forse" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h2 id="deployment">Deployment? &lt;a href="#deployment" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2></description></item><item><title>Shared Kernel design</title><link>https://position-pal.github.io/docs/4-detailed-design/1-shared-kernel/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/4-detailed-design/1-shared-kernel/</guid><description>&lt;h2 id="structure">Structure &lt;a href="#structure" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;div style="width: 100%; overflow-x: auto; white-space: nowrap;">
+&lt;p>It should be noted that in the &lt;em>User Service&lt;/em> we have joined together the Users and Groups bounded context.
+This is because one can see the close interaction between these two domain entities in addition to respecting properties such as the &amp;ldquo;Common Closure Principle&amp;rdquo; (package components that change for the same reason are located into the same service), ensuring data consistency and mitigate Network latency:&lt;/p></description></item><item><title>Architectural Patterns</title><link>https://position-pal.github.io/docs/3-arch-design/4-patterns/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/3-arch-design/4-patterns/</guid><description>&lt;h2 id="api-gateway">API Gateway &lt;a href="#api-gateway" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h2 id="event-sourcing">Event Sourcing &lt;a href="#event-sourcing" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h2 id="json-web-token-jwt">JSON Web Token (JWT) &lt;a href="#json-web-token-jwt" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h2 id="cqrs-forse">CQRS forse? &lt;a href="#cqrs-forse" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h2 id="deployment">Deployment? &lt;a href="#deployment" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2></description></item><item><title>Shared Kernel design</title><link>https://position-pal.github.io/docs/4-detailed-design/1-shared-kernel/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/4-detailed-design/1-shared-kernel/</guid><description>&lt;h2 id="structure">Structure &lt;a href="#structure" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;div style="width: 100%; overflow-x: auto; white-space: nowrap;">
  &lt;img 
  src="https://position-pal.github.io/res/shared-kernel-structure-light.svg" 
  alt="shared-kernel-structure schema" 
