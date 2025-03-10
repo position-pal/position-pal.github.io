@@ -3,14 +3,30 @@ Its primary objective is to encapsulate &lt;em>only&lt;/em> the integration cont
 &lt;p>Since the system&amp;rsquo;s architecture is event-driven, communication between microservices occurs exclusively through events and commands exchanged via the message broker.
 These events and commands have been represented as classes and interfaces, as illustrated in the following UML diagram.
 This approach facilitates and reduce the cost of duplicating code across services, ensuring consistency and coherence in the system&amp;rsquo;s communication.&lt;/p></description></item><item><title>Location Service design</title><link>https://position-pal.github.io/docs/4-detailed-design/2-location-service/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/4-detailed-design/2-location-service/</guid><description>&lt;!--This chapter explains the strategies used to meet the requirements identified in the analysis.-->
-&lt;p>In this chapter, we present the abstract design of the &lt;strong>Location Service&lt;/strong>.
+&lt;p>In this section it is presented the abstract design of the &lt;strong>Location Service&lt;/strong>.
 As per best practices, the design is based on the &lt;strong>Domain-Driven Design&lt;/strong> principles, and is presented in terms of the main three views: &lt;strong>structure&lt;/strong>, &lt;strong>interaction&lt;/strong>, and &lt;strong>behavior&lt;/strong>.&lt;/p>
 &lt;h2 id="abstract-design">Abstract Design &lt;a href="#abstract-design" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="structure">Structure &lt;a href="#structure" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>The main domain concepts and events are presented hereafter and reified in the following classes structure, following the DDD building blocks.&lt;/p></description></item><item><title>Chat Service design</title><link>https://position-pal.github.io/docs/4-detailed-design/4-chat-service/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/4-detailed-design/4-chat-service/</guid><description>&lt;p>Chat service is responsible for managing the &lt;strong>communication between users in &lt;em>real-time&lt;/em>&lt;/strong>. This document describes the detailed design of the chat service, including its architecture, components, and interactions.&lt;/p>
-&lt;h2 id="abstract-design">Abstract Design &lt;a href="#abstract-design" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here are presented the main components of the chat service, we start describing the foundamental entities of the domain, then we move to the infrastructure layer, where we define the commands and events that will be used to interact with the domain entities.&lt;/p></description></item><item><title>Notification Service design</title><link>https://position-pal.github.io/docs/4-detailed-design/3-notification-service/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/4-detailed-design/3-notification-service/</guid><description>&lt;h2 id="structure">Structure &lt;a href="#structure" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;div style="width: 100%; overflow-x: auto; white-space: nowrap;">
+&lt;h2 id="abstract-design">Abstract Design &lt;a href="#abstract-design" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here are presented the main components of the chat service, we start describing the foundamental entities of the domain, then we move to the infrastructure layer, where we define the commands and events that will be used to interact with the domain entities.&lt;/p></description></item><item><title>Notification Service design</title><link>https://position-pal.github.io/docs/4-detailed-design/3-notification-service/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/4-detailed-design/3-notification-service/</guid><description>&lt;p>In this section is presented the abstract design of the notification service.&lt;/p>
+&lt;p>As already presented, its main responsibility is to &lt;strong>send notifications&lt;/strong> to the users, based on the events that occur in the system.&lt;/p>
+&lt;h2 id="structure">Structure &lt;a href="#structure" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The structure of the service is quite simple:&lt;/p>
+&lt;div style="width: 100%; overflow-x: auto; white-space: nowrap;">
  &lt;img 
  src="https://position-pal.github.io/res/notification-service-structure-light.svg" 
  alt="notification-service-structure schema" 
  style="max-width: 1100px;"
  class="schema"
  />
-&lt;/div></description></item></channel></rss>
+&lt;/div>
+&lt;ul>
+&lt;li>&lt;code>Token&lt;/code> is a value object that represents the token used to identify the device of a user.&lt;/li>
+&lt;li>&lt;code>UserToken&lt;/code> is an entity that represents the association between a user and a token.&lt;/li>
+&lt;li>&lt;code>UsersTokensService&lt;/code> is the service that allows registering and invalidating tokens for users.&lt;/li>
+&lt;li>&lt;code>UsersTokensRepository&lt;/code> is the repository that stores the associations between users and tokens.&lt;/li>
+&lt;li>&lt;code>NotificationPublisher&lt;/code> is the service that sends notifications to users.
+&lt;ul>
+&lt;li>&lt;code>PublishingTargetStrategy&lt;/code> is the strategy used to determine the target of the notification. Two stategies exists: one to send to all members of a group (corresponding to the &lt;code>GroupWisePushNotification&lt;/code> command) and another to send to all members sharing a group with a user (corresponding to the &lt;code>CoMembersPushNotification&lt;/code> command).&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;code>GroupsRepository&lt;/code> is the repository that allows storing and retrieving the members of the groups. This is called by the message broker adapter on every events whose topic is related to groups state changes.&lt;/li>
+&lt;/ul>
+&lt;h2 id="interaction">Interaction &lt;a href="#interaction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2></description></item></channel></rss>
