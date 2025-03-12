@@ -15,37 +15,43 @@ So that I can access my account and use the application&lt;/p>
 &lt;p>As a logged user &lt;br>
 I want to update my profile information &lt;br>
 So that I can keep my personal details current&lt;/p></description></item><item><title>Business Requirements</title><link>https://position-pal.github.io/docs/2-domain-analysis/2-business-requirements/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/2-business-requirements/</guid><description>&lt;h2 id="glossary">Glossary &lt;a href="#glossary" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>??&lt;/p>
-&lt;h2 id="use-cases">Use cases &lt;a href="#use-cases" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="location-tracking">Location Tracking &lt;a href="#location-tracking" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;div style="width: 100%; overflow-x: auto; white-space: nowrap;">
+&lt;h2 id="use-cases">Use cases &lt;a href="#use-cases" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="users-and-groups-management">Users and Groups Management &lt;a href="#users-and-groups-management" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;div style="width: 100%; overflow-x: auto; white-space: nowrap;">
  &lt;img 
- src="https://position-pal.github.io/res/tracking-use-cases-light.svg" 
- alt="tracking-use-cases schema" 
+ src="https://position-pal.github.io/res/users-use-cases-light.svg" 
+ alt="users-use-cases schema" 
  style="max-width: 1100px;"
  class="schema"
  />
 &lt;/div>
-&lt;ol>
+&lt;h3 id="user-management-use-cases">User Management Use Cases &lt;a href="#user-management-use-cases" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;ol>
 &lt;li>
-&lt;p>&lt;strong>Start Location Sharing&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Register with the system&lt;/strong>&lt;/p>
 &lt;ul>
-&lt;li>&lt;strong>Actor&lt;/strong>: Group member&lt;/li>
-&lt;li>&lt;strong>Description&lt;/strong>: The user starts sharing their location with members of one or more groups.&lt;/li>
+&lt;li>&lt;strong>Actor&lt;/strong>: User&lt;/li>
+&lt;li>&lt;strong>Description&lt;/strong>: A new user creates an account in the system.&lt;/li>
 &lt;li>&lt;strong>Preconditions&lt;/strong>:
 &lt;ul>
-&lt;li>The user is logged and is a member of the group they want to share their location with.&lt;/li>
+&lt;li>The user has not previously registered with the system.&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>&lt;strong>Main Scenario&lt;/strong>:
 &lt;ol>
-&lt;li>The user selects the group they want to share their location with;&lt;/li>
-&lt;li>The user starts sharing their location with members of that group;&lt;/li>
-&lt;li>A visual feedback is sent to the user notifying them the location sharing has started.&lt;/li>
+&lt;li>The user provides required registration information (name, surname, email and password);&lt;/li>
+&lt;li>The system validates the provided information;&lt;/li>
+&lt;li>The system creates a new user account;&lt;/li>
 &lt;/ol>
 &lt;/li>
-&lt;li>&lt;strong>Postcondition&lt;/strong>: The user&amp;rsquo;s location is shared with the selected group members.&lt;/li>
+&lt;li>&lt;strong>Alternative Scenario&lt;/strong>: Registration information is invalid
+&lt;ol>
+&lt;li>The system notifies the user about validation errors;&lt;/li>
+&lt;li>The user corrects the information and resubmits.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>&lt;strong>Postcondition&lt;/strong>: The user has a registered account in the system.&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>
-&lt;p>&lt;strong>Stop Location Sharing&lt;/strong>&lt;/p></description></item><item><title>Quality Attributes</title><link>https://position-pal.github.io/docs/2-domain-analysis/3-quality-attributes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/3-quality-attributes/</guid><description>&lt;p>&lt;em>Quality Attributes&lt;/em> (&lt;em>QA&lt;/em>), also known as &lt;em>Non-Functional Requirements&lt;/em> (&lt;em>NFR&lt;/em>), are measurable properties of a system that describe its qualities and indicate how well it satisfies the needs of its stakeholders beyond the functional requirements.&lt;/p>
+&lt;p>&lt;strong>Log in with my credentials&lt;/strong>&lt;/p></description></item><item><title>Quality Attributes</title><link>https://position-pal.github.io/docs/2-domain-analysis/3-quality-attributes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/3-quality-attributes/</guid><description>&lt;p>&lt;em>Quality Attributes&lt;/em> (&lt;em>QA&lt;/em>), also known as &lt;em>Non-Functional Requirements&lt;/em> (&lt;em>NFR&lt;/em>), are measurable properties of a system that describe its qualities and indicate how well it satisfies the needs of its stakeholders beyond the functional requirements.&lt;/p>
 &lt;p>These attributes play a crucial role in shaping the system architecture, as they influence design decisions, trade-offs, and the selection of appropriate technologies and patterns.&lt;/p>
 &lt;p>In the context of this project have been identified the following quality attributes that are considered essential for the success of system, divided into &amp;ldquo;Runtime&amp;rdquo; and &amp;ldquo;Development Time&amp;rdquo; categories:&lt;/p></description></item><item><title>Event Storming</title><link>https://position-pal.github.io/docs/2-domain-analysis/4-event-storming/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/4-event-storming/</guid><description>&lt;p>In order to extract the main functionality of the application as quickly and effectively as possible, &lt;strong>Event Storming&lt;/strong>, a collaborative and visual modeling technique particularly used and valued in the agile and Domain-Driven development context, was used.&lt;/p>
 &lt;p>Its power comes from a heterogeneous, multidisciplinary group of experts, from architects to product owners, via UI/UX designers to testers, who, together, collaborate to extract key features and the processes that drive them, sharing this knowledge so that it is shared beyond the compartments of each team.
