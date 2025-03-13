@@ -1,5 +1,5 @@
-<!doctype html><html lang=en-us><script src=https://code.jquery.com/jquery-3.6.0.min.js></script><script>$(document).ready(function(){$("#mode").on("click",updateDiagramImage),updateDiagramImage()});function updateDiagramImage(){const e=$("html").attr("data-dark-mode")!==void 0;console.debug("Dark mode:",e);const t=e?"-dark":"-light";$(".schema").each(function(){const n=$(this);let e=n.attr("src");e=e.replace(/(-dark|-light)\.svg$/,""),n.attr("src",e+t+".svg")})}</script><head><meta charset=utf-8><title>Introduction | PositionPal</title>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="What, Why, and How"><meta name=keywords content="Documentation,Hugo,Hugo Theme,Bootstrap"><meta name=author content="Colin Wilson - Lotus Labs"><meta name=email content="support@aigis.uk"><meta name=website content="https://lotusdocs.dev"><meta name=Version content="v0.1.0"><link rel=icon href=https://position-pal.github.io/favicon.ico sizes=any><link rel=icon type=image/svg+xml href=https://position-pal.github.io/favicon.svg><link rel=apple-touch-icon sizes=180x180 href=https://position-pal.github.io/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=https://position-pal.github.io/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=https://position-pal.github.io/favicon-16x16.png><link rel=manifest crossorigin=use-credentials href=https://position-pal.github.io/site.webmanifest><meta property="og:title" content="Introduction"><meta property="og:description" content="What, Why, and How"><meta property="og:type" content="article"><meta property="og:url" content="https://position-pal.github.io/docs/1-introduction/introduction/"><meta property="og:image" content="https://position-pal.github.io/opengraph/card-base-2_hu_4117e74b493f31a4.png"><meta property="article:section" content="docs"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://position-pal.github.io/opengraph/card-base-2_hu_4117e74b493f31a4.png"><meta name=twitter:title content="Introduction"><meta name=twitter:description content="What, Why, and How"><link rel=alternate type=application/atom+xml title="Atom feed for PositionPal" href=/index.xml><script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script><script type=text/javascript src=https://position-pal.github.io/docs/js/flexsearch.bundle.min.f5159d5a2151ffbb653996ec17eaff7da4e04c286bd879fc41839d36a5586f3f20eaead0b6089de48f9adc669cdee771.js integrity=sha384-9RWdWiFR/7tlOZbsF+r/faTgTChr2Hn8QYOdNqVYbz8g6urQtgid5I+a3Gac3udx crossorigin=anonymous></script><link rel=stylesheet href=/docs/scss/style.min.9f03e981e3c58ca6d2bea6054d9b016bda03bdea30dab992a9ed960a485547da4f733d8e380d198907912f36918f1157.css integrity=sha384-nwPpgePFjKbSvqYFTZsBa9oDveow2rmSqe2WCkhVR9pPcz2OOA0ZiQeRLzaRjxFX crossorigin=anonymous></head><body><div class=content><div class="page-wrapper toggled"><nav id=sidebar class=sidebar-wrapper><div class=sidebar-brand><a href=/ aria-label=HomePage alt=HomePage><svg id="Layer_1" viewBox="0 0 250 250"><path d="m143 39.5c-18 0-18 18-18 18s0-18-18-18H22c-2.76.0-5 2.24-5 5v143c0 2.76 2.24 5 5 5h76c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h76c2.76.0 5-2.24 5-5V44.5c0-2.76-2.24-5-5-5h-85zM206 163c0 1.38-1.12 2.5-2.5 2.5H143c-18 0-18 18-18 18s0-18-18-18H46.5c-1.38.0-2.5-1.12-2.5-2.5V69c0-1.38 1.12-2.5 2.5-2.5H98c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h51.5c1.38.0 2.5 1.12 2.5 2.5v94z" style="fill:#06f"/></svg></a></div><div class=sidebar-content style="height:calc(100% - 131px)"><ul class=sidebar-menu><li class=current><a class=sidebar-root-link href=https://position-pal.github.io/docs/1-introduction/introduction/><i class="material-icons me-2">Emoji_Objects</i>
+<!doctype html><html lang=en-us><script src=https://code.jquery.com/jquery-3.6.0.min.js></script><script>$(document).ready(function(){$("#mode").on("click",updateDiagramImage),updateDiagramImage()});function updateDiagramImage(){const e=$("html").attr("data-dark-mode")!==void 0;console.debug("Dark mode:",e);const t=e?"-dark":"-light";$(".schema").each(function(){const n=$(this);let e=n.attr("src");e=e.replace(/(-dark|-light)\.svg$/,""),n.attr("src",e+t+".svg")})}</script><head><meta charset=utf-8><title>Deployment | PositionPal</title>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="How we deployed the system on kubernetes"><meta name=keywords content="Documentation,Hugo,Hugo Theme,Bootstrap"><meta name=author content="Colin Wilson - Lotus Labs"><meta name=email content="support@aigis.uk"><meta name=website content="https://lotusdocs.dev"><meta name=Version content="v0.1.0"><link rel=icon href=https://position-pal.github.io/favicon.ico sizes=any><link rel=icon type=image/svg+xml href=https://position-pal.github.io/favicon.svg><link rel=apple-touch-icon sizes=180x180 href=https://position-pal.github.io/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=https://position-pal.github.io/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=https://position-pal.github.io/favicon-16x16.png><link rel=manifest crossorigin=use-credentials href=https://position-pal.github.io/site.webmanifest><meta property="og:title" content="Deployment"><meta property="og:description" content="How we deployed the system on kubernetes"><meta property="og:type" content="article"><meta property="og:url" content="https://position-pal.github.io/docs/8-deployment/deployment/"><meta property="og:image" content="https://position-pal.github.io/opengraph/card-base-2_hu_ff4816e8d9374216.png"><meta property="article:section" content="docs"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://position-pal.github.io/opengraph/card-base-2_hu_ff4816e8d9374216.png"><meta name=twitter:title content="Deployment"><meta name=twitter:description content="How we deployed the system on kubernetes"><link rel=alternate type=application/atom+xml title="Atom feed for PositionPal" href=/index.xml><script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script><script type=text/javascript src=https://position-pal.github.io/docs/js/flexsearch.bundle.min.f5159d5a2151ffbb653996ec17eaff7da4e04c286bd879fc41839d36a5586f3f20eaead0b6089de48f9adc669cdee771.js integrity=sha384-9RWdWiFR/7tlOZbsF+r/faTgTChr2Hn8QYOdNqVYbz8g6urQtgid5I+a3Gac3udx crossorigin=anonymous></script><link rel=stylesheet href=/docs/scss/style.min.9f03e981e3c58ca6d2bea6054d9b016bda03bdea30dab992a9ed960a485547da4f733d8e380d198907912f36918f1157.css integrity=sha384-nwPpgePFjKbSvqYFTZsBa9oDveow2rmSqe2WCkhVR9pPcz2OOA0ZiQeRLzaRjxFX crossorigin=anonymous></head><body><div class=content><div class="page-wrapper toggled"><nav id=sidebar class=sidebar-wrapper><div class=sidebar-brand><a href=/ aria-label=HomePage alt=HomePage><svg id="Layer_1" viewBox="0 0 250 250"><path d="m143 39.5c-18 0-18 18-18 18s0-18-18-18H22c-2.76.0-5 2.24-5 5v143c0 2.76 2.24 5 5 5h76c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h76c2.76.0 5-2.24 5-5V44.5c0-2.76-2.24-5-5-5h-85zM206 163c0 1.38-1.12 2.5-2.5 2.5H143c-18 0-18 18-18 18s0-18-18-18H46.5c-1.38.0-2.5-1.12-2.5-2.5V69c0-1.38 1.12-2.5 2.5-2.5H98c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h51.5c1.38.0 2.5 1.12 2.5 2.5v94z" style="fill:#06f"/></svg></a></div><div class=sidebar-content style="height:calc(100% - 131px)"><ul class=sidebar-menu><li><a class=sidebar-root-link href=https://position-pal.github.io/docs/1-introduction/introduction/><i class="material-icons me-2">Emoji_Objects</i>
 Introduction</a></li><li class=sidebar-dropdown><button class=btn>
 <i class="material-icons me-2">Engineering</i>
 Domain Analysis</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/2-domain-analysis/1-functional-requirements/>Functional Requirements</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/2-domain-analysis/2-business-requirements/>Business Requirements</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/2-domain-analysis/3-quality-attributes/>Quality Attributes</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/2-domain-analysis/4-event-storming/>Event Storming</a></li></ul></div></li><li class=sidebar-dropdown><button class=btn>
@@ -10,9 +10,9 @@ Detailed Design</button><div class=sidebar-submenu><ul><li><a class=sidebar-nest
 <i class="material-icons me-2">Code</i>
 Implementation Details</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/5-implementation/1-location-service/>Location Service implementation details</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/5-implementation/3-chat-service/>Chat Service implementation details</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/5-implementation/2-notification-service/>Notification Service implementation details</a></li></ul></div></li><li><a class=sidebar-root-link href=https://position-pal.github.io/docs/6-validation/validation/><i class="material-icons me-2">Bug_Report</i>
 Self Assessment and Validation</a></li><li><a class=sidebar-root-link href=https://position-pal.github.io/docs/7-devops/devops/><i class="material-icons me-2">Rocket_Launch</i>
-DevOps</a></li><li class=sidebar-dropdown><button class=btn>
+DevOps</a></li><li class="sidebar-dropdown current active"><button class=btn>
 <i class="material-icons me-2">Deployed_Code</i>
-Deployment</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/8-deployment/deployment/>Deployment</a></li></ul></div></li></ul></div><ul class="sidebar-footer list-unstyled mb-0"></ul></nav><main class="page-content bg-transparent"><div id=top-header class="top-header d-print-none"><div class="header-bar d-flex justify-content-between"><div class="d-flex align-items-center"><a href=/ class="logo-icon me-3" aria-label=HomePage alt=HomePage><div class=small><svg id="Layer_1" viewBox="0 0 250 250"><path d="m143 39.5c-18 0-18 18-18 18s0-18-18-18H22c-2.76.0-5 2.24-5 5v143c0 2.76 2.24 5 5 5h76c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h76c2.76.0 5-2.24 5-5V44.5c0-2.76-2.24-5-5-5h-85zM206 163c0 1.38-1.12 2.5-2.5 2.5H143c-18 0-18 18-18 18s0-18-18-18H46.5c-1.38.0-2.5-1.12-2.5-2.5V69c0-1.38 1.12-2.5 2.5-2.5H98c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h51.5c1.38.0 2.5 1.12 2.5 2.5v94z" style="fill:#06f"/></svg></div><div class=big><svg id="Layer_1" viewBox="0 0 250 250"><path d="m143 39.5c-18 0-18 18-18 18s0-18-18-18H22c-2.76.0-5 2.24-5 5v143c0 2.76 2.24 5 5 5h76c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h76c2.76.0 5-2.24 5-5V44.5c0-2.76-2.24-5-5-5h-85zM206 163c0 1.38-1.12 2.5-2.5 2.5H143c-18 0-18 18-18 18s0-18-18-18H46.5c-1.38.0-2.5-1.12-2.5-2.5V69c0-1.38 1.12-2.5 2.5-2.5H98c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h51.5c1.38.0 2.5 1.12 2.5 2.5v94z" style="fill:#06f"/></svg></div></a><button id=close-sidebar class="btn btn-icon btn-soft">
+Deployment</button><div class="sidebar-submenu d-block"><ul><li class=current><a class=sidebar-nested-link href=https://position-pal.github.io/docs/8-deployment/deployment/>Deployment</a></li></ul></div></li></ul></div><ul class="sidebar-footer list-unstyled mb-0"></ul></nav><main class="page-content bg-transparent"><div id=top-header class="top-header d-print-none"><div class="header-bar d-flex justify-content-between"><div class="d-flex align-items-center"><a href=/ class="logo-icon me-3" aria-label=HomePage alt=HomePage><div class=small><svg id="Layer_1" viewBox="0 0 250 250"><path d="m143 39.5c-18 0-18 18-18 18s0-18-18-18H22c-2.76.0-5 2.24-5 5v143c0 2.76 2.24 5 5 5h76c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h76c2.76.0 5-2.24 5-5V44.5c0-2.76-2.24-5-5-5h-85zM206 163c0 1.38-1.12 2.5-2.5 2.5H143c-18 0-18 18-18 18s0-18-18-18H46.5c-1.38.0-2.5-1.12-2.5-2.5V69c0-1.38 1.12-2.5 2.5-2.5H98c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h51.5c1.38.0 2.5 1.12 2.5 2.5v94z" style="fill:#06f"/></svg></div><div class=big><svg id="Layer_1" viewBox="0 0 250 250"><path d="m143 39.5c-18 0-18 18-18 18s0-18-18-18H22c-2.76.0-5 2.24-5 5v143c0 2.76 2.24 5 5 5h76c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h76c2.76.0 5-2.24 5-5V44.5c0-2.76-2.24-5-5-5h-85zM206 163c0 1.38-1.12 2.5-2.5 2.5H143c-18 0-18 18-18 18s0-18-18-18H46.5c-1.38.0-2.5-1.12-2.5-2.5V69c0-1.38 1.12-2.5 2.5-2.5H98c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h51.5c1.38.0 2.5 1.12 2.5 2.5v94z" style="fill:#06f"/></svg></div></a><button id=close-sidebar class="btn btn-icon btn-soft">
 <span class="material-icons size-20 menu-icon align-middle">menu</span>
 </button>
 <button id=flexsearch-button class="ms-3 btn btn-soft" data-bs-toggle=collapse data-bs-target=#FlexSearchCollapse aria-expanded=false aria-controls=FlexSearchCollapse>
@@ -27,9 +27,235 @@ Deployment</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-li
 <span class=flexsearch-key-label>to close</span></li></div><form class="flexsearch position-relative flex-grow-1 ms-2 me-2"><div class="d-flex flex-row"><input id=flexsearch class=form-control type=search placeholder=Search aria-label=Search autocomplete=off>
 <button id=hideFlexsearch type=button class="ms-2 btn btn-soft">
 cancel</button></div><div id=suggestions class="shadow rounded-1 d-none"></div></form></div></div></div><div class=container-fluid><div class=layout-spacing><div class="d-md-flex justify-content-between align-items-center"><nav aria-label=breadcrumb class="d-inline-block pb-2 mt-1 mt-sm-0"><ul id=breadcrumbs class="breadcrumb bg-transparent mb-0" itemscope itemtype=https://schema.org/BreadcrumbList><li class="breadcrumb-item text-capitalize active" aria-current=page itemprop=itemListElement itemscope itemtype=https://schema.org/ListItem><a itemprop=item href=/docs/><i class="material-icons size-20 align-text-bottom" itemprop=name>Home</i>
-</a><meta itemprop=position content='1'></li><li class="breadcrumb-item text-capitalize active" itemprop=itemListElement itemscope itemtype=https://schema.org/ListItem><span itemprop=name>Introduction</span>
-<meta itemprop=position content='2'></li></ul></nav></div><div class="row flex-xl-nowrap"><div class="docs-toc col-xl-3 d-xl-block"><toc><div class="fw-bold text-uppercase mb-2">On this page</div><nav id=TableOfContents><ul><li><a href=#what-is-positionpal>What is PositionPal?</a></li><li><a href=#the-problem>The Problem</a></li><li><a href=#our-solution>Our Solution</a></li><li><a href=#getting-started>Getting Started</a></li></ul></nav></toc></div><div class="docs-toc-mobile d-print-none d-xl-none"><button id=toc-dropdown-btn class="btn-secondary dropdown-toggle" type=button data-bs-toggle=dropdown data-bs-offset=0,0 aria-expanded=false>
-Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href=#what-is-positionpal>What is PositionPal?</a></li><li><a href=#the-problem>The Problem</a></li><li><a href=#our-solution>Our Solution</a></li><li><a href=#getting-started>Getting Started</a></li></ul></nav></div><div class="docs-content col-12 col-xl-9 mt-0"><div class="mb-0 d-flex"><h1 class="content-title mb-0">Introduction</h1></div><div id=content class=main-content><div data-prismjs-copy data-prismjs-copy-success data-prismjs-copy-error><br><h2 id=what-is-positionpal>What is PositionPal? <a href=#what-is-positionpal class=anchor aria-hidden=true><i class="material-icons align-middle">link</i></a></h2><p>PositionPal is a <strong>micro-services-based</strong> application for creating <strong>groups</strong> of <strong>trusted</strong> users with whom to <strong>share location</strong>, <strong>routes</strong>, and <strong>notify of dangerous or emergency situation</strong> to create an <em>effective</em> and <em>timely</em> service and <em>support network</em>.</p><p>The idea comes from <a href=https://www.open.online/2024/04/04/scrivi-quando-arrivi-gruppo-whatsapp-ragazze/ rel=external target=_blank>some news<svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentcolor" d="M14 5c-.552.0-1-.448-1-1s.448-1 1-1h6c.552.0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1V6.414l-7.293 7.293c-.391.39-1.024.39-1.414.0-.391-.391-.391-1.024.0-1.414L17.586 5H14zM5 7c-.552.0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552.0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1V19c0 1.657-1.343 3-3 3H5c-1.657.0-3-1.343-3-3V8c0-1.657 1.343-3 3-3h4.563c.552.0 1 .448 1 1s-.448 1-1 1H5z"/></svg></a> read recently about young people who, on their way home at night in unsafe areas of the city, share their location in a WhatsApp group of users to support and watch each other.</p><h2 id=the-problem>The Problem <a href=#the-problem class=anchor aria-hidden=true><i class="material-icons align-middle">link</i></a></h2><p>Personal safety concerns are increasingly significant in urban environments, especially for those traveling alone at night or through unfamiliar areas. While general-purpose messaging apps like WhatsApp allow basic location sharing, they lack specialized safety features and automation that could make the difference in emergency situations.</p><h2 id=our-solution>Our Solution <a href=#our-solution class=anchor aria-hidden=true><i class="material-icons align-middle">link</i></a></h2><p>PositionPal transforms the ad-hoc &ldquo;text when you get home&rdquo; practice into a comprehensive safety system with features specifically designed for personal security:</p><ul><li><strong>Trusted Groups</strong>: Create circles of trusted friends, family members, or colleagues</li><li><strong>Real-time Location Sharing</strong>: Share your precise location with selected groups</li><li><strong>Route Tracking</strong>: Set expected routes and arrival times</li><li><strong>Automated Alerts</strong>: Generate notifications when deviating from planned routes or not reaching destinations on time</li><li><strong>Emergency Notifications</strong>: Quick access to alert trusted contacts in dangerous situations</li><li><strong>Privacy Controls</strong>: Fine-grained permissions for when and with whom your location is shared</li></ul><h2 id=getting-started>Getting Started <a href=#getting-started class=anchor aria-hidden=true><i class="material-icons align-middle">link</i></a></h2><p>The following sections will guide you through the setup, architecture, and usage of PositionPal, demonstrating how it can become an essential tool in your personal safety toolkit.</p></div></div><div><hr class=doc-hr><div id=doc-nav class=d-print-none><div class="row flex-xl-nowrap flex-row-reverse"><div class="col-sm-6 pt-2 doc-prev"><a class=ms-auto href=/docs/2-domain-analysis/1-functional-requirements/><div class="card h-100 my-1 text-end"><div class="card-body py-2"><p class="card-title fs-5 fw-semibold lh-base mb-0">Functional Requirements <i class="material-icons align-middle">navigate_next</i></p></div></div></a></div></div></div></div></div></div></div></div><footer class="shadow py-3 d-print-none"><div class=container-fluid><div class="row align-items-center"><div class=col><div class="text-sm-start text-center mx-md-2"><p class=mb-0></p></div></div></div></div></footer></main></div></div><button onclick=topFunction() id=back-to-top aria-label="Back to Top Button" class="back-to-top fs-5"><svg width="24" height="24"><path d="M12 10.224l-6.3 6.3-1.38-1.372L12 7.472l7.68 7.68-1.38 1.376z" style="fill:#fff"/></svg></button>
+</a><meta itemprop=position content='1'></li><li class="breadcrumb-item text-capitalize" itemprop=itemListElement itemscope itemtype=https://schema.org/ListItem><a itemprop=item href=/docs/8-deployment/><span itemprop=name>Deployment</span>
+</a><meta itemprop=position content='2'></li><li class="breadcrumb-item text-capitalize active" itemprop=itemListElement itemscope itemtype=https://schema.org/ListItem><span itemprop=name>Deployment</span>
+<meta itemprop=position content='3'></li></ul></nav></div><div class="row flex-xl-nowrap"><div class="docs-toc col-xl-3 d-xl-block"><toc><div class="fw-bold text-uppercase mb-2">On this page</div><nav id=TableOfContents><ul><li><a href=#architecture-overview>Architecture overview</a></li><li><a href=#tools-used>Tools used</a><ul><li><a href=#helm>Helm</a></li><li><a href=#terraform>Terraform</a></li></ul></li></ul></nav></toc></div><div class="docs-toc-mobile d-print-none d-xl-none"><button id=toc-dropdown-btn class="btn-secondary dropdown-toggle" type=button data-bs-toggle=dropdown data-bs-offset=0,0 aria-expanded=false>
+Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href=#architecture-overview>Architecture overview</a></li><li><a href=#tools-used>Tools used</a><ul><li><a href=#helm>Helm</a></li><li><a href=#terraform>Terraform</a></li></ul></li></ul></nav></div><div class="docs-content col-12 col-xl-9 mt-0"><div class="mb-0 d-flex"><h1 class="content-title mb-0">Deployment</h1></div><div id=content class=main-content><div data-prismjs-copy data-prismjs-copy-success data-prismjs-copy-error><h1 id=deployment>Deployment <a href=#deployment class=anchor aria-hidden=true><i class="material-icons align-middle">link</i></a></h1><p>Since our system is composed of multiple microservices, we decided to deploy it on a <strong>Kubernetes cluster</strong>. Kubernetes is an open-source platform designed to automate deploying, scaling, and operating application containers. It is a powerful tool that allows us to manage our microservices in a more efficient way.</p><p>In particular the system is mapped on the main abstractions tha kubernetes provides:</p><ul><li><strong>Deployment</strong>: A Deployment is a higher-level API object that manages the execution of a set of pods. It provides declarative updates to applications, such as rolling updates, scaling, and pausing and resuming processes.</li><li><strong>Service</strong>: A Service is a resource that provides a stable network endpoint for accessing a set of pods. It acts as an abstraction layer that routes traffic to the appropriate pods, even as pods are created, destroyed, or moved around the cluster. In our cluster we have two types of services: <code>ClusterIP</code> and <code>LoadBalancer</code>.<ul><li><strong>ClusterIP</strong>: Exposes the service on a cluster-internal IP. Choosing this value makes the service only reachable from within the cluster.</li><li><strong>LoadBalancer</strong>: Exposes the service externally using a cloud provider&rsquo;s load balancer.</li></ul></li></ul><p>Kubernetes also allows to define other resources that can be used to configure data usage inside the cluster:</p><ul><li><strong>PersistentVolume</strong>: A Persistent Volume Claim (PVC) is a request for storage by a user in Kubernetes. It&rsquo;s similar to how a pod requests CPU and memory resources. PVCs allow users to request specific storage resources (size, access mode) without knowing the details of the underlying storage infrastructure. When a PVC is created, Kubernetes finds an available Persistent Volume (PV) that meets the requirements and binds them together. This provides applications with persistent storage that remains available even if the pod is rescheduled to a different node.</li><li><strong>ConfigMap</strong>: A ConfigMap is an API object used to store non-confidential data in key-value pairs. ConfigMaps allow you to decouple configuration artifacts from image content to keep containerized applications portable. They can be used to store configuration data that can be consumed by pods or used to configure the system.</li><li><strong>Secret</strong>: A Secret is an API object used to store sensitive data, such as passwords, OAuth tokens, and SSH keys. Secrets decouple sensitive information from the pods that use it, and they can be mounted into containers as files or accessed by the Kubernetes API.</li></ul><h2 id=architecture-overview>Architecture overview <a href=#architecture-overview class=anchor aria-hidden=true><i class="material-icons align-middle">link</i></a></h2><p>Each microservice is deployed in a separate namespace inside the cluster, this allows to isolate the resources and the network traffic of each service. Each instance then exopose itself, internally, with a service of type <code>ClusterIP</code> that is used by the other services to communicate with it.</p><p>The architecture of the system is shown below:</p><pre tabindex=0><code class=language-plantuml data-lang=plantuml>scale max 1024 width
+
+skinparam nodesep 10
+skinparam ranksep 10
+
+&#39; Kubernetes
+!define KubernetesPuml https://raw.githubusercontent.com/dcasati/kubernetes-PlantUML/master/dist
+
+!includeurl KubernetesPuml/kubernetes_Common.puml
+!includeurl KubernetesPuml/kubernetes_Context.puml
+!includeurl KubernetesPuml/kubernetes_Simplified.puml
+
+!includeurl KubernetesPuml/OSS/KubernetesSvc.puml
+!includeurl KubernetesPuml/OSS/KubernetesPod.puml
+!includeurl KubernetesPuml/OSS/KubernetesRs.puml
+!includeurl KubernetesPuml/OSS/KubernetesDeploy.puml
+!includeurl KubernetesPuml/OSS/KubernetesHpa.puml
+
+actor &#34;User&#34; as userAlias
+left to right direction
+
+Cluster_Boundary(cluster, &#34;PositionPal Kubernetes Cluster&#34;) {
+    
+    Namespace_Boundary(notification, &#34;Notification Service&#34;) {
+        KubernetesSvc(notificationSvc, &#34;Service&#34;, &#34;&#34;)
+        KubernetesPod(notification_pod1, &#34;Notification Pod&#34;, &#34;&#34;)
+
+        KubernetesRs(rs_notification_pod,&#34;&#34;,&#34;&#34;)
+        KubernetesDeploy(deploy_notification_pod,&#34;deployment notification&#34;,&#34;&#34;)
+        KubernetesHpa(hpa_notification_pod, &#34;HPA&#34;, &#34;&#34;)
+
+        Rel(rs_notification_pod,notification_pod1, &#34; &#34;)
+        Rel(deploy_notification_pod,rs_notification_pod, &#34; &#34;)
+        Rel(hpa_notification_pod,deploy_notification_pod, &#34; &#34;)
+        
+        Rel(notificationSvc, notification_pod1, &#34; &#34;)
+    }
+
+    Namespace_Boundary(gns, &#34;Gateway&#34;) {
+        KubernetesSvc(gatewaySvc, &#34;Service&#34;, &#34;&#34;)
+        KubernetesPod(gateway_pod1, &#34;Gateway Pod 1&#34;, &#34;&#34;)
+
+        KubernetesRs(rs,&#34;&#34;,&#34;&#34;)
+        KubernetesDeploy(deploy,&#34;deployment&#34;,&#34;&#34;)
+        KubernetesHpa(hpa, &#34;HPA&#34;, &#34;&#34;)
+
+        Rel(gatewaySvc, gateway_pod1, &#34; &#34;)
+        Rel_U(rs,gateway_pod1, &#34; &#34;)
+        Rel_U(deploy,rs, &#34; &#34;)
+        Rel_U(hpa,deploy, &#34; &#34;)
+    }
+
+    Namespace_Boundary(uns, &#34;User Service&#34;) {
+        KubernetesSvc(userSvc, &#34;Service&#34;, &#34;&#34;)
+        KubernetesPod(user_pod1, &#34;User Pod&#34;, &#34;&#34;)
+        KubernetesPod(postgress_pod, &#34;Postgress Pod&#34;, &#34;&#34;)
+
+        KubernetesRs(rs_user_pod,&#34;&#34;,&#34;&#34;)
+        KubernetesDeploy(deploy_user_pod,&#34;deployment user&#34;,&#34;&#34;)
+        KubernetesHpa(hpa_user_pod, &#34;HPA&#34;, &#34;&#34;)
+        
+        KubernetesDeploy(deploy_user_cassandra,&#34;deployment cassandra&#34;,&#34;&#34;)
+        
+
+        Rel(userSvc, user_pod1, &#34; &#34;)
+        Rel(user_pod1, postgress_pod, &#34; &#34;)
+
+        Rel_U(rs_user_pod,user_pod1, &#34; &#34;)
+        Rel_U(deploy_user_pod,rs_user_pod, &#34; &#34;)
+        Rel_U(hpa_user_pod,deploy_user_pod, &#34; &#34;)
+        
+        Rel_U(deploy_user_cassandra,postgress_pod, &#34; &#34;)
+
+        &#39; Connection between user service and notification
+        Rel(user_pod1, notificationSvc, &#34; &#34;)
+    }
+
+    Namespace_Boundary(location, &#34;Location Service&#34;) {
+        KubernetesSvc(locationSvc, &#34;Service&#34;, &#34;&#34;)
+        KubernetesPod(location_pod1, &#34;Location Pod&#34;, &#34;&#34;)
+        KubernetesPod(cassandra_pod_location, &#34;Cassandra Pod&#34;, &#34;&#34;)
+
+        KubernetesRs(rs_location_pod,&#34;&#34;,&#34;&#34;)
+        KubernetesDeploy(deploy_location_pod,&#34;deployment location&#34;,&#34;&#34;)
+        KubernetesHpa(hpa_location_pod, &#34;HPA&#34;, &#34;&#34;)
+
+        KubernetesRs(rs_location_cassandra,&#34;&#34;,&#34;&#34;)
+        KubernetesDeploy(deploy_location_cassandra,&#34;deployment cassandra&#34;,&#34;&#34;)
+        KubernetesHpa(hpa_location_cassandra, &#34;HPA&#34;, &#34;&#34;)
+        
+        Rel(rs_location_pod,location_pod1, &#34; &#34;)
+        Rel(deploy_location_pod,rs_location_pod, &#34; &#34;)
+        Rel(hpa_location_pod,deploy_location_pod, &#34; &#34;)
+
+        Rel(rs_location_cassandra,cassandra_pod_location, &#34; &#34;)
+        Rel(deploy_location_cassandra,rs_location_cassandra, &#34; &#34;)
+        Rel(hpa_location_cassandra,deploy_location_cassandra, &#34; &#34;)
+
+        Rel(locationSvc, location_pod1, &#34; &#34;)
+        Rel(location_pod1, cassandra_pod_location, &#34; &#34;)
+
+        &#39; Connection between location service and notification
+        Rel(location_pod1, notificationSvc, &#34; &#34;)
+    }
+
+    Namespace_Boundary(chat, &#34;Chat Service&#34;) {
+        KubernetesSvc(chatSvc, &#34;Service&#34;, &#34;&#34;)
+        KubernetesPod(chat_pod1, &#34;Chat Pod&#34;, &#34;&#34;)
+        KubernetesPod(cassandra_pod_chat, &#34;Cassandra Pod&#34;, &#34;&#34;)
+
+        KubernetesRs(rs_chat_pod,&#34;&#34;,&#34;&#34;)
+        KubernetesDeploy(deploy_chat_pod,&#34;deployment chat&#34;,&#34;&#34;)
+        KubernetesHpa(hpa_chat_pod, &#34;HPA&#34;, &#34;&#34;)
+
+        KubernetesRs(rs_chat_cassandra,&#34;&#34;,&#34;&#34;)
+        KubernetesDeploy(deploy_chat_cassandra,&#34;deployment&#34;,&#34;&#34;)
+        KubernetesHpa(hpa_chat_cassandra, &#34;HPA&#34;, &#34;&#34;)
+
+        Rel(rs_chat_pod,chat_pod1, &#34; &#34;)
+        Rel(deploy_chat_pod,rs_chat_pod, &#34; &#34;)
+        Rel(hpa_chat_pod,deploy_chat_pod, &#34; &#34;)
+
+        Rel(rs_chat_cassandra,cassandra_pod_chat, &#34; &#34;)
+        Rel(deploy_chat_cassandra,rs_chat_cassandra, &#34; &#34;)
+        Rel(hpa_chat_cassandra,deploy_chat_cassandra, &#34; &#34;)
+
+        Rel(chatSvc, chat_pod1, &#34; &#34;)
+        Rel(chat_pod1, cassandra_pod_chat, &#34; &#34;)
+    }
+
+    Rel(userAlias, gatewaySvc, &#34;Interacts&#34;)
+
+    &#39; Connections between services and gateway
+    Rel(gateway_pod1, userSvc, &#34; &#34;)
+    Rel(gateway_pod1, locationSvc, &#34; &#34;)
+    Rel(gateway_pod1, chatSvc, &#34; &#34;)
+}</code></pre><h2 id=tools-used>Tools used <a href=#tools-used class=anchor aria-hidden=true><i class="material-icons align-middle">link</i></a></h2><p>The deployment of the system involves the use of several tools that allow to automate the process of building and deploying the services.</p><h3 id=helm>Helm <a href=#helm class=anchor aria-hidden=true><i class="material-icons align-middle">link</i></a></h3><p>First, all services were defined as Helm charts, providing a standardized package management solution for Kubernetes resources. Each microservice is encapsulated in its own chart, complete with templates, values files, and dependencies. This approach enables consistent deployment across environments with simple configuration changes. Helm charts facilitate version control of our infrastructure and simplify rollbacks when needed. Additionally, using Helm allows us to leverage shared libraries and reduce duplication across our Kubernetes manifests.</p><p>The CI/CD processes ensures to maintain the Helm charts up-to-date with the codebase, so that the deployment process is always consistent with the latest version of the services and, also, allow to deploy the artifacts to the github container registry in order to be used by the kubernetes cluster.</p><h3 id=terraform>Terraform <a href=#terraform class=anchor aria-hidden=true><i class="material-icons align-middle">link</i></a></h3><p>To automate the provisioning of the Kubernetes cluster, we used Terraform, an open-source infrastructure as code software tool that provides a consistent CLI workflow to manage cloud services. As we used DigitalOcean as our cloud provider, we leveraged on the terraform provider <a href=https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs rel=external target=_blank>plugin<svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentcolor" d="M14 5c-.552.0-1-.448-1-1s.448-1 1-1h6c.552.0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1V6.414l-7.293 7.293c-.391.39-1.024.39-1.414.0-.391-.391-.391-1.024.0-1.414L17.586 5H14zM5 7c-.552.0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552.0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1V19c0 1.657-1.343 3-3 3H5c-1.657.0-3-1.343-3-3V8c0-1.657 1.343-3 3-3h4.563c.552.0 1 .448 1 1s-.448 1-1 1H5z"/></svg></a> for describing the infrastructure that should be created.</p><p>In the main configuration file are defined the resources that should be allocated, like the number of nodes, the type of machine, the region and the k8s version:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-hcl data-lang=hcl><span style=display:flex><span><span style=color:#66d9ef>terraform</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>required_providers</span> {
+</span></span><span style=display:flex><span>    digitalocean <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>      source <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;digitalocean/digitalocean&#34;</span>
+</span></span><span style=display:flex><span>      version <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;~&gt; 2.0&#34;</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    helm <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>      source <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;hashicorp/helm&#34;</span>
+</span></span><span style=display:flex><span>      version <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;~&gt; 2.0&#34;</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>resource</span> <span style=color:#e6db74>&#34;digitalocean_kubernetes_cluster&#34; &#34;k8s_cluster_do&#34;</span> {
+</span></span><span style=display:flex><span>  name    <span style=color:#f92672>=</span> <span style=color:#66d9ef>var</span>.<span style=color:#66d9ef>k8s_clustername</span>
+</span></span><span style=display:flex><span>  region  <span style=color:#f92672>=</span> <span style=color:#66d9ef>var</span>.<span style=color:#66d9ef>region</span>
+</span></span><span style=display:flex><span>  version <span style=color:#f92672>=</span> <span style=color:#66d9ef>var</span>.<span style=color:#66d9ef>k8s_version</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  tags <span style=color:#f92672>=</span> [<span style=color:#e6db74>&#34;k8s&#34;</span>]<span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>  # This default node pool is mandatory
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>node_pool</span> {
+</span></span><span style=display:flex><span>    name       <span style=color:#f92672>=</span> <span style=color:#66d9ef>var</span>.<span style=color:#66d9ef>k8s_poolname</span>
+</span></span><span style=display:flex><span>    size       <span style=color:#f92672>=</span> <span style=color:#66d9ef>var</span>.<span style=color:#66d9ef>size</span>
+</span></span><span style=display:flex><span>    auto_scale <span style=color:#f92672>=</span> <span style=color:#66d9ef>false</span>
+</span></span><span style=display:flex><span>    node_count <span style=color:#f92672>=</span> <span style=color:#66d9ef>var</span>.<span style=color:#66d9ef>k8s_count</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}</span></span></code></pre></div><p>Each service then is defined in a separate terraform file, that describes the resources that should be created in the cluster, and the configuration to apply to them. For example, the following snippet shows the definition of the <code>chat</code> service:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-hcl data-lang=hcl><span style=display:flex><span><span style=color:#66d9ef>resource</span> <span style=color:#e6db74>&#34;helm_release&#34; &#34;chat_service&#34;</span> {
+</span></span><span style=display:flex><span>  name       <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;chat-service&#34;</span>
+</span></span><span style=display:flex><span>  repository <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;oci://ghcr.io/position-pal/&#34;</span>
+</span></span><span style=display:flex><span>  chart      <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;position-pal-chat-service&#34;</span>
+</span></span><span style=display:flex><span>  namespace  <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;pp-cs&#34;</span>
+</span></span><span style=display:flex><span>  version <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;1.4.0&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  create_namespace <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>set</span> {
+</span></span><span style=display:flex><span>    name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;rabbitmq.username&#34;</span>
+</span></span><span style=display:flex><span>    value <span style=color:#f92672>=</span> <span style=color:#66d9ef>var</span>.<span style=color:#66d9ef>rabbitmq_username</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>set</span> {
+</span></span><span style=display:flex><span>    name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;rabbitmq.password&#34;</span>
+</span></span><span style=display:flex><span>    value <span style=color:#f92672>=</span> <span style=color:#66d9ef>var</span>.<span style=color:#66d9ef>rabbitmq_password</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>set</span> {
+</span></span><span style=display:flex><span>    name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;rabbitmq.namespace&#34;</span>
+</span></span><span style=display:flex><span>    value <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;rabbitmq&#34;</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>set</span> {
+</span></span><span style=display:flex><span>    name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;rabbitmq.serviceName&#34;</span>
+</span></span><span style=display:flex><span>    value <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;rabbitmq&#34;</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>set</span> {
+</span></span><span style=display:flex><span>    name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;akkaLicenseKey&#34;</span>
+</span></span><span style=display:flex><span>    value <span style=color:#f92672>=</span> <span style=color:#66d9ef>var</span>.<span style=color:#66d9ef>akka_license_key</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  depends_on <span style=color:#f92672>=</span> [ <span style=color:#66d9ef>helm_release</span>.<span style=color:#66d9ef>rabbitmq</span> ]
+</span></span><span style=display:flex><span>}</span></span></code></pre></div><p>Is possible to note that is possible to define also the order of the creation of the resources using the <code>depends_on</code> attribute. In this case the <code>chat</code> service depends on the <code>rabbitmq</code> service, so the <code>rabbitmq</code> service is created first. The following diagram shows the deployment order of the services in the cluster:</p><pre class=mermaid>flowchart TD
+    subgraph &#34;Deployment Order&#34;
+        direction TB
+        k8s[Kubernetes Cluster] --&gt; rabbitmq
+        k8s --&gt; prometheus[Prometheus and Grafana]
+        rabbitmq --&gt; chat_service[Chat Service]
+        rabbitmq --&gt; notification[Notification Service]
+        rabbitmq --&gt; user_service[User Service]
+        rabbitmq --&gt; location_service[Location Service]
+        notification --&gt; Gateway
+        user_service --&gt; Gateway
+        location_service --&gt; Gateway
+        chat_service --&gt; Gateway
+    end
+
+    classDef default color:black
+    classDef infrastructure fill:#e1f5fe,stroke:#0288d1
+    classDef messaging fill:#ffecb3,stroke:#ffa000
+    classDef services fill:#c8e6c9,stroke:#4caf50
+    classDef entrypoint fill:#f8bbd0,stroke:#e91e63
+
+    class k8s infrastructure
+    class rabbitmq messaging
+    class notification,user_service,location_service,chat_service,prometheus services
+    class Gateway entrypoint
+    
+</pre><p>After creating the infrastructure the first service to be deployed is the <code>rabbitmq</code> service, that is used as a message broker by the other services. Parallelly the monitoring part of the system is deployed, that is composed by the <code>prometheus</code> and <code>grafana</code> services. After that the other services are deployed, that are the <code>chat</code>, <code>notification</code>, <code>user</code> and <code>location</code> services. Finally the <code>gateway</code> service is deployed, that is the entrypoint of the system.</p></div><script src=/docs/js/mermaid.min.a4a583544e57b0ee421947966ee3a1ece84217be936d80e4ebb1ab6e798219816de5512403f79735bfef34e4d955e6cd.js integrity=sha384-pKWDVE5XsO5CGUeWbuOh7OhCF76TbYDk67GrbnmCGYFt5VEkA/eXNb/vNOTZVebN></script><script>const config={startOnLoad:!0,logLevel:"error",align:"center",theme:"null"};mermaid.initialize(config)</script></div><div><hr class=doc-hr><div id=doc-nav class=d-print-none><div class="row flex-xl-nowrap"><div class="col-sm-6 pt-2 doc-next"><a href=/docs/7-devops/devops/><div class="card h-100 my-1"><div class="card-body py-2"><p class="card-title fs-5 fw-semibold lh-base mb-0"><i class="material-icons align-middle">navigate_before</i> DevOps</p></div></div></a></div></div></div></div></div></div></div></div><footer class="shadow py-3 d-print-none"><div class=container-fluid><div class="row align-items-center"><div class=col><div class="text-sm-start text-center mx-md-2"><p class=mb-0></p></div></div></div></div></footer></main></div></div><button onclick=topFunction() id=back-to-top aria-label="Back to Top Button" class="back-to-top fs-5"><svg width="24" height="24"><path d="M12 10.224l-6.3 6.3-1.38-1.372L12 7.472l7.68 7.68-1.38 1.376z" style="fill:#fff"/></svg></button>
 <script>(()=>{var e=document.getElementById("mode");e!==null&&(window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change",e=>{e.matches?(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")):(localStorage.setItem("theme","light"),document.documentElement.removeAttribute("data-dark-mode"))}),e.addEventListener("click",()=>{document.documentElement.toggleAttribute("data-dark-mode"),localStorage.setItem("theme",document.documentElement.hasAttribute("data-dark-mode")?"dark":"light")}),localStorage.getItem("theme")==="dark"?document.documentElement.setAttribute("data-dark-mode",""):document.documentElement.removeAttribute("data-dark-mode"))})()</script><script src=/docs/js/bootstrap.c7927bdd82eceb076739257add3f4b0e11379da037c07d5c7110daeb6de0e3edcb2de867604550f88815157e4ec4ddb7.js integrity=sha384-x5J73YLs6wdnOSV63T9LDhE3naA3wH1ccRDa623g4+3LLehnYEVQ+IgVFX5OxN23 defer></script><script type=text/javascript src=https://position-pal.github.io/docs/js/bundle.min.4b07706b1da436c9600e641a8cf51af20b3e497ead85e0d0af7552a0314e8e317dc63bb69d12c072092518621478900d.js integrity=sha384-Swdwax2kNslgDmQajPUa8gs+SX6theDQr3VSoDFOjjF9xju2nRLAcgklGGIUeJAN crossorigin=anonymous defer></script><script type=module>
     var suggestions = document.getElementById('suggestions');
     var search = document.getElementById('flexsearch');
