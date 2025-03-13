@@ -94,4 +94,4 @@ As per best practices, the design is based on the &lt;strong>Domain-Driven Desig
 &lt;/li>
 &lt;li>&lt;code>GroupsRepository&lt;/code> is the repository that allows storing and retrieving the members of the groups. This is called by the message broker adapter on every events whose topic is related to groups state changes.&lt;/li>
 &lt;/ul>
-&lt;h2 id="interaction">Interaction &lt;a href="#interaction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The main flow scenario is depicted in the following sequence diagram:&lt;/p></description></item></channel></rss>
+&lt;h2 id="interaction">Interaction &lt;a href="#interaction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The main flow scenario is describe below and depicted in the following sequence UML diagram.&lt;/p></description></item></channel></rss>

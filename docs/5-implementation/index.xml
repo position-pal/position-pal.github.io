@@ -17,4 +17,4 @@ In most of the cases the amount of messages exchanged is high, and the service n
 
 
 -->
-&lt;h2 id="message-broker">Message broker &lt;a href="#message-broker" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Like already presented in the &lt;a href="https://position-pal.github.io/docs/3-arch-design/2-architecture-design/">Architecture Design&lt;/a> section, the notification service is integrated with the message broker to receive notification commands from other microservices.&lt;/p></description></item></channel></rss>
+&lt;h2 id="notification-commands">Notification commands &lt;a href="#notification-commands" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Like already presented in the &lt;a href="https://position-pal.github.io/docs/3-arch-design/2-architecture-design/">Architecture Design&lt;/a> section, the notification service is integrated with the message broker to receive notification commands from other microservices.&lt;/p></description></item></channel></rss>
