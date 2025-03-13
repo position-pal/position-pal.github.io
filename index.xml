@@ -72,79 +72,27 @@ This is characterized by the decomposition of the system into a set of independe
 Indeed, the use of this architectural style enables the continuous delivery and deployment of large, complex applications, the ability to scale horizontally with ease, the possibility to use different technologies and programming languages for each service and an increase in the overall system&amp;rsquo;s maintainability.
 Moreover it allows to isolate failures and to improve the fault tolerance of the system, hence gaining in reliability.&lt;/p></description></item><item><title>Architectural Patterns</title><link>https://position-pal.github.io/docs/3-arch-design/4-patterns/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/3-arch-design/4-patterns/</guid><description>&lt;p>In this page are collected the Microservice Architectural Pattern we used in the design of the system, following the &lt;a href="https://position-pal.github.io/docs/3-arch-design/4-patterns/" rel="external" target="_blank">Chris Richardson&amp;rsquo;s taxonomy&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/p>
 &lt;h2 id="service-collaboration">Service collaboration &lt;a href="#service-collaboration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="database-per-service">&lt;a href="https://microservices.io/patterns/data/database-per-service.html" rel="external" target="_blank">Database per Service&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> &lt;a href="#database-per-service" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Each microservice&amp;rsquo;s persistent data is private to that service and accessible only via its API.
-More specifically, an approach where each microservice has &lt;strong>its own schema&lt;/strong> has been adopted, favoring &lt;em>data isolation&lt;/em>, making ownership of the data clearer and ensuring the services are &lt;em>loosely coupled&lt;/em>.&lt;/p></description></item><item><title>User and Group Service design</title><link>https://position-pal.github.io/docs/4-detailed-design/5-user-groups-service/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/4-detailed-design/5-user-groups-service/</guid><description>&lt;p>In this section it is presented the abstract design of the &lt;strong>User and Group Service&lt;/strong>.
-As per best practices, the design is based on the &lt;strong>Domain-Driven Design&lt;/strong> principles, and is presented in terms of the main three views: &lt;strong>structure&lt;/strong>, &lt;strong>interaction&lt;/strong>, and &lt;strong>behavior&lt;/strong>.&lt;/p>
-&lt;h2 id="abstract-design">Abstract Design &lt;a href="#abstract-design" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="structure">Structure &lt;a href="#structure" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>The main domain concepts and events are presented hereafter and reified in the following classes structure, following the DDD building blocks.&lt;/p>
-
-
- 
- &lt;pre tabindex="0">&lt;code class="language-plantuml" data-lang="plantuml">@startuml
-package domain {
- package user {
- interface User &amp;lt;&amp;lt;entity&amp;gt;&amp;gt; {
- + id: UserId
- + name: String
- + email: String
- + password: String
- }
- interface UserId &amp;lt;&amp;lt;value object&amp;gt;&amp;gt; {
- + value: UUID
- }
- User *-right-&amp;gt; &amp;#34;1&amp;#34; UserId
- }
-
- package group {
- interface Group &amp;lt;&amp;lt;entity&amp;gt;&amp;gt; {
- + id: GroupId
- + name: String
- + members: List&amp;lt;User&amp;gt;
- }
- interface GroupId &amp;lt;&amp;lt;value object&amp;gt;&amp;gt; {
- + value: UUID
- }
- Group *-right-&amp;gt; &amp;#34;1&amp;#34; GroupId
- Group --&amp;gt; &amp;#34;0..*&amp;#34; User
- }
- 
- package event {
- interface DomainEvent &amp;lt;&amp;lt;event&amp;gt;&amp;gt; {
- }
- 
- class UserCreated &amp;lt;&amp;lt;event&amp;gt;&amp;gt; {
- + userId: UserId
- + name: String
- + email: String
- }
- class GroupCreated &amp;lt;&amp;lt;event&amp;gt;&amp;gt; {
- + groupId: GroupId
- + name: String
- }
- class UserAddedToGroup &amp;lt;&amp;lt;event&amp;gt;&amp;gt; {
- + userId: UserId
- + groupId: GroupId
- }
- class UserRemovedFromGroup &amp;lt;&amp;lt;event&amp;gt;&amp;gt; {
- + userId: UserId
- + groupId: GroupId
- }
- 
- UserCreated ..|&amp;gt; DomainEvent
- GroupCreated ..|&amp;gt; DomainEvent
- UserAddedToGroup ..|&amp;gt; DomainEvent
- UserRemovedFromGroup ..|&amp;gt; DomainEvent
- }
-}
-@enduml&lt;/code>&lt;/pre>
-&lt;ul>
-&lt;li>
-&lt;p>&lt;strong>&lt;code>User&lt;/code>&lt;/strong>: The User entity represents an individual in the system. Each User is uniquely identified by a value object, &lt;em>UserId&lt;/em>, ensuring consistency and traceability. The entity includes attributes such as name, email, and password, which can be updated while maintaining the same identity.&lt;/p></description></item><item><title>Shared Kernel design</title><link>https://position-pal.github.io/docs/4-detailed-design/1-shared-kernel/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/4-detailed-design/1-shared-kernel/</guid><description>&lt;p>The shared kernel includes the common entities used by all services.
+More specifically, an approach where each microservice has &lt;strong>its own schema&lt;/strong> has been adopted, favoring &lt;em>data isolation&lt;/em>, making ownership of the data clearer and ensuring the services are &lt;em>loosely coupled&lt;/em>.&lt;/p></description></item><item><title>Shared Kernel design</title><link>https://position-pal.github.io/docs/4-detailed-design/1-shared-kernel/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/4-detailed-design/1-shared-kernel/</guid><description>&lt;p>The shared kernel includes the common entities used by all services.
 Its primary objective is to encapsulate &lt;em>only&lt;/em> the integration contracts and data structures meant to be passed across the boundaries of the bounded contexts.&lt;/p>
 &lt;p>Since the system&amp;rsquo;s architecture is event-driven, communication between microservices occurs exclusively through events and commands exchanged via the message broker.
 These events and commands have been represented as classes and interfaces, as illustrated in the following UML diagram.
 This approach facilitates and reduce the cost of duplicating code across services, ensuring consistency and coherence in the system&amp;rsquo;s communication.&lt;/p></description></item><item><title>Location Service design</title><link>https://position-pal.github.io/docs/4-detailed-design/2-location-service/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/4-detailed-design/2-location-service/</guid><description>&lt;!--This chapter explains the strategies used to meet the requirements identified in the analysis.-->
 &lt;p>In this section it is presented the abstract design of the &lt;strong>Location Service&lt;/strong>.
 As per best practices, the design is based on the &lt;strong>Domain-Driven Design&lt;/strong> principles, and is presented in terms of the main three views: &lt;strong>structure&lt;/strong>, &lt;strong>interaction&lt;/strong>, and &lt;strong>behavior&lt;/strong>.&lt;/p>
-&lt;h2 id="abstract-design">Abstract Design &lt;a href="#abstract-design" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="structure">Structure &lt;a href="#structure" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>The main domain concepts and events are presented hereafter and reified in the following classes structure, following the DDD building blocks.&lt;/p></description></item><item><title>Chat Service design</title><link>https://position-pal.github.io/docs/4-detailed-design/4-chat-service/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/4-detailed-design/4-chat-service/</guid><description>&lt;p>Chat service is responsible for managing the &lt;strong>communication between users in &lt;em>real-time&lt;/em>&lt;/strong>. This document describes the detailed design of the chat service, including its architecture, components, and interactions.&lt;/p>
+&lt;h2 id="abstract-design">Abstract Design &lt;a href="#abstract-design" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="structure">Structure &lt;a href="#structure" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>The main domain concepts and events are presented hereafter and reified in the following classes structure, following the DDD building blocks.&lt;/p></description></item><item><title>User and Group Service design</title><link>https://position-pal.github.io/docs/4-detailed-design/5-user-groups-service/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/4-detailed-design/5-user-groups-service/</guid><description>&lt;p>In this section it is presented the abstract design of the &lt;strong>User and Group Service&lt;/strong>.
+As per best practices, the design is based on the &lt;strong>Domain-Driven Design&lt;/strong> principles, and is presented in terms of the main three views: &lt;strong>structure&lt;/strong>, &lt;strong>interaction&lt;/strong>, and &lt;strong>behavior&lt;/strong>.&lt;/p>
+&lt;h2 id="abstract-design">Abstract Design &lt;a href="#abstract-design" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="structure">Structure &lt;a href="#structure" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>The main domain concepts and events are presented hereafter and reified in the following classes structure, following the DDD building blocks.&lt;/p>
+&lt;div style="width: 100%; overflow-x: auto; white-space: nowrap;">
+ &lt;img 
+ src="https://position-pal.github.io/res/user-group-service-structure-light.svg" 
+ alt="user-group-service-structure schema" 
+ style="max-width: 1100px;"
+ class="schema"
+ />
+&lt;/div>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>&lt;code>User&lt;/code>&lt;/strong>: The User entity represents an individual in the system. Each User is uniquely identified by a value object, &lt;em>UserId&lt;/em>, ensuring consistency and traceability. The entity includes attributes such as name, email, and password, which can be updated while maintaining the same identity.&lt;/p></description></item><item><title>Chat Service design</title><link>https://position-pal.github.io/docs/4-detailed-design/4-chat-service/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/4-detailed-design/4-chat-service/</guid><description>&lt;p>Chat service is responsible for managing the &lt;strong>communication between users in &lt;em>real-time&lt;/em>&lt;/strong>. This document describes the detailed design of the chat service, including its architecture, components, and interactions.&lt;/p>
 &lt;h2 id="abstract-design">Abstract Design &lt;a href="#abstract-design" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here are presented the main components of the chat service, we start describing the foundamental entities of the domain, then we move to the infrastructure layer, where we define the commands and events that will be used to interact with the domain entities.&lt;/p></description></item><item><title>Notification Service design</title><link>https://position-pal.github.io/docs/4-detailed-design/3-notification-service/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/4-detailed-design/3-notification-service/</guid><description>&lt;p>In this section is presented the abstract design of the notification service.&lt;/p>
 &lt;p>As already presented, its main responsibility is to &lt;strong>send notifications&lt;/strong> to the users, based on the events that occur in the system.&lt;/p>
 &lt;h2 id="structure">Structure &lt;a href="#structure" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The structure of the service is quite simple:&lt;/p>
