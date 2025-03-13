@@ -1,16 +1,142 @@
-<!doctype html><html lang=en-us><script src=https://code.jquery.com/jquery-3.6.0.min.js></script><script>$(document).ready(function(){$("#mode").on("click",updateDiagramImage),updateDiagramImage()});function updateDiagramImage(){const e=$("html").attr("data-dark-mode")!==void 0;console.debug("Dark mode:",e);const t=e?"-dark":"-light";$(".schema").each(function(){const n=$(this);let e=n.attr("src");e=e.replace(/(-dark|-light)\.svg$/,""),n.attr("src",e+t+".svg")})}</script><head><meta charset=utf-8><title>Quality Attributes | PositionPal</title>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=keywords content="Documentation,Hugo,Hugo Theme,Bootstrap"><meta name=author content="Colin Wilson - Lotus Labs"><meta name=email content="support@aigis.uk"><meta name=website content="https://lotusdocs.dev"><meta name=Version content="v0.1.0"><link rel=icon href=https://position-pal.github.io/favicon.ico sizes=any><link rel=icon type=image/svg+xml href=https://position-pal.github.io/favicon.svg><link rel=apple-touch-icon sizes=180x180 href=https://position-pal.github.io/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=https://position-pal.github.io/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=https://position-pal.github.io/favicon-16x16.png><link rel=manifest crossorigin=use-credentials href=https://position-pal.github.io/site.webmanifest><meta property="og:title" content="Quality Attributes"><meta property="og:description" content="Quality Attributes (QA), also known as Non-Functional Requirements (NFR), are measurable properties of a system that describe its qualities and indicate how well it satisfies the needs of its stakeholders beyond the functional requirements.
-These attributes play a crucial role in shaping the system architecture, as they influence design decisions, trade-offs, and the selection of appropriate technologies and patterns.
-In the context of this project have been identified the following quality attributes that are considered essential for the success of system, divided into &ldquo;Runtime&rdquo; and &ldquo;Development Time&rdquo; categories:"><meta property="og:type" content="article"><meta property="og:url" content="https://position-pal.github.io/docs/2-domain-analysis/3-quality-attributes/"><meta property="og:image" content="https://position-pal.github.io/opengraph/card-base-2_hu_5c78ac000c7b685.png"><meta property="article:section" content="docs"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://position-pal.github.io/opengraph/card-base-2_hu_5c78ac000c7b685.png"><meta name=twitter:title content="Quality Attributes"><meta name=twitter:description content="Quality Attributes (QA), also known as Non-Functional Requirements (NFR), are measurable properties of a system that describe its qualities and indicate how well it satisfies the needs of its stakeholders beyond the functional requirements.
-These attributes play a crucial role in shaping the system architecture, as they influence design decisions, trade-offs, and the selection of appropriate technologies and patterns.
-In the context of this project have been identified the following quality attributes that are considered essential for the success of system, divided into &ldquo;Runtime&rdquo; and &ldquo;Development Time&rdquo; categories:"><link rel=alternate type=application/atom+xml title="Atom feed for PositionPal" href=/index.xml><script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script><script type=text/javascript src=https://position-pal.github.io/docs/js/flexsearch.bundle.min.f5159d5a2151ffbb653996ec17eaff7da4e04c286bd879fc41839d36a5586f3f20eaead0b6089de48f9adc669cdee771.js integrity=sha384-9RWdWiFR/7tlOZbsF+r/faTgTChr2Hn8QYOdNqVYbz8g6urQtgid5I+a3Gac3udx crossorigin=anonymous></script><link rel=stylesheet href=/docs/scss/style.min.9f03e981e3c58ca6d2bea6054d9b016bda03bdea30dab992a9ed960a485547da4f733d8e380d198907912f36918f1157.css integrity=sha384-nwPpgePFjKbSvqYFTZsBa9oDveow2rmSqe2WCkhVR9pPcz2OOA0ZiQeRLzaRjxFX crossorigin=anonymous></head><body><div class=content><div class="page-wrapper toggled"><nav id=sidebar class=sidebar-wrapper><div class=sidebar-brand><a href=/ aria-label=HomePage alt=HomePage><svg id="Layer_1" viewBox="0 0 250 250"><path d="m143 39.5c-18 0-18 18-18 18s0-18-18-18H22c-2.76.0-5 2.24-5 5v143c0 2.76 2.24 5 5 5h76c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h76c2.76.0 5-2.24 5-5V44.5c0-2.76-2.24-5-5-5h-85zM206 163c0 1.38-1.12 2.5-2.5 2.5H143c-18 0-18 18-18 18s0-18-18-18H46.5c-1.38.0-2.5-1.12-2.5-2.5V69c0-1.38 1.12-2.5 2.5-2.5H98c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h51.5c1.38.0 2.5 1.12 2.5 2.5v94z" style="fill:#06f"/></svg></a></div><div class=sidebar-content style="height:calc(100% - 131px)"><ul class=sidebar-menu><li><a class=sidebar-root-link href=https://position-pal.github.io/docs/1-introduction/introduction/><i class="material-icons me-2">Emoji_Objects</i>
-Introduction</a></li><li class="sidebar-dropdown current active"><button class=btn>
+<!doctype html><html lang=en-us><script src=https://code.jquery.com/jquery-3.6.0.min.js></script><script>$(document).ready(function(){$("#mode").on("click",updateDiagramImage),updateDiagramImage()});function updateDiagramImage(){const e=$("html").attr("data-dark-mode")!==void 0;console.debug("Dark mode:",e);const t=e?"-dark":"-light";$(".schema").each(function(){const n=$(this);let e=n.attr("src");e=e.replace(/(-dark|-light)\.svg$/,""),n.attr("src",e+t+".svg")})}</script><head><meta charset=utf-8><title>User and Group Service design | PositionPal</title>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=keywords content="Documentation,Hugo,Hugo Theme,Bootstrap"><meta name=author content="Colin Wilson - Lotus Labs"><meta name=email content="support@aigis.uk"><meta name=website content="https://lotusdocs.dev"><meta name=Version content="v0.1.0"><link rel=icon href=https://position-pal.github.io/favicon.ico sizes=any><link rel=icon type=image/svg+xml href=https://position-pal.github.io/favicon.svg><link rel=apple-touch-icon sizes=180x180 href=https://position-pal.github.io/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=https://position-pal.github.io/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=https://position-pal.github.io/favicon-16x16.png><link rel=manifest crossorigin=use-credentials href=https://position-pal.github.io/site.webmanifest><meta property="og:title" content="User and Group Service design"><meta property="og:description" content='In this section it is presented the abstract design of the User and Group Service.
+As per best practices, the design is based on the Domain-Driven Design principles, and is presented in terms of the main three views: structure, interaction, and behavior.
+Abstract Design linkStructure linkThe main domain concepts and events are presented hereafter and reified in the following classes structure, following the DDD building blocks.
+
+
+    
+    @startuml
+package domain {
+  package user {
+    interface User <<entity>> {
+      + id: UserId
+      + name: String
+      + email: String
+      + password: String
+    }
+    interface UserId <<value object>> {
+      + value: UUID
+    }
+    User *-right-> "1" UserId
+  }
+
+  package group {
+    interface Group <<entity>> {
+      + id: GroupId
+      + name: String
+      + members: List<User>
+    }
+    interface GroupId <<value object>> {
+      + value: UUID
+    }
+    Group *-right-> "1" GroupId
+    Group --> "0..*" User
+  }
+  
+  package event {
+    interface DomainEvent <<event>> {
+    }
+    
+    class UserCreated <<event>> {
+      + userId: UserId
+      + name: String
+      + email: String
+    }
+    class GroupCreated <<event>> {
+      + groupId: GroupId
+      + name: String
+    }
+    class UserAddedToGroup <<event>> {
+      + userId: UserId
+      + groupId: GroupId
+    }
+    class UserRemovedFromGroup <<event>> {
+      + userId: UserId
+      + groupId: GroupId
+    }
+    
+    UserCreated ..|> DomainEvent
+    GroupCreated ..|> DomainEvent
+    UserAddedToGroup ..|> DomainEvent
+    UserRemovedFromGroup ..|> DomainEvent
+  }
+}
+@enduml
+
+
+User: The User entity represents an individual in the system. Each User is uniquely identified by a value object, UserId, ensuring consistency and traceability. The entity includes attributes such as name, email, and password, which can be updated while maintaining the same identity.'><meta property="og:type" content="article"><meta property="og:url" content="https://position-pal.github.io/docs/4-detailed-design/5-user-groups-service/"><meta property="og:image" content="https://position-pal.github.io/opengraph/card-base-2_hu_99db8d8fee6e9e9f.png"><meta property="article:section" content="docs"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://position-pal.github.io/opengraph/card-base-2_hu_99db8d8fee6e9e9f.png"><meta name=twitter:title content="User and Group Service design"><meta name=twitter:description content='In this section it is presented the abstract design of the User and Group Service.
+As per best practices, the design is based on the Domain-Driven Design principles, and is presented in terms of the main three views: structure, interaction, and behavior.
+Abstract Design linkStructure linkThe main domain concepts and events are presented hereafter and reified in the following classes structure, following the DDD building blocks.
+
+
+    
+    @startuml
+package domain {
+  package user {
+    interface User <<entity>> {
+      + id: UserId
+      + name: String
+      + email: String
+      + password: String
+    }
+    interface UserId <<value object>> {
+      + value: UUID
+    }
+    User *-right-> "1" UserId
+  }
+
+  package group {
+    interface Group <<entity>> {
+      + id: GroupId
+      + name: String
+      + members: List<User>
+    }
+    interface GroupId <<value object>> {
+      + value: UUID
+    }
+    Group *-right-> "1" GroupId
+    Group --> "0..*" User
+  }
+  
+  package event {
+    interface DomainEvent <<event>> {
+    }
+    
+    class UserCreated <<event>> {
+      + userId: UserId
+      + name: String
+      + email: String
+    }
+    class GroupCreated <<event>> {
+      + groupId: GroupId
+      + name: String
+    }
+    class UserAddedToGroup <<event>> {
+      + userId: UserId
+      + groupId: GroupId
+    }
+    class UserRemovedFromGroup <<event>> {
+      + userId: UserId
+      + groupId: GroupId
+    }
+    
+    UserCreated ..|> DomainEvent
+    GroupCreated ..|> DomainEvent
+    UserAddedToGroup ..|> DomainEvent
+    UserRemovedFromGroup ..|> DomainEvent
+  }
+}
+@enduml
+
+
+User: The User entity represents an individual in the system. Each User is uniquely identified by a value object, UserId, ensuring consistency and traceability. The entity includes attributes such as name, email, and password, which can be updated while maintaining the same identity.'><link rel=alternate type=application/atom+xml title="Atom feed for PositionPal" href=/index.xml><script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script><script type=text/javascript src=https://position-pal.github.io/docs/js/flexsearch.bundle.min.f5159d5a2151ffbb653996ec17eaff7da4e04c286bd879fc41839d36a5586f3f20eaead0b6089de48f9adc669cdee771.js integrity=sha384-9RWdWiFR/7tlOZbsF+r/faTgTChr2Hn8QYOdNqVYbz8g6urQtgid5I+a3Gac3udx crossorigin=anonymous></script><link rel=stylesheet href=/docs/scss/style.min.9f03e981e3c58ca6d2bea6054d9b016bda03bdea30dab992a9ed960a485547da4f733d8e380d198907912f36918f1157.css integrity=sha384-nwPpgePFjKbSvqYFTZsBa9oDveow2rmSqe2WCkhVR9pPcz2OOA0ZiQeRLzaRjxFX crossorigin=anonymous></head><body><div class=content><div class="page-wrapper toggled"><nav id=sidebar class=sidebar-wrapper><div class=sidebar-brand><a href=/ aria-label=HomePage alt=HomePage><svg id="Layer_1" viewBox="0 0 250 250"><path d="m143 39.5c-18 0-18 18-18 18s0-18-18-18H22c-2.76.0-5 2.24-5 5v143c0 2.76 2.24 5 5 5h76c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h76c2.76.0 5-2.24 5-5V44.5c0-2.76-2.24-5-5-5h-85zM206 163c0 1.38-1.12 2.5-2.5 2.5H143c-18 0-18 18-18 18s0-18-18-18H46.5c-1.38.0-2.5-1.12-2.5-2.5V69c0-1.38 1.12-2.5 2.5-2.5H98c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h51.5c1.38.0 2.5 1.12 2.5 2.5v94z" style="fill:#06f"/></svg></a></div><div class=sidebar-content style="height:calc(100% - 131px)"><ul class=sidebar-menu><li><a class=sidebar-root-link href=https://position-pal.github.io/docs/1-introduction/introduction/><i class="material-icons me-2">Emoji_Objects</i>
+Introduction</a></li><li class=sidebar-dropdown><button class=btn>
 <i class="material-icons me-2">Engineering</i>
-Domain Analysis</button><div class="sidebar-submenu d-block"><ul><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/2-domain-analysis/1-functional-requirements/>Functional Requirements</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/2-domain-analysis/2-business-requirements/>Business Requirements</a></li><li class=current><a class=sidebar-nested-link href=https://position-pal.github.io/docs/2-domain-analysis/3-quality-attributes/>Quality Attributes</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/2-domain-analysis/4-event-storming/>Event Storming</a></li></ul></div></li><li class=sidebar-dropdown><button class=btn>
+Domain Analysis</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/2-domain-analysis/1-functional-requirements/>Functional Requirements</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/2-domain-analysis/2-business-requirements/>Business Requirements</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/2-domain-analysis/3-quality-attributes/>Quality Attributes</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/2-domain-analysis/4-event-storming/>Event Storming</a></li></ul></div></li><li class=sidebar-dropdown><button class=btn>
 <i class="material-icons me-2">Location_City</i>
-Architectural Design</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/3-arch-design/1-bounded-contexts/>Bounded Contexts</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/3-arch-design/2-architecture-design/>Architecture Design</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/3-arch-design/4-patterns/>Architectural Patterns</a></li></ul></div></li><li class=sidebar-dropdown><button class=btn>
+Architectural Design</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/3-arch-design/1-bounded-contexts/>Bounded Contexts</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/3-arch-design/2-architecture-design/>Architecture Design</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/3-arch-design/4-patterns/>Architectural Patterns</a></li></ul></div></li><li class="sidebar-dropdown current active"><button class=btn>
 <i class="material-icons me-2">Construction</i>
-Detailed Design</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/4-detailed-design/5-user-groups-service/>User and Group Service design</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/4-detailed-design/1-shared-kernel/>Shared Kernel design</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/4-detailed-design/2-location-service/>Location Service design</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/4-detailed-design/4-chat-service/>Chat Service design</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/4-detailed-design/3-notification-service/>Notification Service design</a></li></ul></div></li><li class=sidebar-dropdown><button class=btn>
+Detailed Design</button><div class="sidebar-submenu d-block"><ul><li class=current><a class=sidebar-nested-link href=https://position-pal.github.io/docs/4-detailed-design/5-user-groups-service/>User and Group Service design</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/4-detailed-design/1-shared-kernel/>Shared Kernel design</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/4-detailed-design/2-location-service/>Location Service design</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/4-detailed-design/4-chat-service/>Chat Service design</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/4-detailed-design/3-notification-service/>Notification Service design</a></li></ul></div></li><li class=sidebar-dropdown><button class=btn>
 <i class="material-icons me-2">Code</i>
 Implementation Details</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/5-implementation/1-location-service/>Location Service implementation details</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/5-implementation/3-chat-service/>Chat Service implementation details</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/5-implementation/2-notification-service/>Notification Service implementation details</a></li></ul></div></li><li><a class=sidebar-root-link href=https://position-pal.github.io/docs/6-validation/validation/><i class="material-icons me-2">Bug_Report</i>
 Self Assessment and Validation</a></li><li><a class=sidebar-root-link href=https://position-pal.github.io/docs/7-devops/devops/><i class="material-icons me-2">Rocket_Launch</i>
@@ -30,10 +156,111 @@ Deployment</a></li></ul></div><ul class="sidebar-footer list-unstyled mb-0"></ul
 <span class=flexsearch-key-label>to close</span></li></div><form class="flexsearch position-relative flex-grow-1 ms-2 me-2"><div class="d-flex flex-row"><input id=flexsearch class=form-control type=search placeholder=Search aria-label=Search autocomplete=off>
 <button id=hideFlexsearch type=button class="ms-2 btn btn-soft">
 cancel</button></div><div id=suggestions class="shadow rounded-1 d-none"></div></form></div></div></div><div class=container-fluid><div class=layout-spacing><div class="d-md-flex justify-content-between align-items-center"><nav aria-label=breadcrumb class="d-inline-block pb-2 mt-1 mt-sm-0"><ul id=breadcrumbs class="breadcrumb bg-transparent mb-0" itemscope itemtype=https://schema.org/BreadcrumbList><li class="breadcrumb-item text-capitalize active" aria-current=page itemprop=itemListElement itemscope itemtype=https://schema.org/ListItem><a itemprop=item href=/docs/><i class="material-icons size-20 align-text-bottom" itemprop=name>Home</i>
-</a><meta itemprop=position content='1'></li><li class="breadcrumb-item text-capitalize" itemprop=itemListElement itemscope itemtype=https://schema.org/ListItem><a itemprop=item href=/docs/2-domain-analysis/><span itemprop=name>Domain Analysis</span>
-</a><meta itemprop=position content='2'></li><li class="breadcrumb-item text-capitalize active" itemprop=itemListElement itemscope itemtype=https://schema.org/ListItem><span itemprop=name>Quality Attributes</span>
-<meta itemprop=position content='3'></li></ul></nav></div><div class="row flex-xl-nowrap"><div class="docs-toc col-xl-3 d-xl-block"><toc><div class="fw-bold text-uppercase mb-2">On this page</div><nav id=TableOfContents><ul><li><a href=#quality-attributes-scenarios>Quality Attributes Scenarios</a><ul><li><a href=#runtime>Runtime</a></li><li><a href=#development-time>Development Time</a></li></ul></li></ul></nav></toc></div><div class="docs-toc-mobile d-print-none d-xl-none"><button id=toc-dropdown-btn class="btn-secondary dropdown-toggle" type=button data-bs-toggle=dropdown data-bs-offset=0,0 aria-expanded=false>
-Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href=#quality-attributes-scenarios>Quality Attributes Scenarios</a><ul><li><a href=#runtime>Runtime</a></li><li><a href=#development-time>Development Time</a></li></ul></li></ul></nav></div><div class="docs-content col-12 col-xl-9 mt-0"><div class="mb-0 d-flex"><h1 class="content-title mb-0">Quality Attributes</h1></div><div id=content class=main-content><div data-prismjs-copy data-prismjs-copy-success data-prismjs-copy-error><p><em>Quality Attributes</em> (<em>QA</em>), also known as <em>Non-Functional Requirements</em> (<em>NFR</em>), are measurable properties of a system that describe its qualities and indicate how well it satisfies the needs of its stakeholders beyond the functional requirements.</p><p>These attributes play a crucial role in shaping the system architecture, as they influence design decisions, trade-offs, and the selection of appropriate technologies and patterns.</p><p>In the context of this project have been identified the following quality attributes that are considered essential for the success of system, divided into &ldquo;Runtime&rdquo; and &ldquo;Development Time&rdquo; categories:</p><ul><li><strong>Runtime</strong><ul><li>the system should be highly <strong>available</strong> and <strong>reliable</strong> to ensure users can access it when needed</li><li>the system should be <strong>scalable</strong> to handle a growing number of users and data</li><li>the system should be <strong>performant</strong> to provide a responsive user experience and minimize latency in critical operations</li><li>the system should be <strong>secure</strong> to protect users&rsquo; data and privacy</li><li>the system should be <strong>observable</strong> to allow monitoring and troubleshooting of its components in real-time</li><li>the client application should be <strong>user-friendly</strong> to provide an intuitive and accessible interface for users to interact with the system</li></ul></li><li><strong>Development Time</strong><ul><li>the system should be <strong>testable</strong> to ensure the correctness of its behavior and facilitate maintenance over time;</li><li>the system should be <strong>modular</strong> to allow independent development and streamlined deployment of its components;</li><li>the system should be <strong>extensible</strong> to support future enhancements and integrations with other services without major refactoring or disruptions;</li><li>the system should be <strong>maintainable</strong> to allow easy updates, bug fixes, and improvements over time without excessive effort or risk of regressions.</li></ul></li></ul><p>Based on the above non-functional requirements, the team has identified the following scenarios to be considered during the design and implementation of the system.</p><h2 id=quality-attributes-scenarios>Quality Attributes Scenarios <a href=#quality-attributes-scenarios class=anchor aria-hidden=true><i class="material-icons align-middle">link</i></a></h2><h3 id=runtime>Runtime <a href=#runtime class=anchor aria-hidden=true><i class="material-icons align-middle">link</i></a></h3><h4 id=security>Security <a href=#security class=anchor aria-hidden=true><i class="material-icons align-middle">link</i></a></h4><ul><li><strong>Stimulus</strong>: An unauthorized access attempt is made to access sensitive data in the system.</li><li><strong>Stimulus Source</strong>: A malicious actor attempting to exploit potential vulnerabilities.</li><li><strong>Environment</strong>: The system operating in normal state in a production environment.</li><li><strong>Artifact</strong>: Authentication and authorization components.</li><li><strong>Response</strong>: The system blocks the access.</li><li><strong>Response Measure</strong>:<ul><li>✅ Pass Condition: The system prevents 100% of unauthorized access attempts.</li><li>✅ Pass Condition: The system adheres to data privacy regulations by properly encrypting sensitive data at rest and in transit.</li></ul></li></ul><h4 id=performance>Performance <a href=#performance class=anchor aria-hidden=true><i class="material-icons align-middle">link</i></a></h4><ul><li><strong>Stimulus</strong>: A user performs a data-intensive operation on the system.</li><li><strong>Stimulus Source</strong>: User interacting with the system interface.</li><li><strong>Environment</strong>: The system operating under normal load in a production environment.</li><li><strong>Artifact</strong>: The specific service processing the request.</li><li><strong>Response</strong>: The system processes the request and returns the results efficiently.</li><li><strong>Response Measure</strong>:<ul><li>✅ Pass Condition: 95 % of requests are under 1000ms and that 99% of requests are under 1500ms and the rate of requests failing is less than 0.05.</li><li>✅ Pass Condition: Resource utilization (CPU, memory) remains below 80% during peak load periods.</li></ul></li></ul><h4 id=user-friendliness>User friendliness <a href=#user-friendliness class=anchor aria-hidden=true><i class="material-icons align-middle">link</i></a></h4><ul><li><strong>Stimulus</strong>: A new user attempts to complete a core workflow in the system for the first time.</li><li><strong>Stimulus Source</strong>: First-time user.</li><li><strong>Environment</strong>: Production environment with final UI implementation.</li><li><strong>Artifact</strong>: Client application user interface.</li><li><strong>Response</strong>: The user is able to complete the workflow without external assistance.</li><li><strong>Response Measure</strong>:<ul><li>✅ Pass Condition: 85% of new users complete core workflows successfully on first attempt without requiring help documentation.</li><li>✅ Pass Condition: UI responds to user interactions within 300ms to maintain the perception of immediate feedback.</li></ul></li></ul><h4 id=observability>Observability <a href=#observability class=anchor aria-hidden=true><i class="material-icons align-middle">link</i></a></h4><ul><li><strong>Stimulus</strong>: On or more services in the system is not responding as expected.</li><li><strong>Stimulus Source</strong>: Monitoring service detect and report the anomaly.</li><li><strong>Environment</strong>: The system operating in normal state in a production environment.</li><li><strong>Artifact</strong>: The monitoring service.</li><li><strong>Response</strong>: The monitoring service logs the anomaly and sends an alert to the system administrator.</li><li><strong>Response Measure</strong>:<ul><li>✅ <strong>Pass Condition</strong>: The system administrator receives the alert in less than 1 minute.</li><li>✅ <strong>Pass Condition</strong>: The alert contains the service name, the error message, and the timestamp of the anomaly.</li><li>✅ <strong>Pass Condition</strong>: The alert is sent to the system administrator via email, a messaging service, or a dedicated monitoring platform.</li><li>✅ <strong>Pass Condition</strong>: The alert is logged in the monitoring system for future reference.</li></ul></li></ul><h4 id=reliability>Reliability <a href=#reliability class=anchor aria-hidden=true><i class="material-icons align-middle">link</i></a></h4><ul><li><strong>Stimulus</strong>: An error occurs in one of the system services.</li><li><strong>Stimulus Source</strong>: An exception (of any nature) is thrown inside a service program.</li><li><strong>Environment</strong>: The system operating in normal state in a production environment.</li><li><strong>Artifact</strong>: The affected service(s).</li><li><strong>Response</strong>: The infrastructure of the system automatically detects the failure and tries to restore the affected service(s), ensuring that no data is lost or corrupted.</li><li><strong>Response Measure</strong>: The service(s) returns to operate normally if they can be restored, otherwise they will be replaced by a new operational instance.<ul><li>✅ <strong>Pass Condition</strong>: The system is able to restore the service(s) within 30 seconds.</li></ul></li></ul><h4 id=availability>Availability <a href=#availability class=anchor aria-hidden=true><i class="material-icons align-middle">link</i></a></h4><ul><li><strong>Stimulus</strong>: Due an internal error occurs, a service becomes unavailable.</li><li><strong>Stimulus Source</strong>: Hardware or network error.</li><li><strong>Environment</strong>: The system operating in normal state in a production environment.</li><li><strong>Artifact</strong>: The service that becomes unavailable.</li><li><strong>Response</strong>: The infrastructure of the system automatically detects the failure and tries to redirect the trafic in another replica if this is available, otherwise an error is reported to the monitoring system.</li><li><strong>Response Measure</strong>:<ul><li>✅ <strong>Pass Condition</strong>: The system is able to redirect the traffic to another replica within 1 minute.</li></ul></li></ul><h4 id=scalability>Scalability <a href=#scalability class=anchor aria-hidden=true><i class="material-icons align-middle">link</i></a></h4><ul><li><strong>Stimulus</strong>: An huge amount of requests are performed to one or more services in the system.</li><li><strong>Stimulus Source</strong>: Users that tries to access the system.</li><li><strong>Environment</strong>: The system operating on an high load in a production environment.</li><li><strong>Artifact</strong>: Services of the system with huge amount of requests registered.</li><li><strong>Response</strong>: The infrastructure that hosts the system will automatically create new replicas of the services that are under high load, and will redirect the traffic to the new replicas.</li><li><strong>Response Measure</strong>:<ul><li>✅ <strong>Pass Condition</strong>: System is able to serve all the requests with a response time of less than 3.5 second on the 98% of the requests.</li></ul></li></ul><h3 id=development-time>Development Time <a href=#development-time class=anchor aria-hidden=true><i class="material-icons align-middle">link</i></a></h3><h4 id=testability>Testability <a href=#testability class=anchor aria-hidden=true><i class="material-icons align-middle">link</i></a></h4><ul><li><strong>Source</strong>: Developer</li><li><strong>Stimulus</strong>: A new code change is submitted to the version control system</li><li><strong>Environment</strong>: In a controlled CI/CD pipeline with automated testing tools and environments set up</li><li><strong>Artifact</strong>: System modules and components</li><li><strong>Response</strong>: The system triggers all the automated test suite, comprising unit, integration, and end-to-end tests, to verify the correctness of the changes</li><li><strong>Response Measure</strong>:<ul><li>✅ <strong>Pass Condition</strong>: All tests pass successfully withing 15 minutes</li><li>✅ <strong>Pass Condition</strong>: The test report must clearly indicate the tests report and any failed tests, including module name, error details and stack trace</li></ul></li></ul><h4 id=modularity>Modularity <a href=#modularity class=anchor aria-hidden=true><i class="material-icons align-middle">link</i></a></h4><ul><li><strong>Source</strong>: Development team</li><li><strong>Stimulus</strong>: A request is made to update, fix, or replace an existing module or component due to a bug fix, performance improvement, or internal refactoring.</li><li><strong>Environment</strong>: The system is operational and new code changes are being developed and tested in a controlled environment with all modules integrated</li><li><strong>Artifact</strong>: The specific component or module targeted for update or replacement</li><li><strong>Response</strong>: The requested module can be replaced or updated independently, using only its exposed APIs, without modifying or recompiling other modules.</li><li><strong>Response Measure</strong>:<ul><li>✅ <strong>Pass Condition</strong>: Integration of the updated or new module must not require changes to other modules.</li><li>✅ <strong>Pass Condition</strong>: Integration testing must be completed within 20% of the original development effort for the module.</li><li>✅ <strong>Pass Condition</strong>: All tests for unchanged modules must pass after integration.</li></ul></li></ul><h4 id=extensibility>Extensibility <a href=#extensibility class=anchor aria-hidden=true><i class="material-icons align-middle">link</i></a></h4><ul><li><strong>Source</strong>: Product manager</li><li><strong>Stimulus</strong>: A request is made to add a new feature or integrate an external service that does not exist in the current system.</li><li><strong>Environment</strong>: During development, with the system operational for existing services, leveraging defined extension points or APIs.</li><li><strong>Artifact</strong>: New module or service to be integrated, extension points, and system interfaces.</li><li><strong>Response</strong>: The new feature must be implemented as a separate module using a clear and well-defined API, minimizing changes to existing code. The integration should not impact the performance or functionality of existing modules.</li><li><strong>Response Measure</strong>:<ul><li>✅ <strong>Pass Condition</strong>: No more than 10% of the existing code can be modified to support the new module.</li><li>✅ <strong>Pass Condition</strong>: The new module must pass all tests independently before integration.</li><li>✅ <strong>Pass Condition</strong>: Integration must not degrade existing system performance by more than 5%.</li></ul></li></ul><h4 id=maintainability>Maintainability <a href=#maintainability class=anchor aria-hidden=true><i class="material-icons align-middle">link</i></a></h4><ul><li><strong>Source</strong>: Development team</li><li><strong>Stimulus</strong>: A bug is reported in a deployed module.</li><li><strong>Environment</strong>: In a controlled development environment with access to the source code, bug tracking system, and deployment tools.</li><li><strong>Artifact</strong>: System logs, bug report, and source code repository</li><li><em><strong>Response</strong></em>: The development team isolates the issue, applies a fix, and deploys it without affecting other modules.</li><li><strong>Response Measure</strong>:<ul><li>✅ <strong>Pass Condition</strong>: No new regression failures are detected in automated tests post-deployment.</li></ul></li></ul></div></div><div><hr class=doc-hr><div id=doc-nav class=d-print-none><div class="row flex-xl-nowrap"><div class="col-sm-6 pt-2 doc-next"><a href=/docs/2-domain-analysis/2-business-requirements/><div class="card h-100 my-1"><div class="card-body py-2"><p class="card-title fs-5 fw-semibold lh-base mb-0"><i class="material-icons align-middle">navigate_before</i> Business Requirements</p></div></div></a></div><div class="col-sm-6 pt-2 doc-prev"><a class=ms-auto href=/docs/2-domain-analysis/4-event-storming/><div class="card h-100 my-1 text-end"><div class="card-body py-2"><p class="card-title fs-5 fw-semibold lh-base mb-0">Event Storming <i class="material-icons align-middle">navigate_next</i></p></div></div></a></div></div></div></div></div></div></div></div><footer class="shadow py-3 d-print-none"><div class=container-fluid><div class="row align-items-center"><div class=col><div class="text-sm-start text-center mx-md-2"><p class=mb-0></p></div></div></div></div></footer></main></div></div><button onclick=topFunction() id=back-to-top aria-label="Back to Top Button" class="back-to-top fs-5"><svg width="24" height="24"><path d="M12 10.224l-6.3 6.3-1.38-1.372L12 7.472l7.68 7.68-1.38 1.376z" style="fill:#fff"/></svg></button>
+</a><meta itemprop=position content='1'></li><li class="breadcrumb-item text-capitalize" itemprop=itemListElement itemscope itemtype=https://schema.org/ListItem><a itemprop=item href=/docs/4-detailed-design/><span itemprop=name>Detailed Design</span>
+</a><meta itemprop=position content='2'></li><li class="breadcrumb-item text-capitalize active" itemprop=itemListElement itemscope itemtype=https://schema.org/ListItem><span itemprop=name>User and Group Service design</span>
+<meta itemprop=position content='3'></li></ul></nav></div><div class="row flex-xl-nowrap"><div class="docs-toc col-xl-3 visually-hidden d-xl-block"><toc><div class="fw-bold text-uppercase mb-2">On this page</div><nav id=TableOfContents><ul><li><a href=#abstract-design>Abstract Design</a><ul><li><a href=#structure>Structure</a></li><li><a href=#interaction>Interaction</a></li></ul></li></ul></nav></toc></div><div class="docs-toc-mobile visually-hidden d-print-none d-xl-none"><button id=toc-dropdown-btn class="btn-secondary dropdown-toggle" type=button data-bs-toggle=dropdown data-bs-offset=0,0 aria-expanded=false>
+Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href=#abstract-design>Abstract Design</a><ul><li><a href=#structure>Structure</a></li><li><a href=#interaction>Interaction</a></li></ul></li></ul></nav></div><div class="docs-content col-12 mt-0"><div class="mb-0 d-flex"><h1 class="content-title mb-0">User and Group Service design</h1></div><div id=content class=main-content><div data-prismjs-copy data-prismjs-copy-success data-prismjs-copy-error><p>In this section it is presented the abstract design of the <strong>User and Group Service</strong>.
+As per best practices, the design is based on the <strong>Domain-Driven Design</strong> principles, and is presented in terms of the main three views: <strong>structure</strong>, <strong>interaction</strong>, and <strong>behavior</strong>.</p><h2 id=abstract-design>Abstract Design <a href=#abstract-design class=anchor aria-hidden=true><i class="material-icons align-middle">link</i></a></h2><h3 id=structure>Structure <a href=#structure class=anchor aria-hidden=true><i class="material-icons align-middle">link</i></a></h3><p>The main domain concepts and events are presented hereafter and reified in the following classes structure, following the DDD building blocks.</p><pre tabindex=0><code class=language-plantuml data-lang=plantuml>@startuml
+package domain {
+  package user {
+    interface User &lt;&lt;entity&gt;&gt; {
+      + id: UserId
+      + name: String
+      + email: String
+      + password: String
+    }
+    interface UserId &lt;&lt;value object&gt;&gt; {
+      + value: UUID
+    }
+    User *-right-&gt; &#34;1&#34; UserId
+  }
+
+  package group {
+    interface Group &lt;&lt;entity&gt;&gt; {
+      + id: GroupId
+      + name: String
+      + members: List&lt;User&gt;
+    }
+    interface GroupId &lt;&lt;value object&gt;&gt; {
+      + value: UUID
+    }
+    Group *-right-&gt; &#34;1&#34; GroupId
+    Group --&gt; &#34;0..*&#34; User
+  }
+  
+  package event {
+    interface DomainEvent &lt;&lt;event&gt;&gt; {
+    }
+    
+    class UserCreated &lt;&lt;event&gt;&gt; {
+      + userId: UserId
+      + name: String
+      + email: String
+    }
+    class GroupCreated &lt;&lt;event&gt;&gt; {
+      + groupId: GroupId
+      + name: String
+    }
+    class UserAddedToGroup &lt;&lt;event&gt;&gt; {
+      + userId: UserId
+      + groupId: GroupId
+    }
+    class UserRemovedFromGroup &lt;&lt;event&gt;&gt; {
+      + userId: UserId
+      + groupId: GroupId
+    }
+    
+    UserCreated ..|&gt; DomainEvent
+    GroupCreated ..|&gt; DomainEvent
+    UserAddedToGroup ..|&gt; DomainEvent
+    UserRemovedFromGroup ..|&gt; DomainEvent
+  }
+}
+@enduml</code></pre><ul><li><p><strong><code>User</code></strong>: The User entity represents an individual in the system. Each User is uniquely identified by a value object, <em>UserId</em>, ensuring consistency and traceability. The entity includes attributes such as name, email, and password, which can be updated while maintaining the same identity.</p></li><li><p><strong><code>Group</code></strong> The Group entity represents a collection of users. It is identified by a <em>GroupId</em> value object and has attributes like a group name and a list of members (Users). The association (Group → 0..* User) signifies that a group can have zero or more users, enabling flexible management of group memberships.</p></li><li><p><strong><code>User-Group Context:</code></strong> Although not explicitly modeled as a value object in the diagram, the context in which events occur is defined by the association between a user and a group. This context is crucial for tracking state variations that might be specific to a group—allowing, for example, group-specific permissions or visibility settings.</p></li><li><p><strong><code>Domain Events:</code></strong> Domain events capture significant changes within the business context and play a key role in maintaining consistency and notifying other system components. All events implement the DomainEvent interface, ensuring a common structure (for instance, including a timestamp and references to the affected user and group). Key events include:</p><ul><li><p><strong><code>UserCreated:</code></strong>
+Triggered when a new user is created. It contains the UserId, name, and email, enabling other components (such as notification services) to react accordingly.</p></li><li><p><strong><code>GroupCreated:</code></strong>
+Signals the creation of a new group, carrying the <em>GroupId</em> and group name to initiate processes like automatic configuration or internal notifications.</p></li><li><p><strong><code>UserAddedToGroup:</code></strong>
+Captures the event of adding a user to a specific group by linking the <em>UserId</em> and <em>GroupId</em>.</p></li><li><p><strong><code>UserRemovedFromGroup:</code></strong>
+Records the removal of a user from a group, including both <em>UserId</em> and <em>GroupId</em>.</p></li></ul></li></ul><pre tabindex=0><code class=language-plantuml data-lang=plantuml>package application{
+  package repository {
+    interface UserRepository &lt;&lt;repository&gt;&gt; {
+      + save(user: User): void
+      + findById(id: UserId): User
+      + delete(user: User): void
+
+      + TODO ADD METHODS FOR UPDATING USER
+    }
+    interface GroupRepository &lt;&lt;repository&gt;&gt; {
+      + save(group: Group): void
+      + findById(id: GroupId): Group
+      + delete(group: Group): void
+
+      + TODO ADD METHODS FOR ADDING/REMOVING USERS
+    }
+  }
+  
+  package service {
+    interface UserService &lt;&lt;service&gt;&gt; {
+      + createUser(name: String, email: String, password: String): User
+      + updateUser(user: User): void
+      + deleteUser(id: UserId): void
+
+      + TODO ADD METHODS FOR UPDATING USER
+    }
+    interface GroupService &lt;&lt;service&gt;&gt; {
+      + createGroup(name: String): Group
+      + addUserToGroup(user: User, group: Group): void
+      + removeUserFromGroup(user: User, group: Group): void
+
+            + TODO ADD METHODS FOR ADDING/REMOVING USERS
+    }
+  }
+  service.UserService ..&gt; repository.UserRepository : uses
+  service.GroupService ..&gt; repository.GroupRepository : uses
+  service.UserService ..&gt; event.UserCreated : publishes
+  service.GroupService ..&gt; event.GroupCreated : publishes
+  service.GroupService ..&gt; event.UserAddedToGroup : publishes
+  service.GroupService ..&gt; event.UserRemovedFromGroup : publishes
+}</code></pre><ul><li><p><strong><code>Repositories:</code></strong></p><ul><li><p><strong><code>UserRepository:</code></strong> Abstracts the persistence operations for User entities by exposing methods such as save(user: User), findById(id: UserId): User, and delete(user: User).</p></li><li><p><strong><code>GroupRepository:</code></strong> Similarly abstracts persistence for Group entities with equivalent operations.</p></li></ul></li><li><p><strong><code>Services:</code></strong></p><ul><li><p><strong><code>UserService:</code></strong> Contains business logic for creating, updating, and deleting users. It leverages the UserRepository for data operations and publishes a UserCreated event when a new user is created.</p></li><li><p><strong><code>GroupService:</code></strong> Manages group-related operations such as creating groups, adding users to groups, and removing users from groups. It uses the GroupRepository for data access and publishes GroupCreated, UserAddedToGroup, and UserRemovedFromGroup events as necessary.</p></li></ul><p>// TODO CHECK EVENTS</p></li></ul><h3 id=interaction>Interaction <a href=#interaction class=anchor aria-hidden=true><i class="material-icons align-middle">link</i></a></h3><p>The interaction between the main components of the system is described in the following sequence diagram.</p><ul><li><p><code>User Registration:</code> A new user registers by sending their username, email, and password to the Auth Service. The service persists the new user in the User-Group Store, publishes a UserCreated event on the Event Bus, and returns the created user details.</p></li><li><p><code>User Login:</code> The user logs in by providing credentials. The Auth Service validates these against the User-Group Store and returns a UserSession (including a token).</p></li><li><p><code>User Modification:</code> The user modifies their own details (e.g., changing name, surname or password) by sending an update request to the Auth Service. The service updates the record, publishes a UserUpdated event, and returns the updated user information.</p></li><li><p><code>Group Creation:</code> The user creates a group through the Group Handler. The handler persists the new group (recording the creator’s UserID), publishes a GroupCreated event, and returns the group details.</p></li><li><p><code>Group Update:</code> The user updates the group’s name via the Group Handler. The updated details are persisted, a GroupUpdated event is published, and the updated group details are returned.</p></li><li><p><code>User Join Group:</code> The user joins a group by sending a join request to the Group Handler. The Group Handler adds the user to the group in the store, publishes a UserAddedToGroup event, and returns the updated group details.</p></li><li><p><code>Remove Member from Group:</code> The user (or possibly a group owner) removes a target member from the group by sending a removal request. The Group Handler updates the membership in the store, publishes a UserRemovedFromGroup event, and returns the updated group details.</p></li><li><p><code>User Logout:</code> The user logs out by sending a logout request to the Auth Service. The service invalidates the session in the store and returns a logout acknowledgment.</p></li></ul><p>Please, note the diagram illustrates only the main success flow, leaving out the error handling and the edge cases.</p><div style=width:100%;overflow-x:auto;white-space:nowrap><img src=/res/user-group-service-full-behavior-light.svg alt="user-group-service-full-behavior schema" style=max-width:1100px class=schema></div></div></div><div><hr class=doc-hr><div id=doc-nav class=d-print-none><div class="row flex-xl-nowrap"><div class="col-sm-6 pt-2 doc-next"><a href=/docs/3-arch-design/4-patterns/><div class="card h-100 my-1"><div class="card-body py-2"><p class="card-title fs-5 fw-semibold lh-base mb-0"><i class="material-icons align-middle">navigate_before</i> Architectural Patterns</p></div></div></a></div><div class="col-sm-6 pt-2 doc-prev"><a class=ms-auto href=/docs/4-detailed-design/1-shared-kernel/><div class="card h-100 my-1 text-end"><div class="card-body py-2"><p class="card-title fs-5 fw-semibold lh-base mb-0">Shared Kernel design <i class="material-icons align-middle">navigate_next</i></p></div></div></a></div></div></div></div></div></div></div></div><footer class="shadow py-3 d-print-none"><div class=container-fluid><div class="row align-items-center"><div class=col><div class="text-sm-start text-center mx-md-2"><p class=mb-0></p></div></div></div></div></footer></main></div></div><button onclick=topFunction() id=back-to-top aria-label="Back to Top Button" class="back-to-top fs-5"><svg width="24" height="24"><path d="M12 10.224l-6.3 6.3-1.38-1.372L12 7.472l7.68 7.68-1.38 1.376z" style="fill:#fff"/></svg></button>
 <script>(()=>{var e=document.getElementById("mode");e!==null&&(window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change",e=>{e.matches?(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")):(localStorage.setItem("theme","light"),document.documentElement.removeAttribute("data-dark-mode"))}),e.addEventListener("click",()=>{document.documentElement.toggleAttribute("data-dark-mode"),localStorage.setItem("theme",document.documentElement.hasAttribute("data-dark-mode")?"dark":"light")}),localStorage.getItem("theme")==="dark"?document.documentElement.setAttribute("data-dark-mode",""):document.documentElement.removeAttribute("data-dark-mode"))})()</script><script src=/docs/js/bootstrap.c7927bdd82eceb076739257add3f4b0e11379da037c07d5c7110daeb6de0e3edcb2de867604550f88815157e4ec4ddb7.js integrity=sha384-x5J73YLs6wdnOSV63T9LDhE3naA3wH1ccRDa623g4+3LLehnYEVQ+IgVFX5OxN23 defer></script><script type=text/javascript src=https://position-pal.github.io/docs/js/bundle.min.4b07706b1da436c9600e641a8cf51af20b3e497ead85e0d0af7552a0314e8e317dc63bb69d12c072092518621478900d.js integrity=sha384-Swdwax2kNslgDmQajPUa8gs+SX6theDQr3VSoDFOjjF9xju2nRLAcgklGGIUeJAN crossorigin=anonymous defer></script><script type=module>
     var suggestions = document.getElementById('suggestions');
     var search = document.getElementById('flexsearch');

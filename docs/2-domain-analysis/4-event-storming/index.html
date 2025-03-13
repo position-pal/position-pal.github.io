@@ -10,7 +10,7 @@ Domain Analysis</button><div class="sidebar-submenu d-block"><ul><li><a class=si
 <i class="material-icons me-2">Location_City</i>
 Architectural Design</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/3-arch-design/1-bounded-contexts/>Bounded Contexts</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/3-arch-design/2-architecture-design/>Architecture Design</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/3-arch-design/4-patterns/>Architectural Patterns</a></li></ul></div></li><li class=sidebar-dropdown><button class=btn>
 <i class="material-icons me-2">Construction</i>
-Detailed Design</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/4-detailed-design/1-shared-kernel/>Shared Kernel design</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/4-detailed-design/2-location-service/>Location Service design</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/4-detailed-design/4-chat-service/>Chat Service design</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/4-detailed-design/3-notification-service/>Notification Service design</a></li></ul></div></li><li class=sidebar-dropdown><button class=btn>
+Detailed Design</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/4-detailed-design/5-user-groups-service/>User and Group Service design</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/4-detailed-design/1-shared-kernel/>Shared Kernel design</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/4-detailed-design/2-location-service/>Location Service design</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/4-detailed-design/4-chat-service/>Chat Service design</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/4-detailed-design/3-notification-service/>Notification Service design</a></li></ul></div></li><li class=sidebar-dropdown><button class=btn>
 <i class="material-icons me-2">Code</i>
 Implementation Details</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/5-implementation/1-location-service/>Location Service implementation details</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/5-implementation/3-chat-service/>Chat Service implementation details</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/5-implementation/2-notification-service/>Notification Service implementation details</a></li></ul></div></li><li><a class=sidebar-root-link href=https://position-pal.github.io/docs/6-validation/validation/><i class="material-icons me-2">Bug_Report</i>
 Self Assessment and Validation</a></li><li><a class=sidebar-root-link href=https://position-pal.github.io/docs/7-devops/devops/><i class="material-icons me-2">Rocket_Launch</i>
@@ -1657,6 +1657,13 @@ Finally, <strong>read models</strong>, or whatever information the system needs 
     
     
     
+    
+    
+    
+    
+    
+    
+    
 
 
     
@@ -1765,6 +1772,15 @@ Finally, <strong>read models</strong>, or whatever information the system needs 
     index.add(
             {
                 id:  11 ,
+                href: "\/docs\/4-detailed-design\/5-user-groups-service\/",
+                title: "User and Group Service design",
+                description: "In this section it is presented the abstract design of the User and Group Service. As per best practices, the design is based on the Domain-Driven Design principles, and is presented in terms of the main three views: structure, interaction, and behavior.\nAbstract Design linkStructure linkThe main domain concepts and events are presented hereafter and reified in the following classes structure, following the DDD building blocks.\n@startuml package domain { package user { interface User \u003c\u003e { + id: UserId + name: String + email: String + password: String } interface UserId \u003c\u003e { + value: UUID } User *-right-\u003e \"1\" UserId } package group { interface Group \u003c\u003e { + id: GroupId + name: String + members: List } interface GroupId \u003c\u003e { + value: UUID } Group *-right-\u003e \"1\" GroupId Group --\u003e \"0..*\" User } package event { interface DomainEvent \u003c\u003e { } class UserCreated \u003c\u003e { + userId: UserId + name: String + email: String } class GroupCreated \u003c\u003e { + groupId: GroupId + name: String } class UserAddedToGroup \u003c\u003e { + userId: UserId + groupId: GroupId } class UserRemovedFromGroup \u003c\u003e { + userId: UserId + groupId: GroupId } UserCreated ..|\u003e DomainEvent GroupCreated ..|\u003e DomainEvent UserAddedToGroup ..|\u003e DomainEvent UserRemovedFromGroup ..|\u003e DomainEvent } } @enduml User: The User entity represents an individual in the system. Each User is uniquely identified by a value object, UserId, ensuring consistency and traceability. The entity includes attributes such as name, email, and password, which can be updated while maintaining the same identity.\n",
+                content: "In this section it is presented the abstract design of the User and Group Service. As per best practices, the design is based on the Domain-Driven Design principles, and is presented in terms of the main three views: structure, interaction, and behavior.\nAbstract Design linkStructure linkThe main domain concepts and events are presented hereafter and reified in the following classes structure, following the DDD building blocks.\n@startuml package domain { package user { interface User \u003c\u003e { + id: UserId + name: String + email: String + password: String } interface UserId \u003c\u003e { + value: UUID } User *-right-\u003e \"1\" UserId } package group { interface Group \u003c\u003e { + id: GroupId + name: String + members: List } interface GroupId \u003c\u003e { + value: UUID } Group *-right-\u003e \"1\" GroupId Group --\u003e \"0..*\" User } package event { interface DomainEvent \u003c\u003e { } class UserCreated \u003c\u003e { + userId: UserId + name: String + email: String } class GroupCreated \u003c\u003e { + groupId: GroupId + name: String } class UserAddedToGroup \u003c\u003e { + userId: UserId + groupId: GroupId } class UserRemovedFromGroup \u003c\u003e { + userId: UserId + groupId: GroupId } UserCreated ..|\u003e DomainEvent GroupCreated ..|\u003e DomainEvent UserAddedToGroup ..|\u003e DomainEvent UserRemovedFromGroup ..|\u003e DomainEvent } } @enduml User: The User entity represents an individual in the system. Each User is uniquely identified by a value object, UserId, ensuring consistency and traceability. The entity includes attributes such as name, email, and password, which can be updated while maintaining the same identity.\nGroup The Group entity represents a collection of users. It is identified by a GroupId value object and has attributes like a group name and a list of members (Users). The association (Group → 0..* User) signifies that a group can have zero or more users, enabling flexible management of group memberships.\nUser-Group Context: Although not explicitly modeled as a value object in the diagram, the context in which events occur is defined by the association between a user and a group. This context is crucial for tracking state variations that might be specific to a group—allowing, for example, group-specific permissions or visibility settings.\nDomain Events: Domain events capture significant changes within the business context and play a key role in maintaining consistency and notifying other system components. All events implement the DomainEvent interface, ensuring a common structure (for instance, including a timestamp and references to the affected user and group). Key events include:\nUserCreated: Triggered when a new user is created. It contains the UserId, name, and email, enabling other components (such as notification services) to react accordingly.\nGroupCreated: Signals the creation of a new group, carrying the GroupId and group name to initiate processes like automatic configuration or internal notifications.\nUserAddedToGroup: Captures the event of adding a user to a specific group by linking the UserId and GroupId.\nUserRemovedFromGroup: Records the removal of a user from a group, including both UserId and GroupId.\npackage application{ package repository { interface UserRepository \u003c\u003e { + save(user: User): void + findById(id: UserId): User + delete(user: User): void + TODO ADD METHODS FOR UPDATING USER } interface GroupRepository \u003c\u003e { + save(group: Group): void + findById(id: GroupId): Group + delete(group: Group): void + TODO ADD METHODS FOR ADDING/REMOVING USERS } } package service { interface UserService \u003c\u003e { + createUser(name: String, email: String, password: String): User + updateUser(user: User): void + deleteUser(id: UserId): void + TODO ADD METHODS FOR UPDATING USER } interface GroupService \u003c\u003e { + createGroup(name: String): Group + addUserToGroup(user: User, group: Group): void + removeUserFromGroup(user: User, group: Group): void + TODO ADD METHODS FOR ADDING/REMOVING USERS } } service.UserService ..\u003e repository.UserRepository : uses service.GroupService ..\u003e repository.GroupRepository : uses service.UserService ..\u003e event.UserCreated : publishes service.GroupService ..\u003e event.GroupCreated : publishes service.GroupService ..\u003e event.UserAddedToGroup : publishes service.GroupService ..\u003e event.UserRemovedFromGroup : publishes } Repositories:\nUserRepository: Abstracts the persistence operations for User entities by exposing methods such as save(user: User), findById(id: UserId): User, and delete(user: User).\nGroupRepository: Similarly abstracts persistence for Group entities with equivalent operations.\nServices:\nUserService: Contains business logic for creating, updating, and deleting users. It leverages the UserRepository for data operations and publishes a UserCreated event when a new user is created.\nGroupService: Manages group-related operations such as creating groups, adding users to groups, and removing users from groups. It uses the GroupRepository for data access and publishes GroupCreated, UserAddedToGroup, and UserRemovedFromGroup events as necessary.\n// TODO CHECK EVENTS\nInteraction linkThe interaction between the main components of the system is described in the following sequence diagram.\nUser Registration: A new user registers by sending their username, email, and password to the Auth Service. The service persists the new user in the User-Group Store, publishes a UserCreated event on the Event Bus, and returns the created user details.\nUser Login: The user logs in by providing credentials. The Auth Service validates these against the User-Group Store and returns a UserSession (including a token).\nUser Modification: The user modifies their own details (e.g., changing name, surname or password) by sending an update request to the Auth Service. The service updates the record, publishes a UserUpdated event, and returns the updated user information.\nGroup Creation: The user creates a group through the Group Handler. The handler persists the new group (recording the creator’s UserID), publishes a GroupCreated event, and returns the group details.\nGroup Update: The user updates the group’s name via the Group Handler. The updated details are persisted, a GroupUpdated event is published, and the updated group details are returned.\nUser Join Group: The user joins a group by sending a join request to the Group Handler. The Group Handler adds the user to the group in the store, publishes a UserAddedToGroup event, and returns the updated group details.\nRemove Member from Group: The user (or possibly a group owner) removes a target member from the group by sending a removal request. The Group Handler updates the membership in the store, publishes a UserRemovedFromGroup event, and returns the updated group details.\nUser Logout: The user logs out by sending a logout request to the Auth Service. The service invalidates the session in the store and returns a logout acknowledgment.\nPlease, note the diagram illustrates only the main success flow, leaving out the error handling and the edge cases.\n"
+            }
+        );
+    index.add(
+            {
+                id:  12 ,
                 href: "\/docs\/4-detailed-design\/1-shared-kernel\/",
                 title: "Shared Kernel design",
                 description: "The shared kernel includes the common entities used by all services. Its primary objective is to encapsulate only the integration contracts and data structures meant to be passed across the boundaries of the bounded contexts.\nSince the system’s architecture is event-driven, communication between microservices occurs exclusively through events and commands exchanged via the message broker. These events and commands have been represented as classes and interfaces, as illustrated in the following UML diagram. This approach facilitates and reduce the cost of duplicating code across services, ensuring consistency and coherence in the system’s communication.\n",
@@ -1773,7 +1789,7 @@ Finally, <strong>read models</strong>, or whatever information the system needs 
         );
     index.add(
             {
-                id:  12 ,
+                id:  13 ,
                 href: "\/docs\/4-detailed-design\/2-location-service\/",
                 title: "Location Service design",
                 description: " In this section it is presented the abstract design of the Location Service. As per best practices, the design is based on the Domain-Driven Design principles, and is presented in terms of the main three views: structure, interaction, and behavior.\nAbstract Design linkStructure linkThe main domain concepts and events are presented hereafter and reified in the following classes structure, following the DDD building blocks.\n",
@@ -1782,7 +1798,7 @@ Finally, <strong>read models</strong>, or whatever information the system needs 
         );
     index.add(
             {
-                id:  13 ,
+                id:  14 ,
                 href: "\/docs\/4-detailed-design\/4-chat-service\/",
                 title: "Chat Service design",
                 description: "Chat service is responsible for managing the communication between users in real-time. This document describes the detailed design of the chat service, including its architecture, components, and interactions.\nAbstract Design linkHere are presented the main components of the chat service, we start describing the foundamental entities of the domain, then we move to the infrastructure layer, where we define the commands and events that will be used to interact with the domain entities.\n",
@@ -1791,7 +1807,7 @@ Finally, <strong>read models</strong>, or whatever information the system needs 
         );
     index.add(
             {
-                id:  14 ,
+                id:  15 ,
                 href: "\/docs\/4-detailed-design\/3-notification-service\/",
                 title: "Notification Service design",
                 description: "In this section is presented the abstract design of the notification service.\nAs already presented, its main responsibility is to send notifications to the users, based on the events that occur in the system.\nStructure linkThe structure of the service is quite simple:\nToken is a value object that represents the token used to identify the device of a user. UserToken is an entity that represents the association between a user and a token. UsersTokensService is the service that allows registering and invalidating tokens for users. UsersTokensRepository is the repository that stores the associations between users and tokens. NotificationPublisher is the service that sends notifications to users. PublishingTargetStrategy is the strategy used to determine the target of the notification. Two stategies exists: one to send to all members of a group (corresponding to the GroupWisePushNotification command) and another to send to all members sharing a group with a user (corresponding to the CoMembersPushNotification command). GroupsRepository is the repository that allows storing and retrieving the members of the groups. This is called by the message broker adapter on every events whose topic is related to groups state changes. Interaction linkThe main flow scenario is depicted in the following sequence diagram:\n",
@@ -1800,7 +1816,7 @@ Finally, <strong>read models</strong>, or whatever information the system needs 
         );
     index.add(
             {
-                id:  15 ,
+                id:  16 ,
                 href: "\/docs\/5-implementation\/",
                 title: "Implementation Details",
                 description: "The internals of the system",
@@ -1809,7 +1825,7 @@ Finally, <strong>read models</strong>, or whatever information the system needs 
         );
     index.add(
             {
-                id:  16 ,
+                id:  17 ,
                 href: "\/docs\/5-implementation\/1-location-service\/",
                 title: "Location Service implementation details",
                 description: "This chapter provides an overview of the implementation details of the Location Service.\nUser Tracking and Real-time Management linkThe most important and critical feature of the Location Service is the tracking of the user’s location and real-time management of their state considering the high volume of data that needs to be processed in real-time. Moreover, the service is in charge of the user monitoring during the SOS and Routing modes, which require to take real-time actions to ensure the user’s safety.\n",
@@ -1818,7 +1834,7 @@ Finally, <strong>read models</strong>, or whatever information the system needs 
         );
     index.add(
             {
-                id:  17 ,
+                id:  18 ,
                 href: "\/docs\/5-implementation\/3-chat-service\/",
                 title: "Chat Service implementation details",
                 description: "Chat Messaging and Real-time Management linkThe primary functions of the chat service are to manage the chat groups and the relative messages that are exchanged between users of these groups. In most of the cases the amount of messages exchanged is high, and the service needs to manage them in real-time with low latency of response.\nWe built a WebSocket-based communication system using an actor model. Specifically, we leveraged the Event Sourcing module from the Akka framework to handle Group instances. This approach treats Events as first-class citizens while maintaining consistent chat state.\n",
@@ -1827,7 +1843,7 @@ Finally, <strong>read models</strong>, or whatever information the system needs 
         );
     index.add(
             {
-                id:  18 ,
+                id:  19 ,
                 href: "\/docs\/5-implementation\/2-notification-service\/",
                 title: "Notification Service implementation details",
                 description: " Currently, the only supported notification types are push notifications, which are essential to guarantee that the client is immediately informed about groups changes or user state changes, like the trigger of the SOS alert or the journey start.\nMessage broker linkLike already presented in the Architecture Design section, the notification service is integrated with the message broker to receive notification commands from other microservices.\n",
@@ -1836,7 +1852,7 @@ Finally, <strong>read models</strong>, or whatever information the system needs 
         );
     index.add(
             {
-                id:  19 ,
+                id:  20 ,
                 href: "\/docs\/6-validation\/validation\/",
                 title: "Self Assessment and Validation",
                 description: "Self assessment and validation of the system.",
@@ -1845,7 +1861,7 @@ Finally, <strong>read models</strong>, or whatever information the system needs 
         );
     index.add(
             {
-                id:  20 ,
+                id:  21 ,
                 href: "\/docs\/7-devops\/devops\/",
                 title: "DevOps",
                 description: "DevOps practices and tools",
@@ -1854,7 +1870,7 @@ Finally, <strong>read models</strong>, or whatever information the system needs 
         );
     index.add(
             {
-                id:  21 ,
+                id:  22 ,
                 href: "\/docs\/8-deployment\/",
                 title: "Deployment",
                 description: "Deployment infrastructure",
@@ -1863,7 +1879,7 @@ Finally, <strong>read models</strong>, or whatever information the system needs 
         );
     index.add(
             {
-                id:  22 ,
+                id:  23 ,
                 href: "\/docs\/",
                 title: "Docs",
                 description: "",
