@@ -6,7 +6,7 @@ Domain Analysis</button><div class=sidebar-submenu><ul><li><a class=sidebar-nest
 <i class="material-icons me-2">Location_City</i>
 Architectural Design</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/3-arch-design/1-bounded-contexts/>Bounded Contexts</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/3-arch-design/2-architecture-design/>Architecture Design</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/3-arch-design/4-patterns/>Architectural Patterns</a></li></ul></div></li><li class=sidebar-dropdown><button class=btn>
 <i class="material-icons me-2">Construction</i>
-Detailed Design</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/4-detailed-design/1-shared-kernel/>Shared Kernel design</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/4-detailed-design/2-location-service/>Location Service design</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/4-detailed-design/5-user-groups-service/>User and Group Service design</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/4-detailed-design/4-chat-service/>Chat Service design</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/4-detailed-design/3-notification-service/>Notification Service design</a></li></ul></div></li><li class="sidebar-dropdown current active"><button class=btn>
+Detailed Design</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/4-detailed-design/0-overall-architecture/>Big Picture</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/4-detailed-design/1-shared-kernel/>Shared Kernel design</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/4-detailed-design/5-user-groups-service/>User and Group Service design</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/4-detailed-design/2-location-service/>Location Service design</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/4-detailed-design/4-chat-service/>Chat Service design</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/4-detailed-design/3-notification-service/>Notification Service design</a></li></ul></div></li><li class="sidebar-dropdown current active"><button class=btn>
 <i class="material-icons me-2">Code</i>
 Implementation Details</button><div class="sidebar-submenu d-block"><ul><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/5-implementation/1-location-service/>Location Service implementation details</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/5-implementation/3-chat-service/>Chat Service implementation details</a></li><li><a class=sidebar-nested-link href=https://position-pal.github.io/docs/5-implementation/2-notification-service/>Notification Service implementation details</a></li></ul></div></li><li><a class=sidebar-root-link href=https://position-pal.github.io/docs/6-validation/validation/><i class="material-icons me-2">Bug_Report</i>
 Self Assessment and Validation</a></li><li><a class=sidebar-root-link href=https://position-pal.github.io/docs/7-devops/devops/><i class="material-icons me-2">Rocket_Launch</i>
@@ -300,6 +300,13 @@ Table of Contents</button><nav id=toc-mobile></nav></div><div class="docs-conten
     
     
     
+    
+    
+    
+    
+    
+    
+    
 
 
     
@@ -408,19 +415,19 @@ Table of Contents</button><nav id=toc-mobile></nav></div><div class="docs-conten
     index.add(
             {
                 id:  11 ,
-                href: "\/docs\/4-detailed-design\/1-shared-kernel\/",
-                title: "Shared Kernel design",
-                description: "The shared kernel includes the common entities used by all services. Its primary objective is to encapsulate only the integration contracts and data structures meant to be passed across the boundaries of the bounded contexts.\nSince the system’s architecture is event-driven, communication between microservices occurs exclusively through events and commands exchanged via the message broker. These events and commands have been represented as classes and interfaces, as illustrated in the following UML diagram. This approach facilitates and reduce the cost of duplicating code across services, ensuring consistency and coherence in the system’s communication.\n",
-                content: "The shared kernel includes the common entities used by all services. Its primary objective is to encapsulate only the integration contracts and data structures meant to be passed across the boundaries of the bounded contexts.\nSince the system’s architecture is event-driven, communication between microservices occurs exclusively through events and commands exchanged via the message broker. These events and commands have been represented as classes and interfaces, as illustrated in the following UML diagram. This approach facilitates and reduce the cost of duplicating code across services, ensuring consistency and coherence in the system’s communication.\nThe events package contains all the events that can be triggered by the system, including group creation and removal, as well as the addition or removal of members from a group. The commands package contains all the commands that can be sent to the system. It includes the PushNotificationCommand, an abstract class representing a push notification command. This class has two concrete implementations: GroupWisePushNotification - a command that sends a push notification to all members of a specific group. CoMembersPushNotification - a command that sends a push notification to all users sharing a group with a specific user. Both commands and events rely on shared value objects and entities that represent the core concepts of the system, such as UserId, GroupId, User, and NotificationMessage. It is important to note that these entities contain only the attributes required to fulfill integration needs. More complex design details are delegated to individual services, which are responsible for managing their own data and requirements and are free to evolve independently of other services. "
+                href: "\/docs\/4-detailed-design\/0-overall-architecture\/",
+                title: "Big Picture",
+                description: "The following schema provides a high-level overview of the system, illustrating its components and their main interactions. The goal is to give the reader a clear understanding of the system’s structure and dynamics without formal specifications.\n\u003c?xml version=\"1.0\" encoding=\"UTF-8\"?\u003e \u003c!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\"\u003e ",
+                content: "The following schema provides a high-level overview of the system, illustrating its components and their main interactions. The goal is to give the reader a clear understanding of the system’s structure and dynamics without formal specifications.\n\u003c?xml version=\"1.0\" encoding=\"UTF-8\"?\u003e \u003c!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\"\u003e "
             }
         );
     index.add(
             {
                 id:  12 ,
-                href: "\/docs\/4-detailed-design\/2-location-service\/",
-                title: "Location Service design",
-                description: " In this section it is presented the abstract design of the Location Service. As per best practices, the design is based on the Domain-Driven Design principles, and is presented in terms of the main three views: structure, interaction, and behavior.\nAbstract Design linkStructure linkThe main domain concepts and events are presented hereafter and reified in the following classes structure, following the DDD building blocks.\n",
-                content: " In this section it is presented the abstract design of the Location Service. As per best practices, the design is based on the Domain-Driven Design principles, and is presented in terms of the main three views: structure, interaction, and behavior.\nAbstract Design linkStructure linkThe main domain concepts and events are presented hereafter and reified in the following classes structure, following the DDD building blocks.\nScope: A value object representing the context in which an event occurs. It is composed of a user and a group, capturing the idea that a user’s state can differ from group to group, enabling group-specific visibility and tracking. Tracking: An entity representing the user’s route information at a certain point in time, it is composed of a list of positions that can be interpolated to form a path between two geographical positions. MonitorableTracking: a specialized Tracking entity that includes the mode of transportation, the destination, the expected arrival time, enabling the system to monitor the user’s route and trigger alerts when necessary. Session: An aggregate root entity storing the overall state of a user in a group at a certain point in time. It acts as a state machine, updating the state and the tracking information based on the received events, ensuring the consistency of the user’s state is maintained. A Snapshot is a value object capturing a snapshot of the user’s state. DomainEvent: An interface representing the base structure of a domain event, capturing the timestamp, the user, and the group in which the event occurs. It is the base type for all the events that occur in the system. DrivingEvent: An interface representing the base structure of a driving event, i.e. a valuable event guiding an application use case. ClientDrivingEvent: A specialized DrivingEvent interface representing the events that are triggered by the user’s actions, such as sampling the location, triggering an SOS alert, starting or stopping a routing. InternalDrivingEvent: A specialized DrivingEvent interface representing the events that are triggered by the system, such as the user going offline, triggering a stuck alert, or a timeout alert. DrivenEvent: An interface representing the base structure of a driven event, i.e. an event triggered by the system as a result of some system state change / action. The application services and repositories are presented in the following diagram, which presents only the main interfaces, leaving out the implementation and the adapters classes.\nMapsService: the service responsible for calculating the distance and the duration between two geographical positions, based on the mode of transportation. NotificationService: the service responsible for sending notifications, acting as a proxy towards the notification service. The concrete adapter is in charge of sending the notification to the appropriate channel of the message broker. RealTimeTracking: the service responsible for handling the driving events, acting as an input port for the external adapters. It allows to register observers to be get back real-time updates. Clients can in any moment get a snapshot of the user’s state and location by querying the UsersSessionService service, which is responsible for managing the user’s session state. The actual tracking information are stored through the UserSessionStore repository, which is responsible for the persistence of the user’s session state. A UserSessionStore is both a Writer and a Reader for the Session entity. Separate write-side and read-side interfaces are defined to ensure the separation of concerns and the single responsibility principle, leaving the implementation open to adhere to CQRS pattern. UserGroupsService is responsible for managing the saving and retrieval of the groups members through the UserGroupsStore repository. Updates happen thanks the events propagated by the User service via the message broker. Interaction linkThe interaction concerning the real-time user tracking between the main components of the system is described in the following sequence diagram.\nThe Group Member connects to the RealTimeTracking service through a Real Time Communication Connector starting observing the updates of the group members it belongs to. However, before starting reacting to these updates, it fetches the current state of all group members through the UsersSessionService service, ensuring a consistent view of their state. Once the current state of all members is obtained, it starts reacting to the updates of other groups members while sending its own updates to the service. The RealTimeTracking service, upon receiving the updates, reacts to the events and updates the user’s session state, sending back the result to all the group members currently observing group’s changes.\nPlease, note the diagram illustrates only the main success flow, leaving out the error handling and the edge cases. Moreover, the interaction between the Group Member and the tracking services is mediated by the gateway, which is not shown in the diagram.\nBehavior linkAs an event driven architecture, the state of each group’s member can be described by the following state diagram, drawing the possible state transitions that can be fired by one of the above DrivingEvent.\n"
+                href: "\/docs\/4-detailed-design\/1-shared-kernel\/",
+                title: "Shared Kernel design",
+                description: "The shared kernel includes the common entities used by all services. Its primary objective is to encapsulate only the integration contracts and data structures meant to be passed across the boundaries of the bounded contexts.\nSince the system’s architecture is event-driven, communication between microservices occurs exclusively through events and commands exchanged via the message broker. These events and commands have been represented as classes and interfaces, as illustrated in the following UML diagram. This approach facilitates and reduce the cost of duplicating code across services, ensuring consistency and coherence in the system’s communication.\n",
+                content: "The shared kernel includes the common entities used by all services. Its primary objective is to encapsulate only the integration contracts and data structures meant to be passed across the boundaries of the bounded contexts.\nSince the system’s architecture is event-driven, communication between microservices occurs exclusively through events and commands exchanged via the message broker. These events and commands have been represented as classes and interfaces, as illustrated in the following UML diagram. This approach facilitates and reduce the cost of duplicating code across services, ensuring consistency and coherence in the system’s communication.\nThe events package contains all the events that can be triggered by the system, including group creation and removal, as well as the addition or removal of members from a group. The commands package contains all the commands that can be sent to the system. It includes the PushNotificationCommand, an abstract class representing a push notification command. This class has two concrete implementations: GroupWisePushNotification - a command that sends a push notification to all members of a specific group. CoMembersPushNotification - a command that sends a push notification to all users sharing a group with a specific user. Both commands and events rely on shared value objects and entities that represent the core concepts of the system, such as UserId, GroupId, User, and NotificationMessage. It is important to note that these entities contain only the attributes required to fulfill integration needs. More complex design details are delegated to individual services, which are responsible for managing their own data and requirements and are free to evolve independently of other services. "
             }
         );
     index.add(
@@ -435,6 +442,15 @@ Table of Contents</button><nav id=toc-mobile></nav></div><div class="docs-conten
     index.add(
             {
                 id:  14 ,
+                href: "\/docs\/4-detailed-design\/2-location-service\/",
+                title: "Location Service design",
+                description: " In this section it is presented the abstract design of the Location Service. As per best practices, the design is based on the Domain-Driven Design principles, and is presented in terms of the main three views: structure, interaction, and behavior.\nAbstract Design linkStructure linkThe main domain concepts and events are presented hereafter and reified in the following classes structure, following the DDD building blocks.\n",
+                content: " In this section it is presented the abstract design of the Location Service. As per best practices, the design is based on the Domain-Driven Design principles, and is presented in terms of the main three views: structure, interaction, and behavior.\nAbstract Design linkStructure linkThe main domain concepts and events are presented hereafter and reified in the following classes structure, following the DDD building blocks.\nScope: A value object representing the context in which an event occurs. It is composed of a user and a group, capturing the idea that a user’s state can differ from group to group, enabling group-specific visibility and tracking. Tracking: An entity representing the user’s route information at a certain point in time, it is composed of a list of positions that can be interpolated to form a path between two geographical positions. MonitorableTracking: a specialized Tracking entity that includes the mode of transportation, the destination, the expected arrival time, enabling the system to monitor the user’s route and trigger alerts when necessary. Session: An aggregate root entity storing the overall state of a user in a group at a certain point in time. It acts as a state machine, updating the state and the tracking information based on the received events, ensuring the consistency of the user’s state is maintained. A Snapshot is a value object capturing a snapshot of the user’s state. DomainEvent: An interface representing the base structure of a domain event, capturing the timestamp, the user, and the group in which the event occurs. It is the base type for all the events that occur in the system. DrivingEvent: An interface representing the base structure of a driving event, i.e. a valuable event guiding an application use case. ClientDrivingEvent: A specialized DrivingEvent interface representing the events that are triggered by the user’s actions, such as sampling the location, triggering an SOS alert, starting or stopping a routing. InternalDrivingEvent: A specialized DrivingEvent interface representing the events that are triggered by the system, such as the user going offline, triggering a stuck alert, or a timeout alert. DrivenEvent: An interface representing the base structure of a driven event, i.e. an event triggered by the system as a result of some system state change / action. The application services and repositories are presented in the following diagram, which presents only the main interfaces, leaving out the implementation and the adapters classes.\nMapsService: the service responsible for calculating the distance and the duration between two geographical positions, based on the mode of transportation. NotificationService: the service responsible for sending notifications, acting as a proxy towards the notification service. The concrete adapter is in charge of sending the notification to the appropriate channel of the message broker. RealTimeTracking: the service responsible for handling the driving events, acting as an input port for the external adapters. It allows to register observers to be get back real-time updates. Clients can in any moment get a snapshot of the user’s state and location by querying the UsersSessionService service, which is responsible for managing the user’s session state. The actual tracking information are stored through the UserSessionStore repository, which is responsible for the persistence of the user’s session state. A UserSessionStore is both a Writer and a Reader for the Session entity. Separate write-side and read-side interfaces are defined to ensure the separation of concerns and the single responsibility principle, leaving the implementation open to adhere to CQRS pattern. UserGroupsService is responsible for managing the saving and retrieval of the groups members through the UserGroupsStore repository. Updates happen thanks the events propagated by the User service via the message broker. Interaction linkThe interaction concerning the real-time user tracking between the main components of the system is described in the following sequence diagram.\nThe Group Member connects to the RealTimeTracking service through a Real Time Communication Connector starting observing the updates of the group members it belongs to. However, before starting reacting to these updates, it fetches the current state of all group members through the UsersSessionService service, ensuring a consistent view of their state. Once the current state of all members is obtained, it starts reacting to the updates of other groups members while sending its own updates to the service. The RealTimeTracking service, upon receiving the updates, reacts to the events and updates the user’s session state, sending back the result to all the group members currently observing group’s changes.\nPlease, note the diagram illustrates only the main success flow, leaving out the error handling and the edge cases. Moreover, the interaction between the Group Member and the tracking services is mediated by the gateway, which is not shown in the diagram.\nBehavior linkAs an event driven architecture, the state of each group’s member can be described by the following state diagram, drawing the possible state transitions that can be fired by one of the above DrivingEvent.\n"
+            }
+        );
+    index.add(
+            {
+                id:  15 ,
                 href: "\/docs\/4-detailed-design\/4-chat-service\/",
                 title: "Chat Service design",
                 description: "Chat service is responsible for managing the communication between users in real-time. This document describes the detailed design of the chat service, including its architecture, components, and interactions.\nAbstract Design linkHere are presented the main components of the chat service, we start describing the foundamental entities of the domain, then we move to the infrastructure layer, where we define the commands and events that will be used to interact with the domain entities.\n",
@@ -443,7 +459,7 @@ Table of Contents</button><nav id=toc-mobile></nav></div><div class="docs-conten
         );
     index.add(
             {
-                id:  15 ,
+                id:  16 ,
                 href: "\/docs\/4-detailed-design\/3-notification-service\/",
                 title: "Notification Service design",
                 description: "In this section is presented the abstract design of the notification service.\nAs already presented, its main responsibility is to send notifications to the users, based on the events that occur in the system.\nStructure linkThe structure of the service is quite simple:\nToken is a value object that represents the token used to identify the device of a user. UserToken is an entity that represents the association between a user and a token. UsersTokensService is the service that allows registering and invalidating tokens for users. UsersTokensRepository is the repository that stores the associations between users and tokens. NotificationPublisher is the service that sends notifications to users. PublishingTargetStrategy is the strategy used to determine the target of the notification. Two stategies exists: one to send to all members of a group (corresponding to the GroupWisePushNotification command) and another to send to all members sharing a group with a user (corresponding to the CoMembersPushNotification command). GroupsRepository is the repository that allows storing and retrieving the members of the groups. This is called by the message broker adapter on every events whose topic is related to groups state changes. Interaction linkThe main flow scenario is describe below and depicted in the following sequence UML diagram.\n",
@@ -452,7 +468,7 @@ Table of Contents</button><nav id=toc-mobile></nav></div><div class="docs-conten
         );
     index.add(
             {
-                id:  16 ,
+                id:  17 ,
                 href: "\/docs\/5-implementation\/",
                 title: "Implementation Details",
                 description: "The internals of the system",
@@ -461,7 +477,7 @@ Table of Contents</button><nav id=toc-mobile></nav></div><div class="docs-conten
         );
     index.add(
             {
-                id:  17 ,
+                id:  18 ,
                 href: "\/docs\/5-implementation\/1-location-service\/",
                 title: "Location Service implementation details",
                 description: "This chapter provides an overview of the implementation details of the Location Service.\nUser Tracking and Real-time Management linkThe most important and critical feature of the Location Service is the tracking of the user’s location and real-time management of their state considering the high volume of data that needs to be processed in real-time. Moreover, the service is in charge of the user monitoring during the SOS and Routing modes, which require to take real-time actions to ensure the user’s safety.\n",
@@ -470,7 +486,7 @@ Table of Contents</button><nav id=toc-mobile></nav></div><div class="docs-conten
         );
     index.add(
             {
-                id:  18 ,
+                id:  19 ,
                 href: "\/docs\/5-implementation\/3-chat-service\/",
                 title: "Chat Service implementation details",
                 description: "Chat Messaging and Real-time Management linkThe primary functions of the chat service are to manage the chat groups and the relative messages that are exchanged between users of these groups. In most of the cases the amount of messages exchanged is high, and the service needs to manage them in real-time with low latency of response.\nWe built a WebSocket-based communication system using an actor model. Specifically, we leveraged the Event Sourcing module from the Akka framework to handle Group instances. This approach treats Events as first-class citizens while maintaining consistent chat state.\n",
@@ -479,7 +495,7 @@ Table of Contents</button><nav id=toc-mobile></nav></div><div class="docs-conten
         );
     index.add(
             {
-                id:  19 ,
+                id:  20 ,
                 href: "\/docs\/5-implementation\/2-notification-service\/",
                 title: "Notification Service implementation details",
                 description: " Currently, the only supported notification types are push notifications, which are essential to guarantee that the client is immediately informed about groups changes or user state changes, like the trigger of the SOS alert or the journey start.\nNotification commands linkLike already presented in the Architecture Design section, the notification service is integrated with the message broker to receive notification commands from other microservices.\n",
@@ -488,7 +504,7 @@ Table of Contents</button><nav id=toc-mobile></nav></div><div class="docs-conten
         );
     index.add(
             {
-                id:  20 ,
+                id:  21 ,
                 href: "\/docs\/6-validation\/validation\/",
                 title: "Self Assessment and Validation",
                 description: "Self assessment and validation of the system.",
@@ -497,7 +513,7 @@ Table of Contents</button><nav id=toc-mobile></nav></div><div class="docs-conten
         );
     index.add(
             {
-                id:  21 ,
+                id:  22 ,
                 href: "\/docs\/7-devops\/devops\/",
                 title: "DevOps",
                 description: "DevOps practices and tools",
@@ -506,7 +522,7 @@ Table of Contents</button><nav id=toc-mobile></nav></div><div class="docs-conten
         );
     index.add(
             {
-                id:  22 ,
+                id:  23 ,
                 href: "\/docs\/8-deployment\/",
                 title: "Deployment",
                 description: "Deployment infrastructure",
@@ -515,7 +531,7 @@ Table of Contents</button><nav id=toc-mobile></nav></div><div class="docs-conten
         );
     index.add(
             {
-                id:  23 ,
+                id:  24 ,
                 href: "\/docs\/",
                 title: "Docs",
                 description: "",
