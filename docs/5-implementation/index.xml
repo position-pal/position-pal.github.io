@@ -1,20 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Implementation Details on PositionPal</title><link>https://position-pal.github.io/docs/5-implementation/</link><description>Recent content in Implementation Details on PositionPal</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://position-pal.github.io/docs/5-implementation/index.xml" rel="self" type="application/rss+xml"/><item><title>Implementation details for common services</title><link>https://position-pal.github.io/docs/5-implementation/0-common/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/5-implementation/0-common/</guid><description>&lt;h2 id="gateway">Gateway &lt;a href="#gateway" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>**
-tecnologie
-middleware
-express
-cucumber
-**
-TODO - LUCA&lt;/p>
-&lt;h2 id="shared-kernel">Shared Kernel &lt;a href="#shared-kernel" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>**
-tecnologie
-codice
-**
-TODO - VALE&lt;/p>
-&lt;h2 id="message-broker">Message Broker &lt;a href="#message-broker" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>**
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Implementation Details on PositionPal</title><link>https://position-pal.github.io/docs/5-implementation/</link><description>Recent content in Implementation Details on PositionPal</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://position-pal.github.io/docs/5-implementation/index.xml" rel="self" type="application/rss+xml"/><item><title>Implementation details for common services</title><link>https://position-pal.github.io/docs/5-implementation/0-common/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/5-implementation/0-common/</guid><description>&lt;h2 id="message-broker-and-rpc-technologies">Message Broker and RPC technologies &lt;a href="#message-broker-and-rpc-technologies" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Why RabbitMQ?
+Why gRPC?&lt;/p>
+&lt;p>**
 tecnologie
 tipologia
 **
-TODO - GIOVA&lt;/p></description></item><item><title>User and Group Service implementation details</title><link>https://position-pal.github.io/docs/5-implementation/4-user-groupd-service/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/5-implementation/4-user-groupd-service/</guid><description>&lt;p>This chapter provides an overview of the implementation details of the &lt;strong>User and Group Service&lt;/strong>.&lt;/p>
+TODO - GIOVA&lt;/p>
+&lt;h2 id="gateway">Gateway &lt;a href="#gateway" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The gateway is the entry point of the system and is the only service that is exposed to the outside world.
+Their main responsibilities and features are:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>routing each request to the correct service after having authenticated and authorized the user&lt;/strong>: it is important that only authenticated users can access the services and that they can only access the functionalities they are allowed to use. For example, a user can only access the functionalities of the group they belong to.&lt;/li>
+&lt;li>&lt;strong>protocol translation&lt;/strong>: for &lt;em>synchronous&lt;/em> remote procedure calls it is a best practice to use a ReST based API over the chosen gRPC protocol. This is because ReST APIs can be easily consumed by any client since they leverage standard HTTP methods and formats (like JSON), while gRPC APIs are more efficient but require specialized client libraries to handle Protobuf messages and HTTP/2 connections.&lt;/li>
+&lt;li>since it is the entry-point of the system it can be a single point of failure and a bottleneck. To avoid this it is implemented like a &lt;strong>stateless service&lt;/strong>, so it can be easily scaled horizontally to handle more requests and to be fault-tolerant.&lt;/li>
+&lt;/ul>
+&lt;p>The gateway is implemented in Javascript leveraging the Express framework.&lt;/p></description></item><item><title>User and Group Service implementation details</title><link>https://position-pal.github.io/docs/5-implementation/4-user-groupd-service/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/5-implementation/4-user-groupd-service/</guid><description>&lt;p>This chapter provides an overview of the implementation details of the &lt;strong>User and Group Service&lt;/strong>.&lt;/p>
 &lt;h2 id="high-level-overview-and-modules-structure">High level overview and modules structure &lt;a href="#high-level-overview-and-modules-structure" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The User and Group Service is responsible for managing the users and groups of the system. It is a core service that is used by other services to manage the users and groups of the system.&lt;/p>
 &lt;p>The User and Group Service is composed of the following modules:&lt;/p>
 &lt;ul>
