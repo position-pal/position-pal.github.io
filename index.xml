@@ -150,7 +150,49 @@ Their main responsibilities and features are:&lt;/p>
 &lt;li>&lt;strong>protocol translation&lt;/strong>: for &lt;em>synchronous&lt;/em> remote procedure calls it is a best practice to use a ReST based API over the chosen gRPC protocol. This is because ReST APIs can be easily consumed by any client since they leverage standard HTTP methods and formats (like JSON), while gRPC APIs are more efficient but require specialized client libraries to handle Protobuf messages and HTTP/2 connections.&lt;/li>
 &lt;li>since it is the entry-point of the system it can be a single point of failure and a bottleneck. To avoid this it is implemented like a &lt;strong>stateless service&lt;/strong>, so it can be easily scaled horizontally to handle more requests and to be fault-tolerant.&lt;/li>
 &lt;/ul>
-&lt;p>The gateway is implemented in Javascript leveraging the Express framework.&lt;/p></description></item><item><title>User and Group Service implementation details</title><link>https://position-pal.github.io/docs/5-implementation/4-user-groupd-service/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/5-implementation/4-user-groupd-service/</guid><description>&lt;p>This chapter provides an overview of the implementation details of the &lt;strong>User and Group Service&lt;/strong>.&lt;/p>
+&lt;pre class="mermaid">flowchart RL
+ client[Client Applications] --&amp;gt;|HTTP/REST| gateway[API Gateway]
+ 
+ subgraph gateway_components[API Gateway Components]
+ auth[Authentication]
+ authoriz[Authorization]
+ router[Request Router]
+ translator[Protocol Translator]
+ response_translator[Response Translator]
+ end
+ 
+ gateway --&amp;gt; auth
+ auth --&amp;gt; authoriz
+ authoriz --&amp;gt; router
+ router --&amp;gt; translator
+ 
+ translator --&amp;gt;|gRPC| serviceA[Location Service \n REST API]
+ translator --&amp;gt;|wss| serviceB[Location Service \n Websocket API]
+ translator --&amp;gt;|gRPC| serviceC[User Service \n gRPC API]
+ translator --&amp;gt;|gRPC| serviceD[Chat Service \n gRPC API]
+ translator --&amp;gt;|wss| serviceE[Chat Service \n Websocket API]
+ translator --&amp;gt;|gRPC| serviceF[Notification Service \n gRPC API]
+
+ 
+ serviceA .-&amp;gt; response_translator
+ serviceB .-&amp;gt; response_translator
+ serviceC .-&amp;gt; response_translator
+ serviceD .-&amp;gt; response_translator
+ serviceE .-&amp;gt; response_translator
+ serviceF .-&amp;gt; response_translator
+ 
+ response_translator --&amp;gt;|HTTP/REST| gateway
+ gateway --&amp;gt;|HTTP/REST| client
+ 
+ classDef gateway fill:#f96,stroke:#333,stroke-width:2px
+ classDef client fill:#9d9,stroke:#333,stroke-width:1px
+ classDef component fill:#fcf,stroke:#333,stroke-width:1px
+ 
+ class gateway gateway
+ class client client
+ class auth,router,translator,authoriz,response_translator component
+&lt;/pre>
+&lt;p>The API Gateway is implemented using &lt;strong>Express&lt;/strong>, a lightweight and flexible &lt;em>Node.js&lt;/em> framework that simplifies the creation of web applications and APIs.&lt;/p></description></item><item><title>User and Group Service implementation details</title><link>https://position-pal.github.io/docs/5-implementation/4-user-groupd-service/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/5-implementation/4-user-groupd-service/</guid><description>&lt;p>This chapter provides an overview of the implementation details of the &lt;strong>User and Group Service&lt;/strong>.&lt;/p>
 &lt;h2 id="high-level-overview-and-modules-structure">High level overview and modules structure &lt;a href="#high-level-overview-and-modules-structure" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The User and Group Service is responsible for managing the users and groups of the system. It is a core service that is used by other services to manage the users and groups of the system.&lt;/p>
 &lt;p>The User and Group Service is composed of the following modules:&lt;/p>
 &lt;ul>
