@@ -3,8 +3,8 @@
 &lt;ol>
 &lt;li>
 &lt;p>As a new user &lt;br>
-I want to register with the system using my details &lt;br>
-So that I can access the application&amp;rsquo;s features&lt;/p>
+I want to register with the system using my information &lt;br>
+So that I can access the application features&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>As a registered user &lt;br>
@@ -14,8 +14,7 @@ So that I can access my account and use the application&lt;/p>
 &lt;li>
 &lt;p>As a logged user &lt;br>
 I want to update my profile information &lt;br>
-So that I can keep my personal details current&lt;/p></description></item><item><title>Business Requirements</title><link>https://position-pal.github.io/docs/2-domain-analysis/2-business-requirements/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/2-business-requirements/</guid><description>&lt;h2 id="glossary">Glossary &lt;a href="#glossary" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>??&lt;/p>
-&lt;h2 id="use-cases">Use cases &lt;a href="#use-cases" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="users-and-groups-management">Users and Groups Management &lt;a href="#users-and-groups-management" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;div style="width: 100%; overflow-x: auto; white-space: nowrap;">
+So that I can keep up-to-date my personal details&lt;/p></description></item><item><title>Business Requirements</title><link>https://position-pal.github.io/docs/2-domain-analysis/2-business-requirements/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/2-business-requirements/</guid><description>&lt;h2 id="use-cases">Use cases &lt;a href="#use-cases" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="users-and-groups-management">Users and Groups Management &lt;a href="#users-and-groups-management" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;div style="width: 100%; overflow-x: auto; white-space: nowrap;">
  &lt;img 
  src="https://position-pal.github.io/res/users-use-cases-light.svg" 
  alt="users-use-cases schema" 
@@ -36,7 +35,7 @@ So that I can keep my personal details current&lt;/p></description></item><item>
 &lt;/li>
 &lt;li>&lt;strong>Main Scenario&lt;/strong>:
 &lt;ol>
-&lt;li>The user provides required registration information (name, surname, email and password);&lt;/li>
+&lt;li>The user provides required registration information;&lt;/li>
 &lt;li>The system validates the provided information;&lt;/li>
 &lt;li>The system creates a new user account;&lt;/li>
 &lt;/ol>
