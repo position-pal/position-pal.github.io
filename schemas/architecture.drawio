@@ -1,6 +1,6 @@
-<mxfile host="Electron" modified="2025-03-17T15:01:30.347Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.5.3 Chrome/124.0.6367.207 Electron/30.0.6 Safari/537.36" etag="hIC8mYsWaEUi8I6oiXrZ" version="24.5.3" type="device" pages="7">
+<mxfile host="Electron" modified="2025-03-17T15:26:30.512Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.5.3 Chrome/124.0.6367.207 Electron/30.0.6 Safari/537.36" etag="BhM5HJZRyqxAsgmAcObE" version="24.5.3" type="device" pages="7">
   <diagram name="NEW ARCHITECTURE" id="nKIxj3yk9rAbpeGfvkcN">
-    <mxGraphModel dx="1247" dy="743" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="1026" dy="743" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="rcTnWR7vJVmOpkNNzQWF-0" />
         <mxCell id="rcTnWR7vJVmOpkNNzQWF-1" parent="rcTnWR7vJVmOpkNNzQWF-0" />
@@ -418,9 +418,6 @@
           <mxGeometry x="0.2395" y="-1" relative="1" as="geometry">
             <mxPoint x="11" as="offset" />
           </mxGeometry>
-        </mxCell>
-        <mxCell id="MF5ohe4VX6pD1gW7hKuq-1" value="Note" style="shape=note;size=20;whiteSpace=wrap;html=1;" parent="rcTnWR7vJVmOpkNNzQWF-1" vertex="1">
-          <mxGeometry x="1060" y="431" width="100" height="100" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
