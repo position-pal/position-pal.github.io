@@ -12,7 +12,7 @@ The goal is to give the reader a clear understanding of the system&amp;rsquo;s s
 
  
  
- &lt;img src="https://position-pal.github.io/images/big-picture.png" alt="Big Picture" width="2847" height="2283" loading="lazy">
+ &lt;img src="https://position-pal.github.io/images/big-picture.png" alt="Big Picture" width="2373" height="1905" loading="lazy">
  
  
 &lt;/p></description></item><item><title>Shared Kernel design</title><link>https://position-pal.github.io/docs/4-detailed-design/1-shared-kernel/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/4-detailed-design/1-shared-kernel/</guid><description>&lt;p>The shared kernel includes the common entities used by all services.
