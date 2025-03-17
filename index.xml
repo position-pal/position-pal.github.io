@@ -136,7 +136,7 @@ As per best practices, the design is based on the &lt;strong>Domain-Driven Desig
 &lt;/li>
 &lt;li>&lt;code>GroupsRepository&lt;/code> is the repository that allows storing and retrieving the members of the groups. This is called by the message broker adapter on every events whose topic is related to groups state changes.&lt;/li>
 &lt;/ul>
-&lt;h2 id="interaction">Interaction &lt;a href="#interaction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The main flow scenario is describe below and depicted in the following sequence UML diagram.&lt;/p></description></item><item><title>Implementation details for common services</title><link>https://position-pal.github.io/docs/5-implementation/0-common/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/5-implementation/0-common/</guid><description>&lt;h2 id="message-broker-and-rpc-technologies">Message Broker and RPC technologies &lt;a href="#message-broker-and-rpc-technologies" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Why RabbitMQ?
+&lt;h2 id="interaction">Interaction &lt;a href="#interaction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The main flow scenario is describe below and depicted in the following sequence UML diagram.&lt;/p></description></item><item><title>Commons implementation details</title><link>https://position-pal.github.io/docs/5-implementation/0-common/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/5-implementation/0-common/</guid><description>&lt;h2 id="message-broker-and-rpc-technologies">Message Broker and RPC technologies &lt;a href="#message-broker-and-rpc-technologies" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Why RabbitMQ?
 Why gRPC?&lt;/p>
 &lt;p>**
 tecnologie
@@ -166,7 +166,7 @@ Their main responsibilities and features are:&lt;/p>
  authoriz --&amp;gt; router
  router --&amp;gt; translator
  
- translator --&amp;gt;|gRPC| serviceA[Location Service \n REST API]
+ translator --&amp;gt;|gRPC| serviceA[Location Service \n gRPC API]
  translator --&amp;gt;|wss| serviceB[Location Service \n Websocket API]
  translator --&amp;gt;|gRPC| serviceC[User Service \n gRPC API]
  translator --&amp;gt;|gRPC| serviceD[Chat Service \n gRPC API]
@@ -192,7 +192,7 @@ Their main responsibilities and features are:&lt;/p>
  class client client
  class auth,router,translator,authoriz,response_translator component
 &lt;/pre>
-&lt;p>The API Gateway is implemented using &lt;strong>Express&lt;/strong>, a lightweight and flexible &lt;em>Node.js&lt;/em> framework that simplifies the creation of web applications and APIs.&lt;/p></description></item><item><title>User and Group Service implementation details</title><link>https://position-pal.github.io/docs/5-implementation/4-user-groupd-service/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/5-implementation/4-user-groupd-service/</guid><description>&lt;p>This chapter provides an overview of the implementation details of the &lt;strong>User and Group Service&lt;/strong>.&lt;/p>
+&lt;p>The API Gateway is implemented using &lt;strong>Express&lt;/strong>, a lightweight and flexible &lt;em>Node.js&lt;/em> framework that simplifies the creation of web applications and ReST APIs.&lt;/p></description></item><item><title>User and Group Service implementation details</title><link>https://position-pal.github.io/docs/5-implementation/4-user-groupd-service/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/5-implementation/4-user-groupd-service/</guid><description>&lt;p>This chapter provides an overview of the implementation details of the &lt;strong>User and Group Service&lt;/strong>.&lt;/p>
 &lt;h2 id="high-level-overview-and-modules-structure">High level overview and modules structure &lt;a href="#high-level-overview-and-modules-structure" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The User and Group Service is responsible for managing the users and groups of the system. It is a core service that is used by other services to manage the users and groups of the system.&lt;/p>
 &lt;p>The User and Group Service is composed of the following modules:&lt;/p>
 &lt;ul>
