@@ -1,58 +1,58 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Domain Analysis on PositionPal</title><link>https://position-pal.github.io/docs/2-domain-analysis/</link><description>Recent content in Domain Analysis on PositionPal</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://position-pal.github.io/docs/2-domain-analysis/index.xml" rel="self" type="application/rss+xml"/><item><title>Functional Requirements</title><link>https://position-pal.github.io/docs/2-domain-analysis/1-functional-requirements/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/1-functional-requirements/</guid><description>&lt;p>In this section are collected the &lt;strong>functional requirements&lt;/strong> of the system in the form of &lt;em>User Stories&lt;/em>.&lt;/p>
-&lt;h2 id="user-stories">User Stories &lt;a href="#user-stories" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="users-management">Users Management &lt;a href="#users-management" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;em>
-&lt;ol>
-&lt;li>
-&lt;p>As a new user &lt;br>
-I want to register with the system using my information &lt;br>
-So that I can access the application features&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>As a registered user &lt;br>
-I want to log in with my credentials &lt;br>
-So that I can access my account and use the application&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>As a logged user &lt;br>
-I want to update my profile information &lt;br>
-So that I can keep up-to-date my personal details&lt;/p></description></item><item><title>Business Requirements</title><link>https://position-pal.github.io/docs/2-domain-analysis/2-business-requirements/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/2-business-requirements/</guid><description>&lt;h2 id="use-cases">Use cases &lt;a href="#use-cases" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="users-and-groups-management">Users and Groups Management &lt;a href="#users-and-groups-management" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;div style="width: 100%; overflow-x: auto; white-space: nowrap;">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Domain Analysis on PositionPal</title><link>https://position-pal.github.io/docs/2-domain-analysis/</link><description>Recent content in Domain Analysis on PositionPal</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://position-pal.github.io/docs/2-domain-analysis/index.xml" rel="self" type="application/rss+xml"/><item><title>Functional Requirements</title><link>https://position-pal.github.io/docs/2-domain-analysis/1-functional-requirements/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/1-functional-requirements/</guid><description>&lt;p&gt;In this section are collected the &lt;strong&gt;functional requirements&lt;/strong&gt; of the system in the form of &lt;em&gt;User Stories&lt;/em&gt;.&lt;/p&gt;
+&lt;h2 id="user-stories"&gt;User Stories &lt;a href="#user-stories" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id="users-management"&gt;Users Management &lt;a href="#users-management" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h3&gt;&lt;em&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;As a new user &lt;br&gt;
+I want to register with the system using my information &lt;br&gt;
+So that I can access the application features&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;As a registered user &lt;br&gt;
+I want to log in with my credentials &lt;br&gt;
+So that I can access my account and use the application&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;As a logged user &lt;br&gt;
+I want to update my profile information &lt;br&gt;
+So that I can keep up-to-date my personal details&lt;/p&gt;</description></item><item><title>Business Requirements</title><link>https://position-pal.github.io/docs/2-domain-analysis/2-business-requirements/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/2-business-requirements/</guid><description>&lt;h2 id="use-cases"&gt;Use cases &lt;a href="#use-cases" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id="users-and-groups-management"&gt;Users and Groups Management &lt;a href="#users-and-groups-management" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div style="width: 100%; overflow-x: auto; white-space: nowrap;"&gt;
  &lt;img 
  src="https://position-pal.github.io/res/users-use-cases-light.svg" 
  alt="users-use-cases schema" 
  style="max-width: 1100px;"
  class="schema"
- />
-&lt;/div>
-&lt;h3 id="user-management-use-cases">User Management Use Cases &lt;a href="#user-management-use-cases" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;ol>
-&lt;li>
-&lt;p>&lt;strong>Register with the system&lt;/strong>&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>Actor&lt;/strong>: User&lt;/li>
-&lt;li>&lt;strong>Description&lt;/strong>: A new user creates an account in the system.&lt;/li>
-&lt;li>&lt;strong>Preconditions&lt;/strong>:
-&lt;ul>
-&lt;li>The user has not previously registered with the system.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>&lt;strong>Main Scenario&lt;/strong>:
-&lt;ol>
-&lt;li>The user provides required registration information;&lt;/li>
-&lt;li>The system validates the provided information;&lt;/li>
-&lt;li>The system creates a new user account;&lt;/li>
-&lt;/ol>
-&lt;/li>
-&lt;li>&lt;strong>Alternative Scenario&lt;/strong>: Registration information is invalid
-&lt;ol>
-&lt;li>The system notifies the user about validation errors;&lt;/li>
-&lt;li>The user corrects the information and resubmits.&lt;/li>
-&lt;/ol>
-&lt;/li>
-&lt;li>&lt;strong>Postcondition&lt;/strong>: The user has a registered account in the system.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;strong>Log in with my credentials&lt;/strong>&lt;/p></description></item><item><title>Quality Attributes</title><link>https://position-pal.github.io/docs/2-domain-analysis/3-quality-attributes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/3-quality-attributes/</guid><description>&lt;p>&lt;em>Quality Attributes&lt;/em> (&lt;em>QA&lt;/em>), also known as &lt;em>Non-Functional Requirements&lt;/em> (&lt;em>NFR&lt;/em>), are measurable properties of a system that describe its qualities and indicate how well it satisfies the needs of its stakeholders beyond the functional requirements.&lt;/p>
-&lt;p>These attributes play a crucial role in shaping the system architecture, as they influence design decisions, trade-offs, and the selection of appropriate technologies and patterns.&lt;/p>
-&lt;p>In the context of this project have been identified the following quality attributes that are considered essential for the success of system, divided into &amp;ldquo;Runtime&amp;rdquo; and &amp;ldquo;Development Time&amp;rdquo; categories:&lt;/p></description></item><item><title>Event Storming</title><link>https://position-pal.github.io/docs/2-domain-analysis/4-event-storming/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/4-event-storming/</guid><description>&lt;p>To quickly and effectively extract the application&amp;rsquo;s core functionality, we used &lt;strong>Event Storming&lt;/strong> — a collaborative and visual modeling technique highly valued in agile and Domain-Driven Development.&lt;/p>
-&lt;p>Its strength lies in bringing together a diverse, multidisciplinary group of experts, including architects, product owners, UI/UX designers, and testers.
+ /&gt;
+&lt;/div&gt;
+&lt;h3 id="user-management-use-cases"&gt;User Management Use Cases &lt;a href="#user-management-use-cases" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Register with the system&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Actor&lt;/strong&gt;: User&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Description&lt;/strong&gt;: A new user creates an account in the system.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Preconditions&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;The user has not previously registered with the system.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Main Scenario&lt;/strong&gt;:
+&lt;ol&gt;
+&lt;li&gt;The user provides required registration information;&lt;/li&gt;
+&lt;li&gt;The system validates the provided information;&lt;/li&gt;
+&lt;li&gt;The system creates a new user account;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Alternative Scenario&lt;/strong&gt;: Registration information is invalid
+&lt;ol&gt;
+&lt;li&gt;The system notifies the user about validation errors;&lt;/li&gt;
+&lt;li&gt;The user corrects the information and resubmits.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Postcondition&lt;/strong&gt;: The user has a registered account in the system.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Log in with my credentials&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>Quality Attributes</title><link>https://position-pal.github.io/docs/2-domain-analysis/3-quality-attributes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/3-quality-attributes/</guid><description>&lt;p&gt;&lt;em&gt;Quality Attributes&lt;/em&gt; (&lt;em&gt;QA&lt;/em&gt;), also known as &lt;em&gt;Non-Functional Requirements&lt;/em&gt; (&lt;em&gt;NFR&lt;/em&gt;), are measurable properties of a system that describe its qualities and indicate how well it satisfies the needs of its stakeholders beyond the functional requirements.&lt;/p&gt;
+&lt;p&gt;These attributes play a crucial role in shaping the system architecture, as they influence design decisions, trade-offs, and the selection of appropriate technologies and patterns.&lt;/p&gt;
+&lt;p&gt;In the context of this project have been identified the following quality attributes that are considered essential for the success of system, divided into &amp;ldquo;Runtime&amp;rdquo; and &amp;ldquo;Development Time&amp;rdquo; categories:&lt;/p&gt;</description></item><item><title>Event Storming</title><link>https://position-pal.github.io/docs/2-domain-analysis/4-event-storming/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://position-pal.github.io/docs/2-domain-analysis/4-event-storming/</guid><description>&lt;p&gt;To quickly and effectively extract the application&amp;rsquo;s core functionality, we used &lt;strong&gt;Event Storming&lt;/strong&gt; — a collaborative and visual modeling technique highly valued in agile and Domain-Driven Development.&lt;/p&gt;
+&lt;p&gt;Its strength lies in bringing together a diverse, multidisciplinary group of experts, including architects, product owners, UI/UX designers, and testers.
 By working collaboratively, they identify key features and the processes that drive them, ensuring that knowledge is shared across teams rather than remaining siloed.
-Additionally, this approach promotes a consistent, shared language (&lt;em>ubiquitous language&lt;/em>) and helps uncover and resolve ambiguities or misunderstandings early in the project.&lt;/p></description></item></channel></rss>
+Additionally, this approach promotes a consistent, shared language (&lt;em&gt;ubiquitous language&lt;/em&gt;) and helps uncover and resolve ambiguities or misunderstandings early in the project.&lt;/p&gt;</description></item></channel></rss>
